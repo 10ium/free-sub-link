@@ -47,7 +47,8 @@
 | اندروید |[hiddify](https://github.com/hiddify/hiddify-next/releases) - [MahsaNG](https://github.com/GFW-knocker/MahsaNG/releases) - [oblivion](https://github.com/bepass-org/oblivion/releases) |    [ClashMeta](https://github.com/MetaCubeX/ClashMetaForAndroid/releases) - [Begzar](https://github.com/Begzar/BegzarApp/releases) - [Exclave](https://github.com/dyhkwong/Exclave/releases)   |
 | ویندوز |   [hiddify](https://github.com/hiddify/hiddify-next/releases) - [oblivion](https://github.com/bepass-org/oblivion-desktop) - [clash verge rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |    [V2RayN PRO](https://github.com/lowercase78/V2RayN-PRO/releases)    |
 
-با اپ [Obtainium](https://github.com/ImranR98/Obtainium/releases) راحت تر میتونین اپ های اوپن سورس رو بروز کنین مثلا همین فیلترشکنایی که توی گیتهاب منتشر میشن
+با اپ [Obtainium](https://github.com/ImranR98/Obtainium/releases) راحت تر میتونین اپ های اوپن سورس اندروید رو بروز کنین مثلا همین فیلترشکنایی که توی گیتهاب منتشر میشن
+
 برای ویندوز هم میتونین از ربات [@github_release_monitor_bot](https://t.me/github_release_monitor_bot) استفاده کنین تا وقتی نسخه جدید منتشر شد نوتیفیکیشن بده
 
 ## Special Thanks To
