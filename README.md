@@ -1,393 +1,39 @@
-# لینکای اشتراک جدید
-[basse64](https://raw.githubusercontent.com/10ium/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt)
+#کانفیگ رایگان 🎉
 
-[singbox](https://raw.githubusercontent.com/10ium/multi-proxy-config-fetcher/refs/heads/main/configs/singbox_configs.json)
+سلام رفقا!  
+تو این مخزن لینک‌های اشتراک ویتوری و کلش متا رو یه‌جا جمع‌کردم تا راحت تر استفاده کنین 😊  
+کافیه لینک مورد نظرتون رو تو کلاینت هایی که از این نوع پروتکل کانفیگ پشتیبانی میکنن وارد کنین و از اینترنت آزاد لذت ببرین!
 
-[mci_1](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mci/sub_1.txt)
 
-[mci_2](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mci/sub_2.txt)
+## 📋 لینکای اشتراک
 
-[mci_3](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mci/sub_3.txt)
+| لینکای اشتراک عادی | لینکای اشتراک بیس‌۶۴ | لینکای اشتراک کلش متا |
+|-------------|----------------|-------------|
+| [config-fetcher](https://raw.githubusercontent.com/10ium/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt) | [config-fetcher](https://raw.githubusercontent.com/10ium/base64-encoder/main/encoded/10ium_proxy_configs.txt) | [config-fetcher](https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/multi-proxy-config-fetcher.yaml) |
+| — | MahsaFreeConfig [mci 1](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mci/sub_1.txt), [mci 2](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mci/sub_2.txt), [mci 3](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mci/sub_3.txt), [mci 4](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mci/sub_4.txt) | [MahsaFreeConfig-mci](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/free-mihomo-sub/MahsaFreeConfig-mci.yaml) |
+| — | MahsaFreeConfig [mtn 1](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_1.txt), [mtn 2](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_2.txt), [mtn 3](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_3.txt), [mtn 4](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_4.txt) | [MahsaFreeConfig-mtn](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/free-mihomo-sub/MahsaFreeConfig-mtn.yaml) |
+| CollectorLite [vmess](https://raw.githubusercontent.com/10ium/V2rayCollectorLite/main/vmess_iran.txt), [ss](https://raw.githubusercontent.com/10ium/V2rayCollectorLite/main/ss_iran.txt), [trojan](https://raw.githubusercontent.com/10ium/V2rayCollectorLite/main/trojan_iran.txt), [vless](https://raw.githubusercontent.com/10ium/V2rayCollectorLite/main/vless_iran.txt), [mixed](https://raw.githubusercontent.com/10ium/V2rayCollectorLite/main/mixed_iran.txt) | CollectorLite [vmess](https://raw.githubusercontent.com/10ium/base64-encoder/main/encoded/10ium_vmess_iran.txt), [ss](https://raw.githubusercontent.com/10ium/base64-encoder/main/encoded/10ium_ss_iran.txt), [trojan](https://raw.githubusercontent.com/10ium/base64-encoder/main/encoded/10ium_trojan_iran.txt), [vless](https://raw.githubusercontent.com/10ium/base64-encoder/main/encoded/10ium_vless_iran.txt), [mixed](https://raw.githubusercontent.com/10ium/base64-encoder/main/encoded/10ium_mixed_iran.txt) | CollectorLite [ss](https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/ss_iran.yaml), [trojan](https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/trojan_iran.yaml), [vmess](https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/vmess_iran.yaml) |
+| Collector [vmess](https://raw.githubusercontent.com/10ium/V2rayCollector/main/vmess_iran.txt), [ss](https://raw.githubusercontent.com/10ium/V2rayCollector/main/ss_iran.txt), [trojan](https://raw.githubusercontent.com/10ium/V2rayCollector/main/trojan_iran.txt), [vless](https://raw.githubusercontent.com/10ium/V2rayCollector/main/vless_iran.txt), [mixed](https://raw.githubusercontent.com/10ium/V2rayCollector/main/mixed_iran.txt) | Collector [mixed](https://raw.githubusercontent.com/10ium/base64-encoder/main/encoded/10ium-V2rayCollector-mixed.txt), [ss](https://raw.githubusercontent.com/10ium/base64-encoder/main/encoded/10ium-V2rayCollector-ss.txt), [trojan](https://raw.githubusercontent.com/10ium/base64-encoder/main/encoded/10ium-V2rayCollector-trojan.txt), [vless](https://raw.githubusercontent.com/10ium/base64-encoder/main/encoded/10ium-V2rayCollector-vless.txt), [vmess](https://raw.githubusercontent.com/10ium/base64-encoder/main/encoded/10ium-V2rayCollector-vmess.txt) | — |
+| [Aggregator](https://raw.githubusercontent.com/10ium/V2RayAggregator/refs/heads/master/Eternity.txt) | [Aggregator](https://raw.githubusercontent.com/10ium/V2RayAggregator/refs/heads/master/Eternity) | [Aggregator](https://raw.githubusercontent.com/10ium/V2RayAggregator/refs/heads/master/Eternity.yml) |
+| V2Hub [merged](https://raw.githubusercontent.com/10ium/V2Hub3/main/merged), [vmess](https://raw.githubusercontent.com/10ium/V2Hub3/main/Split/Normal/vmess), [vless](https://raw.githubusercontent.com/10ium/V2Hub3/main/Split/Normal/vless), [reality](https://raw.githubusercontent.com/10ium/V2Hub3/main/Split/Normal/reality), [trojan](https://raw.githubusercontent.com/10ium/V2Hub3/main/Split/Normal/trojan), [shadowsocks](https://raw.githubusercontent.com/10ium/V2Hub3/main/Split/Normal/shadowsocks) | V2Hub [merged](https://raw.githubusercontent.com/10ium/V2Hub3/main/merged_base64), [vmess](https://raw.githubusercontent.com/10ium/V2Hub3/main/Split/Base64/vmess), [vless](https://raw.githubusercontent.com/10ium/V2Hub3/main/Split/Base64/vless), [reality](https://raw.githubusercontent.com/10ium/V2Hub3/main/Split/Base64/reality), [trojan](https://raw.githubusercontent.com/10ium/V2Hub3/main/Split/Base64/trojan), [shadowsocks](https://raw.githubusercontent.com/10ium/V2Hub3/main/Split/Base64/shadowsocks) | V2Hub [reality](https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/V2Hub3_reality.yaml), [shadowsocks](https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/V2Hub3_shadowsocks.yaml), [trojan](https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/V2Hub3_trojan.yaml), [vmess](https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/V2Hub3_vmess.yaml) |
+| V2ray-Config [All](https://raw.githubusercontent.com/10ium/V2ray-Config/main/All_Configs_Sub.txt) | V2ray-Config [All](https://raw.githubusercontent.com/10ium/V2ray-Config/main/All_Configs_base64_Sub.txt), [vmess](https://raw.githubusercontent.com/10ium/V2ray-Config/main/Splitted-By-Protocol/vmess.txt), [vless](https://raw.githubusercontent.com/10ium/V2ray-Config/main/Splitted-By-Protocol/vless.txt), [trojan](https://raw.githubusercontent.com/10ium/V2ray-Config/main/Splitted-By-Protocol/trojan.txt), [ss](https://raw.githubusercontent.com/10ium/V2ray-Config/main/Splitted-By-Protocol/ss.txt), [ssr](https://raw.githubusercontent.com/10ium/V2ray-Config/main/Splitted-By-Protocol/ssr.txt), [tuic](https://raw.githubusercontent.com/10ium/V2ray-Config/main/Splitted-By-Protocol/tuic.txt), [hysteria2](https://raw.githubusercontent.com/10ium/V2ray-Config/main/Splitted-By-Protocol/hysteria2.txt) | — |
 
-[mci_4](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mci/sub_4.txt)
+[لیست بقیه کانفیگ های کلش متا / میهومو با قوانین مخصوص ایران](https://github.com/10ium/MihomoSaz)
 
-[mtn_1](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_1.txt)
+[لیست بقیه کانفیگ های کلش متا / میهومو با قوانین سبکتر مخصوص ایران](https://github.com/10ium/MihomoSazLite)
+ 
+## 🎮 دی ان اس برای بازیا و نرم افزارای تحریمی
+چون بعضی از بازیا و نرم افزارا از سیستم پروکسی استفاده نمیکردن به راحتی فعال نمیشدن پس یه سری کانفیگ کلش متا / میهومو ساختم که دن ان اس هارو روی حالت tun استفاده کنین
 
-[mtn_2](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_2.txt)
+| لینک کانفیگ کلش متا                                                                                                             | لینک کانفیگ کلش متا                                                                                                            |
+|----------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| [shecan](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/shecan.yml)               | [begzar](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/begzar.yml)               |
+| [electro](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/electro.yml)             | [403](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/403.yml)                     |
+| [radar game](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/radar.yml)                  | [controld](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/controld.yml)           |
+| [shelter](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/shelter.yml)             | [Level3](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/Level3.yml)               |
+| [shelter-mobile](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/shelter-mobile.yml) | [mix](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/all.yml)                     |
 
-[mtn_3](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_3.txt)
 
-[mtn_4](https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_4.txt)
-
-# لینکای اشتراک کلش متا:
-(با قوانین مخصوص ایران)
-
-[MahsaFreeConfig-mtn](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/free-mihomo-sub/MahsaFreeConfig-mtn.yaml)
-
-[MahsaFreeConfig-mci](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/free-mihomo-sub/MahsaFreeConfig-mci.yaml)
-
-[MahsaFreeConfig-mix](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/free-mihomo-sub/MahsaFreeConfig-mix.yaml)
-
-[soroushmirzaei.tuic.hysteria](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/free-mihomo-sub/soroushmirzaei.tuic.hysteria.yaml)
-
-[10ium-tuic-hysteria2](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/free-mihomo-sub/10iumV2ray-Config-tuic-hysteria2.yaml)
-
-[بقیه کانفیگا منتقل شدن](https://github.com/10ium/MihomoSaz/blob/main/README.md)
-
-# دی ان اس برای گیم
-
-بعضی از نرم افزارا و بازیا از سیستم پروکسی استفاده نمیکنن پس یه سری کانفیگ کلش ساختم که پروکسی نداره فقط دی ان اس داره برای رفع تحریم
-
-[شکن](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/shecan.yml)
-
-[الکترو](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/electro.yml)
-
-[رادار بازی](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/radar.yml)
-
-[بگذر](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/begzar.yml)
-
-[شلتر](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/shelter.yml)
-
-[شلتر موبایل](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/shelter-mobile.yml)
-
-[403](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/403.yml)
-
-[controld](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/controld.yml)
-
-[Level3](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/Level3.yml)
-
-[ترکیبی](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/all.yml)
-
-⚠️ گیتهاب اکشن اکانتمو غیر فعال کرده لینکای اشتراک پایینی کانفیگاشون آپدیت نمیشن یا از بالاییا استفاده کنین یا خودتون رپو هارو فورک بگیرین و اکشنشو فعال کنین
-
-
-
-
-
-
-
-# V2Hub3:
-(تعداد کانفیگ کم - آپدیت هر 2 ساعت)
-
-[Merged Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub3/main/merged)
-
-[VMESS Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub3/main/Split/Normal/vmess)
-
-[VLESS Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub3/main/Split/Normal/vless)
-
-[REALITY Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub3/main/Split/Normal/reality)
-
-[TROJAN Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub3/main/Split/Normal/trojan)
-
-[ShadowSocks Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub3/main/Split/Normal/shadowsocks)
-
-
-[Merged BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub3/main/merged_base64)
-
-[VMESS BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub3/main/Split/Base64/vmess)
-
-[VLESS BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub3/main/Split/Base64/vless)
-
-[REALITY BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub3/main/Split/Base64/reality)
-
-[TROJAN BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub3/main/Split/Base64/trojan)
-
-[ShadowSocks BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub3/main/Split/Base64/shadowsocks)
-
-# V2Hub4:
-(تعداد کانفیگ کم - آپدیت هر 2 ساعت)
-
-[Merged Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub4/main/merged)
-
-[VMESS Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub4/main/Split/Normal/vmess)
-
-[VLESS Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub4/main/Split/Normal/vless)
-
-[REALITY Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub4/main/Split/Normal/reality)
-
-[TROJAN Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub4/main/Split/Normal/trojan)
-
-[ShadowSocks Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub4/main/Split/Normal/shadowsocks)
-
-
-[Merged BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub4/main/merged_base64)
-
-[VMESS BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub4/main/Split/Base64/vmess)
-
-[VLESS BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub4/main/Split/Base64/vless)
-
-[REALITY BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub4/main/Split/Base64/reality)
-
-[TROJAN BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub4/main/Split/Base64/trojan)
-
-[ShadowSocks BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub4/main/Split/Base64/shadowsocks)
-
-# V2Hub5:
-(تعداد کانفیگ کم - آپدیت هر 2 ساعت)
-
-[Merged Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub5/main/merged)
-
-[VMESS Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub5/main/Split/Normal/vmess)
-
-[VLESS Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub5/main/Split/Normal/vless)
-
-[REALITY Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub5/main/Split/Normal/reality)
-
-[TROJAN Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub5/main/Split/Normal/trojan)
-
-[ShadowSocks Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub5/main/Split/Normal/shadowsocks)
-
-
-[Merged BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub5/main/merged_base64)
-
-[VMESS BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub5/main/Split/Base64/vmess)
-
-[VLESS BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub5/main/Split/Base64/vless)
-
-[REALITY BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub5/main/Split/Base64/reality)
-
-[TROJAN BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub5/main/Split/Base64/trojan)
-
-[ShadowSocks BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub5/main/Split/Base64/shadowsocks)
-
-# V2rayCollectorLite:
-(تعداد کانفیگ متوسط - آپدیت هر 1 ساعت)
-
-[ss](https://raw.githubusercontent.com/coldwater-10/V2rayCollectorLire/main/ss_iran.txt)
-
-[vmess](https://raw.githubusercontent.com/coldwater-10/V2rayCollectorLire/main/vmess_iran.txt)
-
-[vless](https://raw.githubusercontent.com/coldwater-10/V2rayCollectorLire/main/vless_iran.txt)
-
-[trojan](https://raw.githubusercontent.com/coldwater-10/V2rayCollectorLire/main/trojan_iran.txt)
-
-# V2rayCollectorVpnclashfa:
-(تعداد کانفیگ متوسط - آپدیت هر 1 ساعت)
-
-[ss](https://raw.githubusercontent.com/coldwater-10/V2rayCollectorVpnclashfa/main/ss_iran.txt)
-
-[vmess](https://raw.githubusercontent.com/coldwater-10/V2rayCollectorVpnclashfa/main/vmess_iran.txt)
-
-[vless](https://raw.githubusercontent.com/coldwater-10/V2rayCollectorVpnclashfa/main/vless_iran.txt)
-
-[trojan](https://raw.githubusercontent.com/coldwater-10/V2rayCollectorVpnclashfa/main/trojan_iran.txt)
-
-# V2rayCollector mahsaserver:
-(تعداد کانفیگ متوسط - آپدیت هر 1 ساعت)
-
-[ss](https://raw.githubusercontent.com/coldwater-10/V2rayCollector_mahsaserver/main/ss_iran.txt)
-
-[vmess](https://raw.githubusercontent.com/coldwater-10/V2rayCollector_mahsaserver/main/vmess_iran.txt)
-
-[vless](https://raw.githubusercontent.com/coldwater-10/V2rayCollector_mahsaserver/main/vless_iran.txt)
-
-[trojan](https://raw.githubusercontent.com/coldwater-10/V2rayCollector_mahsaserver/main/trojan_iran.txt)
-
-# V2RayAggregator:
-(حدود 200 کانفیگ که رندوم انتخاب شدن)
-
-[base64](https://raw.githubusercontent.com/coldwater-10/V2RayAggregator/master/Eternity)
-
-[raw](https://raw.githubusercontent.com/coldwater-10/V2RayAggregator/master/Eternity.txt)
-
-[clash](https://raw.githubusercontent.com/coldwater-10/V2RayAggregator/master/Eternity.yml)
-
-(حدود 6 هزار تا کانفیگ)
-
-[raw](https://raw.githubusercontent.com/coldwater-10/V2RayAggregator/master/sub/sub_merge.txt)
-
-[base64](https://raw.githubusercontent.com/coldwater-10/V2RayAggregator/master/sub/sub_merge_base64.txt)
-
-[ss](https://raw.githubusercontent.com/coldwater-10/V2RayAggregator/master/sub/splitted/ss.txt)
-
-[ssr](https://raw.githubusercontent.com/coldwater-10/V2RayAggregator/master/sub/splitted/ssr.txt)
-
-[trojan](https://raw.githubusercontent.com/coldwater-10/V2RayAggregator/master/sub/splitted/trojan.txt)
-
-[vmess](https://raw.githubusercontent.com/coldwater-10/V2RayAggregator/master/sub/splitted/vmess.txt)
-
-
-# V2ray-Config-Lite:
-(حدود 3 هزارتا کانفیگ - آپدیت هر یک ساعت)
-
-[raw](https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/All_Configs_Sub.txt)
-
-[base64](https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/All_Configs_base64_Sub.txt)
-
-[vmess](https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/Splitted-By-Protocol/vmess.txt)
-
-[vless](https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/Splitted-By-Protocol/vless.txt)
-
-[trojan](https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/Splitted-By-Protocol/trojan.txt)
-
-[ss](https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/Splitted-By-Protocol/ss.txt)
-
-[ssr](https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/Splitted-By-Protocol/ssr.txt)
-
-[tuic](https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/Splitted-By-Protocol/tuic.txt)
-
-[hysteria2](https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/Splitted-By-Protocol/hysteria2.txt)
-
-اگه لینکای بالا تعداد کانفیگاش زیاد بود از پایینیا استفاده کنین تقسیم شدن
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/Sub1.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/Sub2.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/Sub3.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/Sub4.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/Sub5.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config-Lite/main/Sub6.txt
-
-
-# V2ray-Config:
-(تعداد کانفیگ زیاد - آپدیت هر یک ساعت)
-
-[raw](https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/All_Configs_Sub.txt)
-
-[base64](https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/All_Configs_base64_Sub.txt)
-
-[vmess](https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Splitted-By-Protocol/vmess.txt)
-
-[vless](https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Splitted-By-Protocol/vless.txt)
-
-[trojan](https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Splitted-By-Protocol/trojan.txt)
-
-[ss](https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Splitted-By-Protocol/ss.txt)
-
-[ssr](https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Splitted-By-Protocol/ssr.txt)
-
-[tuic](https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Splitted-By-Protocol/tuic.txt)
-
-[hysteria2](https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Splitted-By-Protocol/hysteria2.txt)
-
-لینکای بالا چون تعداد کانفیگاش بالاس (بجز سه تای آخر) برای استفاده تو گوشی و هایدیفای زیاد مناسب نیستن بهتره از لینکای پایین استفاده کنین که کانفیگاشون تقسیم شدن به 68 تا لینک
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub1.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub2.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub3.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub4.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub5.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub6.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub7.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub8.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub9.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub10.txt
-
-.
-.
-.
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub68.txt
-
-تا ساب 68 ادامه داره خودتون میتونین آخرشو ادیت کنین ساب دیگه رو انتخاب کنین مثلا
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub26.txt
-
-
-# V2ray-Configs:
-(تعداد کانفیگ فوق العاده زیاد - آپدیت هر یک ساعت)
-
-[raw](https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/All_Configs_Sub.txt)
-
-[base64](https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/All_Configs_base64_Sub.txt)
-
-[vmess](https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Splitted-By-Protocol/vmess.txt)
-
-[vless](https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Splitted-By-Protocol/vless.txt)
-
-[trojan](https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Splitted-By-Protocol/trojan.txt)
-
-[ss](https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Splitted-By-Protocol/ss.txt)
-
-[ssr](https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Splitted-By-Protocol/ssr.txt)
-
-[tuic](https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Splitted-By-Protocol/tuic.txt)
-
-[hysteria2](https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Splitted-By-Protocol/hysteria2.txt)
-
-لینکای بالا چون تعداد کانفیگاش بالاس (بجز سه تای آخر) برای استفاده تو گوشی و هایدیفای زیاد مناسب نیستن بهتره از لینکای پایین استفاده کنین که کانفیگاشون تقسیم شدن به 312 تا لینک
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Sub1.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Sub2.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Sub3.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Sub4.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Sub5.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Sub6.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Sub7.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Sub8.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Sub9.txt
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Sub10.txt
-
-.
-.
-.
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Sub312.txt
-
-تا ساب 312 ادامه داره خودتون میتونین آخرشو ادیت کنین ساب دیگه رو انتخاب کنین مثلا
-
-https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Sub226.txt
-
-# V2rayCollector:
-(تعداد کانفیگ خیلی خیلی زیاد از 2241 کانال تلگرام جمع آوری میشن - آپدیت هر 6 ساعت)
-
-[ss](https://raw.githubusercontent.com/coldwater-10/V2rayCollector/main/ss_iran.txt)
-
-[vmess](https://raw.githubusercontent.com/coldwater-10/V2rayCollector/main/vmess_iran.txt)
-
-[vless](https://raw.githubusercontent.com/coldwater-10/V2rayCollector/main/vless_iran.txt)
-
-[trojan](https://raw.githubusercontent.com/coldwater-10/V2rayCollector/main/trojan_iran.txt)
-
-# V2Hub 0+1+2:
-(تعداد کانفیگ زیاد)
-
-[VMESS Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub2/main/Split/Normal/vmess)
-
-[VLESS Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub/main/Split/Normal/vless)
-
-[REALITY Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub/main/Split/Normal/reality)
-
-[TROJAN Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub1/main/Split/Normal/trojan)
-
-[ShadowSocks Raw](https://raw.githubusercontent.com/coldwater-10/V2Hub1/main/Split/Normal/shadowsocks)
-
-
-[VMESS BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub2/main/Split/Base64/vmess)
-
-[VLESS BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub/main/Split/Base64/vless)
-
-[REALITY BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub/main/Split/Base64/reality)
-
-[TROJAN BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub1/main/Split/Base64/trojan)
-
-[ShadowSocks BASE64](https://raw.githubusercontent.com/coldwater-10/V2Hub1/main/Split/Base64/shadowsocks)
-
-
-# HiN-VPN:
-[لینک اشتراک کانال مورد نظرتون به صورت جداگونه](https://github.com/coldwater-10/HiN-VPN)
 
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><h3 align="center">vpnclashfa</h3>
@@ -408,6 +54,8 @@ https://raw.githubusercontent.com/coldwater-10/V2ray-Configs/main/Sub226.txt
 [@yebekhe](https://github.com/yebekhe)
 [@mahdibland](https://github.com/mahdibland)
 [@soroushmirzaei](https://github.com/soroushmirzaei)
+[@4n0nymou3](https://github.com/4n0nymou3)
+[@mahsanet](https://github.com/mahsanet)
 
 
 
