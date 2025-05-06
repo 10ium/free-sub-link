@@ -32,8 +32,7 @@
 | [radar game](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/radar.yml)                  | [controld](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/controld.yml)           |
 | [shelter](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/shelter.yml)             | [Level3](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/Level3.yml)               |
 | [shelter-mobile](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/shelter-mobile.yml) | [mix](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/all.yml)                     |
-
-
+| [AD-Blocker.yml](https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/AD-Blocker.yml)
 
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><h3 align="center">@vpnclashfa</h3>
