@@ -32,8 +32,16 @@
 | [radar game](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/radar.yml)                  | [controld](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/controld.yml)           |
 | [shelter](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/shelter.yml)             | [Level3](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/Level3.yml)               |
 | [shelter-mobile](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/shelter-mobile.yml) | [mix](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/all.yml)                     |
-| [AD-Blocker.yml](https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/AD-Blocker.yml)
-
+| [AD-Blocker.yml](https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/AD-Blocker.yml)                  | [Adguard](https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/Adguard.yml)
+| [Cloudflare](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/Cloudflare.yml)               | [Google](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/Google.yml)  
+| [LagSlayer](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/LagSlayer.yml)               | [LagZero](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/LagZero.yml)  
+| [NextDNS](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/NextDNS.yml)               | [NTT](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/NTT.yml)  
+| [OpenDNS](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/OpenDNS.yml)               | [Rethinkdns](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/Rethinkdns.yml)  
+| [Sprintlink](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/Sprintlink.yml)               | [Comodo](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/Comodo.yml)
+| [DNSWatch](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/DNSWatch.yml)               | [NordVPN](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/NordVPN.yml)
+| [Quad9](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/Quad9.yml)               | [Surfshark](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/Surfshark.yml)
+| [UltraDNS](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/UltraDNS.yml)               | [Verisign](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/Verisign.yml)
+| [Yandex](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/Yandex.yml)               | [UncensoredDNS](https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/dnsforgame/UncensoredDNS.yml)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><h3 align="center">@vpnclashfa</h3>
 
