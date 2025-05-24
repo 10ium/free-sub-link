@@ -43,6 +43,11 @@
 | [UltraDNS](https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/UltraDNS.yml)               | [Verisign](https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/Verisign.yml)
 | [Yandex](https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/Yandex.yml)               | [UncensoredDNS](https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/UncensoredDNS.yml)
 
+یه [مخزن](https://github.com/10ium/ScrapeAndCategorize) برای تقسیم کانفیگ‌ها به کشورای مختلف، شناساییش بر اساس اسمه؛ که یه نشونه‌ای از اون کشور توش باشه. واسه همین خیلی دقیق نیست، چون بعضیا الکی اسم میزارن
+
+اون کشور هایی که تعداد کانفیگاشون زیاد شد تکراری هارو تو یه [مخزن](https://github.com/10ium/dedup-configs) دیگه حذف کردم
+
+
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><h3 align="center">@vpnclashfa</h3>
 
 
@@ -57,6 +62,8 @@
 با اپ [Obtainium](https://github.com/ImranR98/Obtainium/releases) راحت تر میتونین اپ های اوپن سورس اندروید رو بروز کنین مثلا همین فیلترشکنایی که توی گیتهاب منتشر میشن
 
 برای ویندوز هم میتونین از ربات [@github_release_monitor_bot](https://t.me/github_release_monitor_bot) استفاده کنین تا وقتی نسخه جدید منتشر شد نوتیفیکیشن بده
+
+یه مخزن دیگه هم ساختم که اپلیکیشن های پولی اندروید رو از فارسروید بگیره اونجا منتشر کنه تا با [Obtainium](https://github.com/ImranR98/Obtainium/releases) راحت تر بتونین آپدیتشون کنین
 
 ## Special Thanks To
 [@mrvcoder](https://github.com/mrvcoder)
