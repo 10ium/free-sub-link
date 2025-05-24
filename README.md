@@ -63,7 +63,7 @@
 
 برای ویندوز هم میتونین از ربات [@github_release_monitor_bot](https://t.me/github_release_monitor_bot) استفاده کنین تا وقتی نسخه جدید منتشر شد نوتیفیکیشن بده
 
-یه مخزن دیگه هم ساختم که اپلیکیشن های پولی اندروید رو از فارسروید بگیره اونجا منتشر کنه تا با [Obtainium](https://github.com/ImranR98/Obtainium/releases) راحت تر بتونین آپدیتشون کنین
+یه [مخزن](https://github.com/vpnclashfa-backup/GitHub-Release-Tracker) دیگه هم ساختم که اپلیکیشن های پولی اندروید رو از فارسروید بگیره اونجا منتشر کنه تا با [Obtainium](https://github.com/ImranR98/Obtainium/releases) راحت تر بتونین آپدیتشون کنین
 
 ## Special Thanks To
 [@mrvcoder](https://github.com/mrvcoder)
