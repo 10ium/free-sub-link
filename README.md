@@ -43,6 +43,8 @@
 | [UltraDNS](https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/UltraDNS.yml)               | [Verisign](https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/Verisign.yml)
 | [Yandex](https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/Yandex.yml)               | [UncensoredDNS](https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/UncensoredDNS.yml)
 
+[مبدل لینک اشتراک](https://10ium.github.io/sub-converter_farsi)
+
 یه [مخزن](https://github.com/10ium/ScrapeAndCategorize) برای تقسیم کانفیگ‌ها به کشورای مختلف، شناساییش بر اساس اسمه؛ که یه نشونه‌ای از اون کشور توش باشه. واسه همین خیلی دقیق نیست، چون بعضیا الکی اسم میزارن
 
 اون کشور هایی که تعداد کانفیگاشون زیاد شد تکراری هارو تو یه [مخزن](https://github.com/10ium/dedup-configs) دیگه حذف کردم
