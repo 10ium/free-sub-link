@@ -54,36 +54,22 @@
 ## 🎁 منابع فعال‌شده با کمک یکی از دوستان
 
 یکی از دوستان عزیز لطف کرد این مخزن‌ها رو برام فعال کرد.  
-فقط منابعی که **خودم تست کرده بودم** و در این شرایط **به‌درستی کار می‌کردن** رو اینجا گذاشتم.
+فقط منابعی که **خودم تست کرده بودم** و در این شرایط **درست کار می‌کردن** رو اینجا گذاشتم.
 
 - دو تا از این منابع **هر یک ساعت** آپدیت می‌شن  
 - یکی‌شون هم **هر دو ساعت** به‌روزرسانی می‌شه  
-- احتمالاً نسبت به لینک‌های قبلی **پایداری بهتری** براتون داشته باشه
+- احتمالاً از لینک‌های قبلی **پایدارتر و بهتر** کار کنن براتون
 
 ---
 
-### 🧩 ویتوری | بیس۶۴ | هایدیفای | کلش
+### 📦 جدول منابع و فرمت‌ها
 
-- [🌐 ویتوری](https://raw.githubusercontent.com/DiDiten/HiN-VPN/main/subscription/normal/mix)  
-- [🔡 بیس۶۴](https://raw.githubusercontent.com/DiDiten/HiN-VPN/main/subscription/base64/mix)  
-- [🛰️ هایدیفای](https://raw.githubusercontent.com/DiDiten/HiN-VPN/main/subscription/hiddify/mix)  
-- [🛠️ کلش](https://raw.githubusercontent.com/DiDiten/ScrapeAndCategorize/main/Clash/output/diditen-mix.yaml)
+| نوع اشتراک | V2Ray / VLESS (ویتوری) | Base64 (بیس۶۴) | Hiddify (هایدیفای) | Clash (کلش) | Singbox (سینگ‌باکس) | به‌روزرسانی |
+|------------|-------------------------|----------------|---------------------|-------------|----------------------|--------------|
+| مورد اول   | [لینک](https://raw.githubusercontent.com/DiDiten/HiN-VPN/main/subscription/normal/mix) | [لینک](https://raw.githubusercontent.com/DiDiten/HiN-VPN/main/subscription/base64/mix) | [لینک](https://raw.githubusercontent.com/DiDiten/HiN-VPN/main/subscription/hiddify/mix) | [لینک](https://raw.githubusercontent.com/DiDiten/ScrapeAndCategorize/main/Clash/output/diditen-mix.yaml) | — | هر ساعت |
+| مورد دوم   | [لینک](https://raw.githubusercontent.com/DiDiten/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt) | — | — | [لینک](https://raw.githubusercontent.com/DiDiten/ScrapeAndCategorize/main/Clash/output/diditen-fetcher.yaml) | [لینک](https://raw.githubusercontent.com/DiDiten/multi-proxy-config-fetcher/refs/heads/main/configs/singbox_configs.json) | هر ساعت |
+| مورد سوم   | [لینک](https://raw.githubusercontent.com/vpnclashfa-backup/ScrapeAndCategorize/refs/heads/main/output_configs/Iran.txt) | [لینک](https://raw.githubusercontent.com/vpnclashfa-backup/ScrapeAndCategorize/refs/heads/main/output_base64_countries/Iran.txt) | — | [لینک](https://raw.githubusercontent.com/DiDiten/ScrapeAndCategorize/main/Clash/output/scrape-iran.yaml) | — | هر دو ساعت |
 
----
-
-### 🧩 ویتوری | سینگ‌باکس | کلش
-
-- [🌐 ویتوری](https://raw.githubusercontent.com/DiDiten/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt)  
-- [🧩 سینگ‌باکس](https://raw.githubusercontent.com/DiDiten/multi-proxy-config-fetcher/refs/heads/main/configs/singbox_configs.json)  
-- [🛠️ کلش](https://raw.githubusercontent.com/DiDiten/ScrapeAndCategorize/main/Clash/output/diditen-fetcher.yaml)
-
----
-
-### 🧩 ویتوری | بیس۶۴ | کلش
-
-- [🌐 ویتوری](https://raw.githubusercontent.com/vpnclashfa-backup/ScrapeAndCategorize/refs/heads/main/output_configs/Iran.txt)  
-- [🔡 بیس۶۴](https://raw.githubusercontent.com/vpnclashfa-backup/ScrapeAndCategorize/refs/heads/main/output_base64_countries/Iran.txt)  
-- [🛠️ کلش](https://raw.githubusercontent.com/DiDiten/ScrapeAndCategorize/main/Clash/output/scrape-iran.yaml)
 
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><h3 align="center">@vpnclashfa</h3>
