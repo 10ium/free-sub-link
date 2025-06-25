@@ -64,7 +64,7 @@
 
 ### 📦 جدول منابع و فرمت‌ها
 
-| نوع اشتراک | V2Ray / VLESS (ویتوری) | Base64 (بیس۶۴) | Hiddify (هایدیفای) | Clash (کلش) | Singbox (سینگ‌باکس) | به‌روزرسانی |
+| نوع اشتراک | V2Ray (ویتوری) | Base64 (بیس۶۴) | Hiddify (هایدیفای) | Clash (کلش) | Singbox (سینگ‌باکس) | به‌روزرسانی |
 |------------|-------------------------|----------------|---------------------|-------------|----------------------|--------------|
 | مورد اول   | [لینک](https://raw.githubusercontent.com/DiDiten/HiN-VPN/main/subscription/normal/mix) | [لینک](https://raw.githubusercontent.com/DiDiten/HiN-VPN/main/subscription/base64/mix) | [لینک](https://raw.githubusercontent.com/DiDiten/HiN-VPN/main/subscription/hiddify/mix) | [لینک](https://raw.githubusercontent.com/DiDiten/ScrapeAndCategorize/main/Clash/output/diditen-mix.yaml) | — | هر ساعت |
 | مورد دوم   | [لینک](https://raw.githubusercontent.com/DiDiten/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt) | — | — | [لینک](https://raw.githubusercontent.com/DiDiten/ScrapeAndCategorize/main/Clash/output/diditen-fetcher.yaml) | [لینک](https://raw.githubusercontent.com/DiDiten/multi-proxy-config-fetcher/refs/heads/main/configs/singbox_configs.json) | هر دو ساعت |
