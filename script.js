@@ -1,6 +1,6 @@
 // script.js
 // توجه: این فایل به عنوان یک ماژول بارگذاری می‌شود (type="module" در index.html)
-import { suggestedClients } from './clients.js'; // وارد کردن داده‌های کلاینت‌ها
+import { suggestedClients, osIcons, coreIcons } from './clients.js'; // وارد کردن داده‌های کلاینت‌ها و آیکون‌ها
 
 document.addEventListener('DOMContentLoaded', function() {
     // گرفتن ارجاع به عناصر DOM
@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollBottomBtn = document.getElementById('scroll-bottom');
     const rowCountInput = document.getElementById('row-count');
     const clientsContainer = document.getElementById('clients-container');
+    const coreFilterSelect = document.getElementById('core-filter'); // جدید: فیلتر هسته
+    const osFilterSelect = document.getElementById('os-filter');     // جدید: فیلتر سیستم عامل
 
     // نگاشت نام کشورها به کدهای دو حرفی ISO برای دریافت پرچم
     const countryFlagMap = {
@@ -262,7 +264,46 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * رندر کردن کلاینت‌های پیشنهادی در رابط کاربری
+     * پر کردن فیلترهای هسته و سیستم عامل
+     */
+    function populateClientFilters() {
+        const coreTypes = new Set();
+        const osTypes = new Set();
+
+        suggestedClients.forEach(client => {
+            if (client.core_type) {
+                coreTypes.add(client.core_type);
+            }
+            if (client.download) {
+                for (const os in client.download) {
+                    // تبدیل نام پلتفرم به نام‌های خواناتر برای نمایش در فیلتر
+                    let displayOsName = os.charAt(0).toUpperCase() + os.slice(1);
+                    if (os === "router_os") displayOsName = "Router OS";
+                    if (os === "tvos") displayOsName = "tvOS";
+                    osTypes.add(displayOsName);
+                }
+            }
+        });
+
+        // پر کردن فیلتر هسته
+        coreTypes.forEach(type => {
+            const option = document.createElement('option');
+            option.value = type;
+            option.textContent = type;
+            coreFilterSelect.appendChild(option);
+        });
+
+        // پر کردن فیلتر سیستم عامل
+        osTypes.forEach(type => {
+            const option = document.createElement('option');
+            option.value = type;
+            option.textContent = type;
+            osFilterSelect.appendChild(option);
+        });
+    }
+
+    /**
+     * رندر کردن کلاینت‌های پیشنهادی در رابط کاربری بر اساس فیلترها
      */
     function renderClients() {
         if (!clientsContainer) {
@@ -274,9 +315,28 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        const selectedCore = coreFilterSelect.value;
+        const selectedOs = osFilterSelect.value;
+
+        const filteredClients = suggestedClients.filter(client => {
+            const matchesCore = selectedCore === "all" || client.core_type === selectedCore;
+            const matchesOs = selectedOs === "all" || (client.download && Object.keys(client.download).some(osKey => {
+                let displayOsName = osKey.charAt(0).toUpperCase() + osKey.slice(1);
+                if (osKey === "router_os") displayOsName = "Router OS";
+                if (osKey === "tvos") displayOsName = "tvOS";
+                return displayOsName === selectedOs;
+            }));
+            return matchesCore && matchesOs;
+        });
+
         clientsContainer.innerHTML = ''; // پاک کردن محتوای قبلی
 
-        suggestedClients.forEach(client => {
+        if (filteredClients.length === 0) {
+            clientsContainer.innerHTML = '<p class="placeholder-text">هیچ کلاینتی با فیلترهای انتخاب شده یافت نشد.</p>';
+            return;
+        }
+
+        filteredClients.forEach(client => {
             const clientCard = document.createElement('div');
             clientCard.classList.add('client-card');
 
@@ -306,12 +366,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const osIconsContainer = document.createElement('div');
             osIconsContainer.classList.add('os-icons-container');
             if (client.os_icons) {
-                for (const os in client.os_icons) {
-                    const osIcon = document.createElement('img');
-                    osIcon.src = client.os_icons[os];
-                    osIcon.alt = os;
-                    osIcon.onerror = function() { this.style.display='none'; }; // مخفی کردن در صورت عدم بارگذاری
-                    osIconsContainer.appendChild(osIcon);
+                // فقط آیکون‌های سیستم عامل‌هایی که لینک دانلود دارند را نمایش بده
+                for (const osKey in client.download) {
+                    if (client.os_icons[osKey]) { // اطمینان از وجود آیکون برای آن OS
+                        const osIcon = document.createElement('img');
+                        osIcon.src = client.os_icons[osKey];
+                        osIcon.alt = osKey;
+                        osIcon.onerror = function() { this.style.display='none'; }; // مخفی کردن در صورت عدم بارگذاری
+                        osIconsContainer.appendChild(osIcon);
+                    }
                 }
             }
             clientCard.appendChild(osIconsContainer);
@@ -325,7 +388,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     downloadLink.href = client.download[platform];
                     downloadLink.target = "_blank";
                     downloadLink.rel = "noopener noreferrer";
-                    downloadLink.textContent = `دانلود برای ${platform.charAt(0).toUpperCase() + platform.slice(1)}`; // مثلاً "دانلود برای Android"
+                    let displayPlatformName = platform.charAt(0).toUpperCase() + platform.slice(1);
+                    if (platform === "router_os") displayPlatformName = "Router OS";
+                    if (platform === "tvos") displayPlatformName = "tvOS";
+                    downloadLink.textContent = `دانلود برای ${displayPlatformName}`;
                     downloadLinksDiv.appendChild(downloadLink);
                 }
             }
@@ -365,9 +431,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // شنونده‌های رویداد برای فیلترهای کلاینت
+    coreFilterSelect.addEventListener('change', renderClients);
+    osFilterSelect.addEventListener('change', renderClients);
+
+
     // راه‌اندازی اولیه برنامه
     setInitialTheme(); // ابتدا تم را بارگذاری کن
     populateCategorySelect(); // منوی دسته‌بندی را پر کن
     setGridColumns(rowCountInput.value); // تعداد ستون‌های اولیه را بر اساس مقدار پیش‌فرض فیلد ورودی تنظیم کن
+    populateClientFilters(); // جدید: فیلترهای کلاینت را پر کن
     renderClients(); // کلاینت‌ها را رندر کن
 });

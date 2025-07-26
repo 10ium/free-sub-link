@@ -497,6 +497,48 @@ header p {
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.client-filters {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* برای ریسپانسیو بودن */
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.client-filters label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.client-filters select {
+    padding: 10px 15px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.client-filters select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+
 .clients-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 2 ستون در دسکتاپ، 1 ستون در موبایل */
@@ -755,5 +797,16 @@ header p {
     .os-icons-container img {
         width: 30px;
         height: 30px;
+    }
+
+    .client-filters {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .client-filters select {
+        min-width: unset;
+        width: 100%;
+        max-width: 250px;
     }
 }

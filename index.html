@@ -64,6 +64,20 @@
             <!-- بخش جدید: نمایش کلاینت‌های پیشنهادی -->
             <section id="clients-section" class="clients-section">
                 <h2>کلاینت‌های پیشنهادی 📱</h2>
+                <div class="client-filters">
+                    <div class="filter-group">
+                        <label for="core-filter">فیلتر بر اساس هسته:</label>
+                        <select id="core-filter">
+                            <option value="all">همه هسته‌ها</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="os-filter">فیلتر بر اساس سیستم عامل:</label>
+                        <select id="os-filter">
+                            <option value="all">همه سیستم عامل‌ها</option>
+                        </select>
+                    </div>
+                </div>
                 <div id="clients-container" class="clients-container">
                     <!-- کلاینت‌ها اینجا توسط جاوااسکریپت اضافه می‌شوند -->
                     <p class="placeholder-text">در حال بارگذاری کلاینت‌ها...</p>

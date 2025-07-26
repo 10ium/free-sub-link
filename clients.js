@@ -9,7 +9,7 @@ const osIcons = {
     windows: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/windows.svg",
     macos: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/macos.svg",
     linux: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linux.svg",
-    router_os: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/router.svg", // آیکون عمومی روتر
+    router_os: "https://placehold.co/48x48/cccccc/222222?text=Router", // آیکون جایگزین برای روتر
     tvos: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/appletv.svg", // آیکون tvOS
 };
 
@@ -36,6 +36,7 @@ const allClients = [
             android: osIcons.android,
         },
         core_icon: coreIcons.v2ray,
+        core_type: "V2Ray" // اضافه کردن نوع هسته
     },
     {
         name: "Hiddify-app",
@@ -55,6 +56,7 @@ const allClients = [
             ios: osIcons.ios,
         },
         core_icon: coreIcons.v2ray, // هسته اصلی یا یکی از هسته‌های پشتیبانی شده
+        core_type: "Multi-Core" // این کلاینت از چندین هسته پشتیبانی می‌کند
     },
     {
         name: "Surfing (Magisk Module)",
@@ -66,6 +68,7 @@ const allClients = [
             android: osIcons.android,
         },
         core_icon: coreIcons.v2ray, // هسته اصلی یا یکی از هسته‌های پشتیبانی شده
+        core_type: "Multi-Core"
     },
     {
         name: "V2RayU",
@@ -79,6 +82,7 @@ const allClients = [
             macos: osIcons.macos,
         },
         core_icon: coreIcons.v2ray,
+        core_type: "V2Ray"
     },
     {
         name: "v2rayA",
@@ -96,6 +100,7 @@ const allClients = [
             router_os: osIcons.router_os,
         },
         core_icon: coreIcons.v2ray,
+        core_type: "V2Ray"
     },
     {
         name: "V2RayX",
@@ -107,6 +112,7 @@ const allClients = [
             macos: osIcons.macos,
         },
         core_icon: coreIcons.v2ray,
+        core_type: "V2Ray"
     },
     {
         name: "V2Ray Core (CLI)",
@@ -118,6 +124,7 @@ const allClients = [
             linux: osIcons.linux,
         },
         core_icon: coreIcons.v2ray,
+        core_type: "V2Ray"
     },
 
     // کلاینت‌های X-Ray
@@ -131,6 +138,7 @@ const allClients = [
             windows: osIcons.windows,
         },
         core_icon: coreIcons.xray,
+        core_type: "Xray"
     },
     {
         name: "GoXRay",
@@ -144,6 +152,7 @@ const allClients = [
             linux: osIcons.linux,
         },
         core_icon: coreIcons.xray,
+        core_type: "Xray"
     },
     {
         name: "Exclave",
@@ -155,6 +164,7 @@ const allClients = [
             android: osIcons.android,
         },
         core_icon: coreIcons.xray, // از هسته v2ray-core فورک شده استفاده می‌کند که نزدیک به X-Ray است
+        core_type: "Xray"
     },
     {
         name: "X-UI (NidukaAkalanka/x-ui-english)",
@@ -166,6 +176,7 @@ const allClients = [
             linux: osIcons.linux,
         },
         core_icon: coreIcons.xray,
+        core_type: "Xray"
     },
 
     // کلاینت‌های Mihomo/Clash Meta
@@ -183,6 +194,7 @@ const allClients = [
             linux: osIcons.linux,
         },
         core_icon: coreIcons.mihomo,
+        core_type: "Mihomo"
     },
     {
         name: "FlClash",
@@ -200,6 +212,7 @@ const allClients = [
             android: osIcons.android,
         },
         core_icon: coreIcons.mihomo,
+        core_type: "Mihomo"
     },
     {
         name: "ClashMi", // این همان KaringX/clashmi است که قبلاً اضافه شده بود
@@ -217,6 +230,7 @@ const allClients = [
             windows: osIcons.windows,
         },
         core_icon: coreIcons.mihomo,
+        core_type: "Mihomo"
     },
     {
         name: "ClashMetaForAndroid",
@@ -228,6 +242,7 @@ const allClients = [
             android: osIcons.android,
         },
         core_icon: coreIcons.mihomo,
+        core_type: "Mihomo"
     },
     {
         name: "ClashX.Meta",
@@ -239,6 +254,7 @@ const allClients = [
             macos: osIcons.macos,
         },
         core_icon: coreIcons.mihomo,
+        core_type: "Mihomo"
     },
     {
         name: "Mihomo-party",
@@ -254,6 +270,7 @@ const allClients = [
             linux: osIcons.linux,
         },
         core_icon: coreIcons.mihomo,
+        core_type: "Mihomo"
     },
     {
         name: "GUI.for.Clash",
@@ -269,6 +286,7 @@ const allClients = [
             linux: osIcons.linux,
         },
         core_icon: coreIcons.mihomo,
+        core_type: "Mihomo"
     },
     {
         name: "ShellCrash",
@@ -282,6 +300,7 @@ const allClients = [
             linux: osIcons.linux,
         },
         core_icon: coreIcons.mihomo,
+        core_type: "Mihomo"
     },
     {
         name: "Mihomo-OpenWrt",
@@ -293,6 +312,7 @@ const allClients = [
             router_os: osIcons.router_os,
         },
         core_icon: coreIcons.mihomo,
+        core_type: "Mihomo"
     },
     {
         name: "OpenClash (with Mihomo core)",
@@ -304,6 +324,7 @@ const allClients = [
             router_os: osIcons.router_os,
         },
         core_icon: coreIcons.mihomo,
+        core_type: "Mihomo"
     },
     {
         name: "Mihomo Core (CLI)",
@@ -315,19 +336,9 @@ const allClients = [
             linux: osIcons.linux,
         },
         core_icon: coreIcons.mihomo,
+        core_type: "Mihomo"
     },
-    {
-        name: "Clash for Windows",
-        description: "کلاینت قدرتمند Clash برای ویندوز با پشتیبانی از هسته‌های Clash و Clash Meta.",
-        download: {
-            windows: "https://github.com/Fndroid/clash_for_windows_pkg/releases",
-        },
-        os_icons: {
-            windows: osIcons.windows,
-        },
-        core_icon: coreIcons.mihomo,
-    },
-
+    // Clash for Windows حذف شد
 
     // کلاینت‌های Singbox
     {
@@ -344,6 +355,7 @@ const allClients = [
             linux: osIcons.linux,
         },
         core_icon: coreIcons.singbox,
+        core_type: "Singbox"
     },
     {
         name: "sing-box for Apple platforms",
@@ -359,6 +371,7 @@ const allClients = [
             tvos: osIcons.tvos,
         },
         core_icon: coreIcons.singbox,
+        core_type: "Singbox"
     },
     {
         name: "sing-box for Android",
@@ -370,6 +383,7 @@ const allClients = [
             android: osIcons.android,
         },
         core_icon: coreIcons.singbox,
+        core_type: "Singbox"
     },
     {
         name: "NekoBoxForAndroid",
@@ -381,6 +395,7 @@ const allClients = [
             android: osIcons.android,
         },
         core_icon: coreIcons.singbox,
+        core_type: "Singbox"
     },
     {
         name: "Husi",
@@ -392,6 +407,7 @@ const allClients = [
             android: osIcons.android,
         },
         core_icon: coreIcons.singbox,
+        core_type: "Singbox"
     },
     {
         name: "Throne (formerly Nekoray)",
@@ -407,6 +423,7 @@ const allClients = [
             linux: osIcons.linux,
         },
         core_icon: coreIcons.singbox,
+        core_type: "Singbox"
     },
     {
         name: "Sing-box (Core)",
@@ -418,6 +435,7 @@ const allClients = [
             linux: osIcons.linux,
         },
         core_icon: coreIcons.singbox,
+        core_type: "Singbox"
     },
     {
         name: "Karing",
@@ -437,6 +455,7 @@ const allClients = [
             tvos: osIcons.tvos,
         },
         core_icon: coreIcons.singbox, // بر اساس اطلاعات، از هسته Sing-box استفاده می‌کند
+        core_type: "Singbox" // Karing از Singbox استفاده می‌کند
     },
 ];
 
@@ -479,7 +498,7 @@ const sortClients = (clients) => {
         const hasMacos = !!client.download.macos;
         const hasLinux = !!client.download.linux;
         const hasRouter = !!client.download.router_os;
-        const hasTvOS = !!client.download.tvos; // اضافه کردن tvOS
+        const hasTvOS = !!client.download.tvos;
 
         const platformCount = [hasAndroid, hasWindows, hasIos, hasMacos, hasLinux, hasRouter, hasTvOS].filter(Boolean).length;
 
@@ -555,5 +574,5 @@ const sortClients = (clients) => {
 // مرتب‌سازی کلاینت‌ها بر اساس اولویت درخواستی
 const suggestedClients = sortClients(allClients);
 
-// این آبجکت را برای استفاده در فایل‌های دیگر export می‌کنیم
-export { suggestedClients };
+// این آبجکت‌ها را برای استفاده در فایل‌های دیگر export می‌کنیم
+export { suggestedClients, osIcons, coreIcons };
