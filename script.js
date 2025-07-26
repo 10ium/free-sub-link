@@ -1,6 +1,7 @@
 // script.js
 // توجه: این فایل به عنوان یک ماژول بارگذاری می‌شود (type="module" در index.html)
 import { suggestedClients, osIcons, coreIcons } from './clients.js'; // وارد کردن داده‌های کلاینت‌ها و آیکون‌ها
+import { dayBackgrounds, nightBackgrounds } from './backgrounds.js'; // وارد کردن لینک‌های پس‌زمینه
 
 document.addEventListener('DOMContentLoaded', function() {
     // گرفتن ارجاع به عناصر DOM
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const clientsContainer = document.getElementById('clients-container');
     const coreFilterSelect = document.getElementById('core-filter');
     const osFilterSelect = document.getElementById('os-filter');
-    const convertersContainer = document.getElementById('converters-container'); // جدید: کانتینر مبدل‌ها
+    const convertersContainer = document.getElementById('converters-container');
 
     // نگاشت نام کشورها به کدهای دو حرفی ISO برای دریافت پرچم
     const countryFlagMap = {
@@ -76,12 +77,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
+     * تابع کمکی برای انتخاب تصادفی یک آیتم از آرایه
+     * @param {Array<string>} arr - آرایه‌ای از رشته‌ها (لینک‌های عکس)
+     * @returns {string} یک لینک عکس تصادفی
+     */
+    function getRandomImage(arr) {
+        if (!arr || arr.length === 0) {
+            return ''; // یا یک تصویر پیش‌فرض
+        }
+        const randomIndex = Math.floor(Math.random() * arr.length);
+        return arr[randomIndex];
+    }
+
+    /**
+     * تابع برای تنظیم پس‌زمینه تصویری بر اساس تم
+     * @param {string} themeName - نام تم ('light' یا 'dark')
+     */
+    function setBackgroundImage(themeName) {
+        let imageUrl;
+        if (themeName === 'dark') {
+            imageUrl = getRandomImage(nightBackgrounds);
+        } else {
+            imageUrl = getRandomImage(dayBackgrounds);
+        }
+        document.body.style.backgroundImage = `url('${imageUrl}')`;
+    }
+
+    /**
      * تابع برای تنظیم تم (روشن یا تیره)
      * @param {string} themeName - نام تم ('light' یا 'dark')
      */
     function setTheme(themeName) {
         document.documentElement.setAttribute('data-theme', themeName);
         localStorage.setItem('theme', themeName); // ذخیره تم در Local Storage
+        setBackgroundImage(themeName); // تنظیم پس‌زمینه بر اساس تم جدید
     }
 
     /**
@@ -378,7 +407,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const osIconsContainer = document.createElement('div');
             osIconsContainer.classList.add('os-icons-container');
             if (client.os_icons) {
-                for (const osKey in client.download) { // فقط آیکون‌های سیستم عامل‌هایی که لینک دانلود دارند را نمایش بده
+                for (const osKey in client.download) {
                     if (client.os_icons[osKey]) {
                         const osIcon = document.createElement('img');
                         osIcon.src = client.os_icons[osKey];
@@ -492,10 +521,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // راه‌اندازی اولیه برنامه
-    setInitialTheme();
+    setInitialTheme(); // ابتدا تم را بارگذاری و پس‌زمینه را تنظیم کن
     populateCategorySelect();
     setGridColumns(rowCountInput.value);
     populateClientFilters();
     renderClients();
-    renderConverters(); // جدید: مبدل‌ها را رندر کن
+    renderConverters();
 });

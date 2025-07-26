@@ -14,10 +14,6 @@
     --success-dark: #059669; /* رنگ موفقیت تیره */
     --pattern-color: rgba(99, 102, 241, 0.05); /* رنگ برای الگوی پس‌زمینه (حفظ شده برای استفاده احتمالی) */
 
-    /* رنگ‌های گرادیان برای پس‌زمینه انیمیشنی */
-    --gradient-start-light: #e0e7ff; /* آبی روشن بسیار ملایم */
-    --gradient-end-light: #f0f4ff;   /* آبی روشن‌تر */
-
     /* تعداد پیش‌فرض ستون‌های گرید */
     --grid-columns: 2;
 }
@@ -36,10 +32,6 @@
     --success: #10b981;
     --success-dark: #059669;
     --pattern-color: rgba(129, 140, 248, 0.05);
-
-    /* رنگ‌های گرادیان برای پس‌زمینه انیمیشنی در تم تیره */
-    --gradient-start-dark: #1a202c; /* خاکستری تیره */
-    --gradient-end-dark: #2d3748;   /* خاکستری تیره‌تر */
 }
 
 /* تنظیمات کلی برای همه عناصر */
@@ -52,35 +44,18 @@
 body {
     /* اضافه کردن فونت‌های اموجی سیستمی برای اطمینان از نمایش صحیح */
     font-family: 'Vazirmatn', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
-    /* پس‌زمینه متحرک حالا مستقیماً به body اعمال می‌شود */
-    background: linear-gradient(135deg, var(--gradient-start-light), var(--gradient-end-light));
-    background-size: 400% 400%; /* بزرگ کردن اندازه گرادیان برای انیمیشن حرکت */
-    animation: gradientShift 15s ease infinite alternate; /* اعمال انیمیشن */
-    color: var(--text-primary);
+    /* پس‌زمینه تصویری جدید - URL توسط جاوااسکریپت تنظیم می‌شود */
+    background-size: cover; /* پوشش کامل پس‌زمینه */
+    background-position: center center; /* وسط چین کردن تصویر */
+    background-attachment: fixed; /* ثابت نگه داشتن تصویر هنگام اسکرول */
+    background-repeat: no-repeat; /* عدم تکرار تصویر */
+    color: var(--text-primary); /* رنگ متن اصلی */
     line-height: 1.6;
     min-height: 100vh;
     position: relative;
     overflow-x: hidden; /* جلوگیری از اسکرول افقی */
-    transition: background-color 0.3s ease, color 0.3s ease; /* انتقال نرم برای تغییر تم */
-}
-
-/* انیمیشن گرادیان */
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* تغییر رنگ گرادیان در تم تیره */
-[data-theme="dark"] body { /* تغییر از .background-pattern به body */
-    background: linear-gradient(135deg, var(--gradient-start-dark), var(--gradient-end-dark));
-    background-size: 400% 400%;
+    /* اضافه کردن transition برای تغییر نرم پس‌زمینه */
+    transition: background-image 1s ease-in-out, background-color 0.3s ease, color 0.3s ease;
 }
 
 /* .background-pattern div دیگر وجود ندارد */
