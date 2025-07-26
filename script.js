@@ -432,8 +432,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // شنونده‌های رویداد برای فیلترهای کلاینت
-    coreFilterSelect.addEventListener('change', renderClients);
-    osFilterSelect.addEventListener('change', renderClients);
+    // اضافه کردن Null Check برای جلوگیری از خطا در صورتی که عنصر یافت نشود
+    if (coreFilterSelect) {
+        coreFilterSelect.addEventListener('change', renderClients);
+    } else {
+        console.error("Element with ID 'core-filter' not found. Client filtering by core may not work.");
+    }
+
+    if (osFilterSelect) {
+        osFilterSelect.addEventListener('change', renderClients);
+    } else {
+        console.error("Element with ID 'os-filter' not found. Client filtering by OS may not work.");
+    }
 
 
     // راه‌اندازی اولیه برنامه
