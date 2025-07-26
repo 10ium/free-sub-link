@@ -14,10 +14,10 @@
     --success-dark: #059669; /* رنگ موفقیت تیره */
     --pattern-color: rgba(99, 102, 241, 0.05); /* رنگ برای الگوی پس‌زمینه (حفظ شده برای استفاده احتمالی) */
 
-    /* تعداد پیش‌فرض ستون‌های گرید */
-    --grid-columns: 2;
-    /* اندازه فونت پیش‌فرض برای آیتم‌ها */
-    --item-font-size: 1.1rem;
+    /* تعداد پیش‌فرض ستون‌های گرید برای دسکتاپ */
+    --grid-columns: 3; /* پیش‌فرض 3 ستون برای دسکتاپ */
+    /* اندازه فونت پیش‌فرض برای آیتم‌ها (متناسب با 3 ستون) */
+    --item-font-size: 1.0rem;
 }
 
 [data-theme="dark"] {
@@ -251,8 +251,8 @@ header p {
 /* لیست آیتم‌ها (گرید) */
 .items-list {
     display: grid;
-    /* استفاده از متغیر CSS برای تعداد ستون‌ها، پیش‌فرض 2 */
-    grid-template-columns: repeat(var(--grid-columns, 2), minmax(0, 1fr));
+    /* استفاده از متغیر CSS برای تعداد ستون‌ها */
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
     gap: 20px;
 }
 
@@ -523,7 +523,8 @@ header p {
 
 .clients-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 2 ستون در دسکتاپ، 1 ستون در موبایل */
+    /* استفاده از متغیر CSS برای تعداد ستون‌ها */
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
     gap: 30px;
     justify-content: center;
 }
@@ -661,7 +662,8 @@ header p {
 
 .converters-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 2 یا 3 ستون در دسکتاپ */
+    /* استفاده از متغیر CSS برای تعداد ستون‌ها */
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
     gap: 30px;
     justify-content: center;
 }
@@ -756,7 +758,8 @@ header p {
 
 .tools-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 2 ستون در دسکتاپ، 1 ستون در موبایل */
+    /* استفاده از متغیر CSS برای تعداد ستون‌ها */
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
     gap: 30px;
     justify-content: center;
 }
@@ -893,6 +896,12 @@ header p {
 
 /* Media Queries برای ریسپانسیو بودن */
 @media (max-width: 768px) {
+    /* تنظیم پیش‌فرض 1 ستون برای موبایل در داخل مدیا کوئری */
+    :root {
+        --grid-columns: 1; /* پیش‌فرض 1 ستون برای موبایل */
+        --item-font-size: 1.3rem; /* اندازه فونت بزرگتر برای 1 ستون */
+    }
+
     .container {
         padding: 15px;
     }
@@ -913,9 +922,9 @@ header p {
         padding: 12px 20px;
     }
 
-    .items-list {
-        grid-template-columns: 1fr; /* یک ستون در صفحه‌های کوچک */
-    }
+    /* .items-list, .clients-container, .converters-container, .tools-container
+       حالا از --grid-columns استفاده می‌کنند که در :root داخل مدیا کوئری تنظیم شده است.
+       بنابراین نیازی به override مستقیم 1fr نیست. */
 
     .link-header {
         flex-direction: column;
@@ -967,7 +976,8 @@ header p {
 
     /* ریسپانسیو کردن بخش کلاینت‌ها، مبدل‌ها و ابزارها */
     .clients-container, .converters-container, .tools-container {
-        grid-template-columns: 1fr; /* یک ستون در موبایل */
+        /* اینها نیز از --grid-columns استفاده می‌کنند */
+        grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
     }
 
     .client-card, .converter-card, .tool-card {
