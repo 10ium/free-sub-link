@@ -9,7 +9,7 @@ const osIcons = {
     windows: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/windows.svg",
     macos: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/macos.svg",
     linux: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linux.svg",
-    router_os: "https://icons-for-free.com/iff/png/256/openwrt-1331550891955088043.png",
+    router_os: "https://wiki.pine64.org/images/8/83/Openwrt_logo_square.png",
     tvos: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/appletv.svg",
 };
 
@@ -185,18 +185,6 @@ const allClients = [
         },
         os_icons: {
             android: osIcons.android,
-        },
-        core_icon: coreIcons.xray,
-        core_type: "Xray"
-    },
-    {
-        name: "X-UI (NidukaAkalanka/x-ui-english)",
-        description: "پنل Xray چند پروتکلی و چند کاربره متن‌باز و رایگان با ویژگی‌های پیشرفته، قابل نصب روی لینوکس (سرور). این یک پنل مدیریت مبتنی بر وب است و رابط کاربری دسکتاپ مستقیم ندارد.",
-        download: {
-            linux: "https://github.com/NidukaAkalanka/x-ui-english/releases/latest",
-        },
-        os_icons: {
-            linux: osIcons.linux,
         },
         core_icon: coreIcons.xray,
         core_type: "Xray"
