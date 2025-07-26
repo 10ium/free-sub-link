@@ -19,20 +19,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const coreFilterSelect = document.getElementById('core-filter');
     const osFilterSelect = document.getElementById('os-filter');
     const convertersContainer = document.getElementById('converters-container');
+    const toolsContainer = document.getElementById('tools-container'); // جدید: کانتینر ابزارها
 
     // نگاشت نام کشورها به کدهای دو حرفی ISO برای دریافت پرچم
     const countryFlagMap = {
         "آلبانی": "al", "آرژانتین": "ar", "ارمنستان": "am", "استرالیا": "au", "اتریش": "at",
         "بحرین": "bh", "بلاروس": "by", "بلژیک": "be", "بولیوی": "bo", "برزیل": "br",
         "بلغارستان": "bg", "کانادا": "ca", "چین": "cn", "کلمبیا": "co", "کرواسی": "hr",
-        "قبرس": "cy", "چک": "cz", "دانمارک": "dk", "اکوادور": "ec", "استونی": "ee",
-        "فنلاند": "fi", "فرانسه": "fr", "آلمان": "de", "جبل‌الطارق": "gi", "یونان": "gr",
-        "گواتمالا": "gt", "هنگ کنگ": "hk", "مجارستان": "hu", "ایسلند": "is", "هند": "in",
-        "اندونزی": "id", "ایران": "ir", "عراق": "iq", "ایرلند": "ie", "اسرائیل": "il",
-        "ایتالیا": "it", "ژاپن": "jp", "اردن": "jo", "قزاقستان": "kz", "کره جنوبی": "kr",
-        "لتونی": "lv", "لیتوانی": "lt", "لوکزامبورگ": "lu", "مالزی": "my", "مالت": "mt",
-        "مکزیک": "mx", "مولداوی": "md", "هلند": "nl", "نیوزیلند": "nz", "مقدونیه شمالی": "mk",
-        "نروژ": "no", "نامشخص": "un", // 'un' برای پرچم نامشخص یا عمومی
+        "قبرس": "cy", "چک": "cz", "دانمارک": "dk", "اکوادور": "ec",
+        "استونی": "ee", "فنلاند": "fi", "فرانسه": "fr", "آلمان": "de", "جبل‌الطارق": "gi",
+        "یونان": "gr", "گواتمالا": "gt", "هنگ کنگ": "hk", "مجارستان": "hu", "ایسلند": "is",
+        "هند": "in", "اندونزی": "id", "ایران": "ir", "عراق": "iq", "ایرلند": "ie",
+        "اسرائیل": "il", "ایتالیا": "it", "ژاپن": "jp", "اردن": "jo", "قزاقستان": "kz",
+        "کره جنوبی": "kr", "لتونی": "lv", "لیتوانی": "lt", "لوکزامبورگ": "lu", "مالزی": "my",
+        "مالت": "mt", "مکزیک": "mx", "مولداوی": "md", "هلند": "nl", "نیوزیلند": "nz",
+        "مقدونیه شمالی": "mk", "نروژ": "no", "نامشخص": "un", // 'un' برای پرچم نامشخص یا عمومی
         "عمان": "om", "پاکستان": "pk", "پاراگوئه": "py", "پرو": "pe", "فیلیپین": "ph",
         "لهستان": "pl", "پرتغال": "pt", "پورتوریکو": "pr", "رومانی": "ro", "روسیه": "ru",
         "صربستان": "rs", "سیشل": "sc", "سنگاپور": "sg", "اسلواکی": "sk", "اسلوونی": "si",
@@ -59,6 +60,38 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "https://github.com/vpnclashfa-backup/OfflineProxyConverter"
         }
     ];
+
+    // اطلاعات ابزارهای دیگر
+    const otherTools = [
+        {
+            name: "GitHub Release Tracker",
+            description: "ابزاری برای پیگیری و به‌روزرسانی آسان اپلیکیشن‌های اندروید و دریافت نوتیفیکیشن نسخه‌های جدید.",
+            sub_descriptions: [
+                "این ابزار، اپلیکیشن‌های پولی اندروید را از فارسروید دریافت و در گیتهاب منتشر می‌کند تا با Obtainium راحت‌تر بتوانید آن‌ها را به‌روزرسانی کنید.",
+                "با اپ Obtainium راحت‌تر می‌توانید اپ‌های اوپن سورس اندروید را بروز کنید، مثلاً همین فیلترشکن‌هایی که توی گیتهاب منتشر می‌شوند.",
+                "برای ویندوز هم می‌توانید از ربات @github_release_monitor_bot استفاده کنید تا وقتی نسخه جدید منتشر شد نوتیفیکیشن بده."
+            ],
+            link: "https://github.com/vpnclashfa-backup/GitHub-Release-Tracker"
+        },
+        {
+            name: "LAN-Yar (میهومو کانفیگ ساز)",
+            description: "ابزاری برای ساخت کانفیگ میهومو (کلش متا) و به اشتراک‌گذاری اینترنت فیلترشکن روی شبکه محلی با دستگاه‌های دیگر.",
+            sub_descriptions: [
+                "با این ابزار می‌توانید اینترنتی که از فیلترشکن رد شده را روی شبکه به اشتراک بگذارید.",
+                "با دستگاه‌های دیگر (مثلاً گوشی اندروید به کامپیوتر یا آیفون) به اینترنت به اشتراک گذاشته شده متصل شوید."
+            ],
+            link: "https://10ium.github.io/LAN-Yar/"
+        }
+    ];
+
+    // نگاشت تعداد ستون‌ها به اندازه فونت متناسب
+    const fontSizeMap = {
+        1: '1.3rem',
+        2: '1.1rem',
+        3: '1.0rem',
+        4: '0.9rem',
+        5: '0.8rem'
+    };
 
     /**
      * تابعی برای دریافت URL تصویر پرچم بر اساس نام کشور (با یا بدون اموجی)
@@ -303,11 +336,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * تنظیم تعداد ستون‌های گرید برای نمایش آیتم‌ها
+     * تنظیم تعداد ستون‌های گرید و اندازه فونت آیتم‌ها
      * @param {number} count - تعداد ستون‌ها
      */
     function setGridColumns(count) {
         document.documentElement.style.setProperty('--grid-columns', count);
+        // تنظیم اندازه فونت بر اساس تعداد ستون‌ها
+        const fontSize = fontSizeMap[count] || fontSizeMap[2]; // اگر مقدار نامعتبر بود، از پیش‌فرض (2 ستون) استفاده کن
+        document.documentElement.style.setProperty('--item-font-size', fontSize);
     }
 
     /**
@@ -479,6 +515,55 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    /**
+     * رندر کردن ابزارهای دیگر در رابط کاربری
+     */
+    function renderOtherTools() {
+        if (!toolsContainer) {
+            console.error("Tools container not found.");
+            return;
+        }
+        if (!otherTools || otherTools.length === 0) {
+            toolsContainer.innerHTML = '<p class="placeholder-text">اطلاعات ابزارها در دسترس نیست.</p>';
+            return;
+        }
+
+        toolsContainer.innerHTML = ''; // پاک کردن محتوای قبلی
+
+        otherTools.forEach(tool => {
+            const toolCard = document.createElement('div');
+            toolCard.classList.add('tool-card');
+
+            const toolName = document.createElement('h3');
+            toolName.textContent = tool.name;
+            toolCard.appendChild(toolName);
+
+            const toolDescription = document.createElement('p');
+            toolDescription.textContent = tool.description;
+            toolCard.appendChild(toolDescription);
+
+            if (tool.sub_descriptions && tool.sub_descriptions.length > 0) {
+                const subDescriptionsList = document.createElement('ul');
+                tool.sub_descriptions.forEach(subDesc => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = subDesc;
+                    subDescriptionsList.appendChild(listItem);
+                });
+                toolCard.appendChild(subDescriptionsList);
+            }
+
+            const toolLink = document.createElement('a');
+            toolLink.href = tool.link;
+            toolLink.target = "_blank";
+            toolLink.rel = "noopener noreferrer";
+            toolLink.classList.add('button'); // استفاده از کلاس button برای استایل
+            toolLink.textContent = "مشاهده ابزار";
+            toolCard.appendChild(toolLink);
+
+            toolsContainer.appendChild(toolCard);
+        });
+    }
+
 
     // Event Listeners (شنونده‌های رویداد)
     categorySelect.addEventListener('change', function() {
@@ -500,7 +585,7 @@ document.addEventListener('DOMContentLoaded', function() {
     rowCountInput.addEventListener('input', function() {
         const count = parseInt(this.value, 10);
         if (!isNaN(count) && count >= 1 && count <= 5) {
-            setGridColumns(count);
+            setGridColumns(count); // حالا این تابع هم ستون‌ها و هم فونت را تنظیم می‌کند
         } else {
             console.warn("ورودی تعداد سطر نامعتبر است. باید بین 1 تا 5 باشد.");
         }
@@ -523,8 +608,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // راه‌اندازی اولیه برنامه
     setInitialTheme(); // ابتدا تم را بارگذاری و پس‌زمینه را تنظیم کن
     populateCategorySelect();
-    setGridColumns(rowCountInput.value);
+    setGridColumns(rowCountInput.value); // تنظیم اولیه ستون‌ها و اندازه فونت
     populateClientFilters();
     renderClients();
     renderConverters();
+    renderOtherTools(); // جدید: ابزارهای دیگر را رندر کن
 });

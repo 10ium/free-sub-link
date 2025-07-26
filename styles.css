@@ -16,6 +16,8 @@
 
     /* تعداد پیش‌فرض ستون‌های گرید */
     --grid-columns: 2;
+    /* اندازه فونت پیش‌فرض برای آیتم‌ها */
+    --item-font-size: 1.1rem;
 }
 
 [data-theme="dark"] {
@@ -57,6 +59,9 @@ body {
     /* اضافه کردن transition برای تغییر نرم پس‌زمینه */
     transition: background-image 1s ease-in-out, background-color 0.3s ease, color 0.3s ease;
 }
+
+/* انیمیشن گرادیان حذف شد */
+/* @keyframes gradientShift { ... } */
 
 /* .background-pattern div دیگر وجود ندارد */
 
@@ -202,7 +207,7 @@ header p {
     box-shadow: 0 4px 15px var(--shadow);
 }
 
-.category-selector select:focus, .row-count-selector input[type="number"]:focus {
+.category-selector select:focus {
     outline: none;
     border-color: var(--accent-primary);
     box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3);
@@ -259,7 +264,9 @@ header p {
     padding: 20px;
     text-align: center;
     cursor: pointer;
-    font-family: 'Vazirmatn', sans-serif; /* فونت اموجی را از اینجا حذف کردیم تا فقط تصاویر پرچم نمایش داده شوند */
+    /* استفاده از متغیر CSS برای اندازه فونت */
+    font-size: var(--item-font-size);
+    font-family: 'Vazirmatn', sans-serif;
     font-weight: 500;
     color: var(--text-primary);
     transition: all 0.3s ease;
@@ -727,6 +734,117 @@ header p {
     box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
 }
 
+/* استایل‌های جدید برای بخش ابزارهای دیگر */
+.tools-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px var(--shadow);
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.tools-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--accent-primary);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tools-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 2 ستون در دسکتاپ، 1 ستون در موبایل */
+    gap: 30px;
+    justify-content: center;
+}
+
+.tool-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 6px 20px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25);
+    border-color: var(--accent-primary);
+}
+
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px; /* خط رنگی بالا */
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    transition: all 0.3s ease;
+}
+
+.tool-card:hover::before {
+    height: 10px; /* پهن شدن خط هنگام هاور */
+}
+
+.tool-card h3 {
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.tool-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px; /* کاهش فاصله برای sub-descriptions */
+    flex-grow: 1;
+}
+
+.tool-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    text-align: right; /* برای راست چین کردن لیست */
+    width: 100%;
+}
+
+.tool-card ul li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+    direction: rtl; /* برای اطمینان از راست چین بودن متن */
+    text-align: right;
+}
+
+.tool-card a.button {
+    background: var(--accent-primary);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+.tool-card a.button:hover {
+    background: var(--accent-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
 
 /* استایل‌های جدید برای فوتر و لینک‌های شبکه‌های اجتماعی */
 .social-links-footer {
@@ -847,12 +965,12 @@ header p {
         height: 60px;
     }
 
-    /* ریسپانسیو کردن بخش کلاینت‌ها و مبدل‌ها */
-    .clients-container, .converters-container {
+    /* ریسپانسیو کردن بخش کلاینت‌ها، مبدل‌ها و ابزارها */
+    .clients-container, .converters-container, .tools-container {
         grid-template-columns: 1fr; /* یک ستون در موبایل */
     }
 
-    .client-card, .converter-card {
+    .client-card, .converter-card, .tool-card {
         padding: 20px;
     }
 
