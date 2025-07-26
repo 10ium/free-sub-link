@@ -399,7 +399,7 @@ const allClients = [
         name: "NekoBoxForAndroid",
         description: "کلاینت چند پروتکلی متن‌باز و رایگان برای اندروید که عمدتاً از Sing-box استفاده می‌کند و قابل پیکربندی است.",
         download: {
-            android: "https://github.com/nekohasekai/nekobox/releases",
+            android: "https://github.com/MatsuriDayo/NekoBoxForAndroid/releases",
         },
         os_icons: {
             android: osIcons.android,
