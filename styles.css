@@ -14,9 +14,9 @@
     --success-dark: #059669; /* رنگ موفقیت تیره */
     --pattern-color: rgba(99, 102, 241, 0.05); /* رنگ برای الگوی پس‌زمینه (حفظ شده برای استفاده احتمالی) */
 
-    /* تعداد پیش‌فرض ستون‌های گرید برای دسکتاپ */
-    --grid-columns: 3; /* پیش‌فرض 3 ستون برای دسکتاپ */
-    /* اندازه فونت پیش‌فرض برای آیتم‌ها (متناسب با 3 ستون) */
+    /* تعداد پیش‌فرض ستون‌های گرید برای دسکتاپ (این مقدار توسط JS در زمان بارگذاری اولیه تنظیم می‌شود) */
+    --grid-columns: 3;
+    /* اندازه فونت پیش‌فرض برای آیتم‌ها (این مقدار توسط JS تنظیم می‌شود) */
     --item-font-size: 1.0rem;
 }
 
@@ -59,9 +59,6 @@ body {
     /* اضافه کردن transition برای تغییر نرم پس‌زمینه */
     transition: background-image 1s ease-in-out, background-color 0.3s ease, color 0.3s ease;
 }
-
-/* انیمیشن گرادیان حذف شد */
-/* @keyframes gradientShift { ... } */
 
 /* .background-pattern div دیگر وجود ندارد */
 
@@ -171,8 +168,8 @@ header p {
     transform: rotate(15deg);
 }
 
-/* استایل برای انتخاب‌گر دسته و تعداد سطر */
-.category-selector, .row-count-selector {
+/* استایل برای انتخاب‌گر دسته */
+.category-selector {
     margin-bottom: 35px;
     text-align: center;
     background: var(--bg-card);
@@ -183,7 +180,7 @@ header p {
     transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.category-selector label, .row-count-selector label {
+.category-selector label {
     display: block;
     margin-bottom: 15px;
     font-weight: 600;
@@ -192,14 +189,13 @@ header p {
     transition: color 0.3s ease;
 }
 
-.category-selector select, .row-count-selector input[type="number"] {
+.category-selector select {
     padding: 15px 25px;
-    /* اضافه کردن فونت‌های اموجی سیستمی */
     font-family: 'Vazirmatn', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
     font-size: 1.1rem;
     border: 2px solid var(--border-color);
     border-radius: 16px;
-    background: var(--bg-secondary); /* استفاده از رنگ ثانویه برای پس‌زمینه ورودی‌ها */
+    background: var(--bg-secondary);
     color: var(--text-primary);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -214,19 +210,54 @@ header p {
     transform: translateY(-2px);
 }
 
-/* استایل خاص برای فیلد ورودی تعداد سطر */
-.row-count-selector input[type="number"] {
-    -moz-appearance: textfield; /* برای فایرفاکس */
-    appearance: textfield;
-    text-align: center;
+/* استایل‌های جدید برای تنظیمات نمایش (تعداد سطر و فیلترهای کلاینت) */
+.display-settings {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* برای ریسپانسیو بودن */
+    gap: 20px; /* فاصله بین گروه‌های فیلتر */
+    margin-bottom: 35px;
+    background: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px var(--shadow);
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* مخفی کردن دکمه‌های بالا و پایین در فیلد ورودی عدد برای مرورگرهای WebKit */
-.row-count-selector input[type="number"]::-webkit-outer-spin-button,
-.row-count-selector input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.display-settings .filter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
+
+.display-settings label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.display-settings select {
+    padding: 10px 15px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px; /* حداقل عرض برای selectها */
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.display-settings select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
 
 /* کانتینر آیتم‌ها */
 .items-container {
@@ -479,46 +510,9 @@ header p {
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.client-filters {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 30px;
-    flex-wrap: wrap; /* برای ریسپانسیو بودن */
-}
-
-.filter-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.client-filters label {
-    font-weight: 600;
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-}
-
-.client-filters select {
-    padding: 10px 15px;
-    font-family: 'Vazirmatn', sans-serif;
-    font-size: 1rem;
-    border: 2px solid var(--border-color);
-    border-radius: 12px;
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 180px;
-    box-shadow: 0 2px 8px var(--shadow);
-}
-
-.client-filters select:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
+/* .client-filters از display-settings استفاده می‌کند */
+/* .client-filters label از display-settings استفاده می‌کند */
+/* .client-filters select از display-settings استفاده می‌کند */
 
 
 .clients-container {
@@ -896,11 +890,11 @@ header p {
 
 /* Media Queries برای ریسپانسیو بودن */
 @media (max-width: 768px) {
-    /* تنظیم پیش‌فرض 1 ستون برای موبایل در داخل مدیا کوئری */
-    :root {
-        --grid-columns: 1; /* پیش‌فرض 1 ستون برای موبایل */
-        --item-font-size: 1.3rem; /* اندازه فونت بزرگتر برای 1 ستون */
-    }
+    /* حذف override ثابت برای موبایل */
+    /* :root {
+        --grid-columns: 1;
+        --item-font-size: 1.3rem;
+    } */
 
     .container {
         padding: 15px;
@@ -915,16 +909,27 @@ header p {
         font-size: 2.2rem;
     }
 
-    .category-selector select, .row-count-selector input[type="number"] {
+    .category-selector select {
         min-width: unset; /* حذف حداقل عرض */
         width: 100%; /* گرفتن عرض کامل */
         max-width: 300px; /* حداکثر عرض برای صفحه کوچک‌تر */
         padding: 12px 20px;
     }
 
+    /* تنظیمات نمایش (تعداد سطر و فیلترها) در موبایل */
+    .display-settings {
+        flex-direction: column; /* در موبایل به صورت ستونی نمایش داده شوند */
+        gap: 15px; /* کاهش فاصله */
+    }
+
+    .display-settings select {
+        min-width: unset;
+        width: 100%;
+        max-width: 250px;
+    }
+
     /* .items-list, .clients-container, .converters-container, .tools-container
-       حالا از --grid-columns استفاده می‌کنند که در :root داخل مدیا کوئری تنظیم شده است.
-       بنابراین نیازی به override مستقیم 1fr نیست. */
+       حالا از --grid-columns استفاده می‌کنند که توسط JS تنظیم می‌شود. */
 
     .link-header {
         flex-direction: column;
@@ -996,16 +1001,5 @@ header p {
     .os-icons-container img {
         width: 30px;
         height: 30px;
-    }
-
-    .client-filters {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .client-filters select {
-        min-width: unset;
-        width: 100%;
-        max-width: 250px;
     }
 }

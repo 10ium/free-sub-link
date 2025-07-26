@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('theme-toggle');
     const scrollTopBtn = document.getElementById('scroll-top');
     const scrollBottomBtn = document.getElementById('scroll-bottom');
-    const rowCountInput = document.getElementById('row-count');
+    const rowCountSelect = document.getElementById('row-count'); // تغییر یافت: از input به select
     const clientsContainer = document.getElementById('clients-container');
     const coreFilterSelect = document.getElementById('core-filter');
     const osFilterSelect = document.getElementById('os-filter');
     const convertersContainer = document.getElementById('converters-container');
-    const toolsContainer = document.getElementById('tools-container'); // جدید: کانتینر ابزارها
+    const toolsContainer = document.getElementById('tools-container');
 
     // نگاشت نام کشورها به کدهای دو حرفی ISO برای دریافت پرچم
     const countryFlagMap = {
@@ -28,13 +28,13 @@ document.addEventListener('DOMContentLoaded', function() {
         "بلغارستان": "bg", "کانادا": "ca", "چین": "cn", "کلمبیا": "co", "کرواسی": "hr",
         "قبرس": "cy", "چک": "cz", "دانمارک": "dk", "اکوادور": "ec",
         "استونی": "ee", "فنلاند": "fi", "فرانسه": "fr", "آلمان": "de", "جبل‌الطارق": "gi",
-        "یونان": "gr", "گواتمالا": "gt", // اصلاح: از '🇹' به 'gt' تغییر یافت
+        "یونان": "gr", "گواتمالا": "gt",
         "هنگ کنگ": "hk", "مجارستان": "hu", "ایسلند": "is", "هند": "in",
         "اندونزی": "id", "ایران": "ir", "عراق": "iq", "ایرلند": "ie",
         "اسرائیل": "il", "ایتالیا": "it", "ژاپن": "jp", "اردن": "jo", "قزاقستان": "kz",
         "کره جنوبی": "kr", "لتونی": "lv", "لیتوانی": "lt", "لوکزامبورگ": "lu", "مالزی": "my",
         "مالت": "mt", "مکزیک": "mx", "مولداوی": "md", "هلند": "nl", "نیوزیلند": "nz",
-        "مقدونیه شمالی": "mk", "نروژ": "no", "نامشخص": "un", // 'un' برای پرچم نامشخص یا عمومی
+        "مقدونیه شمالی": "mk", "نروژ": "no", "نامشخص": "un",
         "عمان": "om", "پاکستان": "pk", "پاراگوئه": "py", "پرو": "pe", "فیلیپین": "ph",
         "لهستان": "pl", "پرتغال": "pt", "پورتوریکو": "pr", "رومانی": "ro", "روسیه": "ru",
         "صربستان": "rs", "سیشل": "sc", "سنگاپور": "sg", "اسلواکی": "sk", "اسلوونی": "si",
@@ -341,8 +341,7 @@ document.addEventListener('DOMContentLoaded', function() {
      * @param {number} count - تعداد ستون‌ها
      */
     function setGridColumns(count) {
-        // این تابع فقط متغیر CSS را تنظیم می‌کند.
-        // Media Query در CSS اولویت را برای موبایل روی 1 ستون نگه می‌دارد.
+        // این تابع متغیر CSS را تنظیم می‌کند که سپس توسط CSS Grid استفاده می‌شود.
         document.documentElement.style.setProperty('--grid-columns', count);
 
         // تنظیم اندازه فونت بر اساس تعداد ستون‌ها
@@ -587,14 +586,20 @@ document.addEventListener('DOMContentLoaded', function() {
     scrollTopBtn.addEventListener('click', scrollToTop);
     scrollBottomBtn.addEventListener('click', scrollToBottom);
 
-    rowCountInput.addEventListener('input', function() {
-        const count = parseInt(this.value, 10);
-        if (!isNaN(count) && count >= 1 && count <= 5) {
-            setGridColumns(count); // حالا این تابع هم ستون‌ها و هم فونت را تنظیم می‌کند
-        } else {
-            console.warn("ورودی تعداد سطر نامعتبر است. باید بین 1 تا 5 باشد.");
-        }
-    });
+    // شنونده رویداد برای rowCountSelect
+    if (rowCountSelect) {
+        rowCountSelect.addEventListener('change', function() {
+            const count = parseInt(this.value, 10);
+            if (!isNaN(count) && count >= 1 && count <= 5) {
+                setGridColumns(count); // حالا این تابع هم ستون‌ها و هم فونت را تنظیم می‌کند
+            } else {
+                console.warn("ورودی تعداد سطر نامعتبر است. باید بین 1 تا 5 باشد.");
+            }
+        });
+    } else {
+        console.error("Element with ID 'row-count' not found. Row count functionality may not work.");
+    }
+
 
     // شنونده‌های رویداد برای فیلترهای کلاینت
     if (coreFilterSelect) {
@@ -613,9 +618,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // راه‌اندازی اولیه برنامه
     setInitialTheme(); // ابتدا تم را بارگذاری و پس‌زمینه را تنظیم کن
     populateCategorySelect();
-    setGridColumns(rowCountInput.value); // تنظیم اولیه ستون‌ها و اندازه فونت
+    
+    // تنظیم اولیه تعداد ستون‌ها بر اساس نوع دستگاه
+    if (rowCountSelect) {
+        const isMobile = window.innerWidth <= 768; // تعریف نقطه شکست موبایل
+        if (isMobile) {
+            rowCountSelect.value = '1'; // پیش‌فرض 1 ستون برای موبایل
+        } else {
+            rowCountSelect.value = '3'; // پیش‌فرض 3 ستون برای دسکتاپ
+        }
+        setGridColumns(parseInt(rowCountSelect.value, 10));
+    } else {
+        // Fallback اگر select یافت نشد (برای اطمینان از عدم خطا)
+        const defaultColumns = window.innerWidth <= 768 ? 1 : 3;
+        setGridColumns(defaultColumns);
+    }
+
     populateClientFilters();
     renderClients();
     renderConverters();
-    renderOtherTools(); // جدید: ابزارهای دیگر را رندر کن
+    renderOtherTools();
 });
