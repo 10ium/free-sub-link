@@ -1,4 +1,7 @@
 // script.js
+// توجه: این فایل به عنوان یک ماژول بارگذاری می‌شود (type="module" در index.html)
+import { suggestedClients } from './clients.js'; // وارد کردن داده‌های کلاینت‌ها
+
 document.addEventListener('DOMContentLoaded', function() {
     // گرفتن ارجاع به عناصر DOM
     const categorySelect = document.getElementById('category-select');
@@ -10,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('theme-toggle');
     const scrollTopBtn = document.getElementById('scroll-top');
     const scrollBottomBtn = document.getElementById('scroll-bottom');
-    const rowCountInput = document.getElementById('row-count'); // جدید: فیلد ورودی تعداد سطر
+    const rowCountInput = document.getElementById('row-count');
+    const clientsContainer = document.getElementById('clients-container'); // جدید: کانتینر کلاینت‌ها
 
     /**
      * تابع برای تنظیم تم (روشن یا تیره)
@@ -205,6 +209,81 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.style.setProperty('--grid-columns', count);
     }
 
+    /**
+     * رندر کردن کلاینت‌های پیشنهادی در رابط کاربری
+     */
+    function renderClients() {
+        if (!clientsContainer) {
+            console.error("Clients container not found.");
+            return;
+        }
+        if (!suggestedClients || suggestedClients.length === 0) {
+            clientsContainer.innerHTML = '<p class="placeholder-text">اطلاعات کلاینت‌ها در دسترس نیست.</p>';
+            return;
+        }
+
+        clientsContainer.innerHTML = ''; // پاک کردن محتوای قبلی
+
+        suggestedClients.forEach(client => {
+            const clientCard = document.createElement('div');
+            clientCard.classList.add('client-card');
+
+            // هدر کارت (نام کلاینت و آیکون هسته)
+            const clientHeader = document.createElement('div');
+            clientHeader.classList.add('client-header');
+            if (client.core_icon) {
+                const coreIcon = document.createElement('img');
+                coreIcon.src = client.core_icon;
+                coreIcon.alt = `${client.name} core icon`;
+                coreIcon.classList.add('core-icon');
+                coreIcon.onerror = function() { this.style.display='none'; }; // مخفی کردن در صورت عدم بارگذاری
+                clientHeader.appendChild(coreIcon);
+            }
+            const clientName = document.createElement('h3');
+            clientName.textContent = client.name;
+            clientHeader.appendChild(clientName);
+            clientCard.appendChild(clientHeader);
+
+            // توضیحات کلاینت
+            const clientDescription = document.createElement('p');
+            clientDescription.classList.add('client-description');
+            clientDescription.textContent = client.description;
+            clientCard.appendChild(clientDescription);
+
+            // آیکون‌های سیستم عامل
+            const osIconsContainer = document.createElement('div');
+            osIconsContainer.classList.add('os-icons-container');
+            if (client.os_icons) {
+                for (const os in client.os_icons) {
+                    const osIcon = document.createElement('img');
+                    osIcon.src = client.os_icons[os];
+                    osIcon.alt = os;
+                    osIcon.onerror = function() { this.style.display='none'; }; // مخفی کردن در صورت عدم بارگذاری
+                    osIconsContainer.appendChild(osIcon);
+                }
+            }
+            clientCard.appendChild(osIconsContainer);
+
+            // لینک‌های دانلود
+            const downloadLinksDiv = document.createElement('div');
+            downloadLinksDiv.classList.add('download-links');
+            if (client.download) {
+                for (const platform in client.download) {
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = client.download[platform];
+                    downloadLink.target = "_blank";
+                    downloadLink.rel = "noopener noreferrer";
+                    downloadLink.textContent = `دانلود برای ${platform.charAt(0).toUpperCase() + platform.slice(1)}`; // مثلاً "دانلود برای Android"
+                    downloadLinksDiv.appendChild(downloadLink);
+                }
+            }
+            clientCard.appendChild(downloadLinksDiv);
+
+            clientsContainer.appendChild(clientCard);
+        });
+    }
+
+
     // Event Listeners (شنونده‌های رویداد)
     categorySelect.addEventListener('change', function() {
         const selectedCategory = this.value;
@@ -238,4 +317,5 @@ document.addEventListener('DOMContentLoaded', function() {
     setInitialTheme(); // ابتدا تم را بارگذاری کن
     populateCategorySelect(); // منوی دسته‌بندی را پر کن
     setGridColumns(rowCountInput.value); // تعداد ستون‌های اولیه را بر اساس مقدار پیش‌فرض فیلد ورودی تنظیم کن
+    renderClients(); // جدید: کلاینت‌ها را رندر کن
 });

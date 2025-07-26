@@ -12,7 +12,11 @@
     --accent-secondary: #818cf8; /* رنگ برجسته ثانویه (بنفش روشن) */
     --success: #10b981; /* رنگ موفقیت (سبز) */
     --success-dark: #059669; /* رنگ موفقیت تیره */
-    --pattern-color: rgba(99, 102, 241, 0.05); /* رنگ برای الگوی پس‌زمینه */
+    --pattern-color: rgba(99, 102, 241, 0.05); /* رنگ برای الگوی پس‌زمینه (حفظ شده برای استفاده احتمالی) */
+
+    /* رنگ‌های گرادیان برای پس‌زمینه انیمیشنی */
+    --gradient-start-light: #e0e7ff; /* آبی روشن بسیار ملایم */
+    --gradient-end-light: #f0f4ff;   /* آبی روشن‌تر */
 
     /* تعداد پیش‌فرض ستون‌های گرید */
     --grid-columns: 2;
@@ -32,6 +36,10 @@
     --success: #10b981;
     --success-dark: #059669;
     --pattern-color: rgba(129, 140, 248, 0.05);
+
+    /* رنگ‌های گرادیان برای پس‌زمینه انیمیشنی در تم تیره */
+    --gradient-start-dark: #1a202c; /* خاکستری تیره */
+    --gradient-end-dark: #2d3748;   /* خاکستری تیره‌تر */
 }
 
 /* تنظیمات کلی برای همه عناصر */
@@ -42,7 +50,8 @@
 }
 
 body {
-    font-family: 'Vazirmatn', sans-serif;
+    /* اضافه کردن فونت‌های اموجی سیستمی برای اطمینان از نمایش صحیح */
+    font-family: 'Vazirmatn', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
@@ -52,21 +61,40 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease; /* انتقال نرم برای تغییر تم */
 }
 
-/* الگوی پس‌زمینه */
+/* پس‌زمینه انیمیشنی جدید */
 .background-pattern {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image:
-        radial-gradient(var(--pattern-color) 1px, transparent 1px),
-        radial-gradient(var(--pattern-color) 1px, transparent 1px);
-    background-size: 40px 40px;
-    background-position: 0 0, 20px 20px;
+    /* گرادیان اولیه */
+    background: linear-gradient(135deg, var(--gradient-start-light), var(--gradient-end-light));
+    background-size: 400% 400%; /* بزرگ کردن اندازه گرادیان برای انیمیشن حرکت */
+    animation: gradientShift 15s ease infinite alternate; /* اعمال انیمیشن */
     z-index: -1;
-    opacity: 0.5;
+    opacity: 1; /* اطمینان از نمایش کامل */
 }
+
+/* انیمیشن گرادیان */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* تغییر رنگ گرادیان در تم تیره */
+[data-theme="dark"] .background-pattern {
+    background: linear-gradient(135deg, var(--gradient-start-dark), var(--gradient-end-dark));
+    background-size: 400% 400%;
+}
+
 
 /* کانتینر اصلی محتوا */
 .container {
@@ -196,7 +224,8 @@ header p {
 
 .category-selector select, .row-count-selector input[type="number"] {
     padding: 15px 25px;
-    font-family: 'Vazirmatn', sans-serif;
+    /* اضافه کردن فونت‌های اموجی سیستمی */
+    font-family: 'Vazirmatn', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
     font-size: 1.1rem;
     border: 2px solid var(--border-color);
     border-radius: 16px;
@@ -265,7 +294,8 @@ header p {
     padding: 20px;
     text-align: center;
     cursor: pointer;
-    font-family: 'Vazirmatn', sans-serif;
+    /* اضافه کردن فونت‌های اموجی سیستمی */
+    font-family: 'Vazirmatn', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
     font-weight: 500;
     color: var(--text-primary);
     transition: all 0.3s ease;
@@ -443,6 +473,189 @@ header p {
     transform: translateX(0); /* نمایش نوتیفیکیشن */
 }
 
+/* استایل‌های جدید برای بخش کلاینت‌ها */
+.clients-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px var(--shadow);
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.clients-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--accent-primary);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.clients-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 2 ستون در دسکتاپ، 1 ستون در موبایل */
+    gap: 30px;
+    justify-content: center;
+}
+
+.client-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 6px 20px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.client-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25);
+    border-color: var(--accent-primary);
+}
+
+.client-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px; /* خط رنگی بالا */
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    transition: all 0.3s ease;
+}
+
+.client-card:hover::before {
+    height: 10px; /* پهن شدن خط هنگام هاور */
+}
+
+.client-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.client-header .core-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: contain;
+    background-color: rgba(0,0,0,0.05);
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.client-header h3 {
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.client-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    flex-grow: 1; /* برای اینکه توضیحات فضای موجود را اشغال کند */
+}
+
+.os-icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* برای شکستن آیکون‌ها به خط بعدی در صورت نیاز */
+}
+
+.os-icons-container img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.os-icons-container img:hover {
+    transform: scale(1.15);
+}
+
+.download-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.download-links a {
+    background: var(--accent-primary);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: block; /* برای گرفتن عرض کامل */
+}
+
+.download-links a:hover {
+    background: var(--accent-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+/* استایل‌های جدید برای فوتر و لینک‌های شبکه‌های اجتماعی */
+.social-links-footer {
+    margin-top: 60px; /* فاصله از محتوای بالا */
+    padding: 30px 20px;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    border-radius: 20px; /* گوشه‌های گرد برای فوتر */
+    box-shadow: 0 -8px 25px var(--shadow); /* سایه به سمت بالا */
+    text-align: center;
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.social-links-container {
+    display: flex;
+    justify-content: center; /* وسط چین کردن لینک‌ها */
+    flex-wrap: wrap; /* برای ریسپانسیو بودن و شکستن به خط بعدی */
+    gap: 25px; /* فاصله بین آیتم‌ها */
+    max-width: 600px; /* حداکثر عرض برای کانتینر لینک‌ها */
+    margin: 0 auto; /* وسط چین کردن کانتینر در فوتر */
+}
+
+.social-links-container a {
+    display: block; /* برای اینکه لینک‌ها بلاک باشند و بتوانند عرض و ارتفاع بگیرند */
+    transition: transform 0.3s ease; /* انیمیشن هنگام هاور */
+}
+
+.social-links-container a:hover {
+    transform: translateY(-5px) scale(1.05); /* کمی بالا رفتن و بزرگ شدن هنگام هاور */
+}
+
+.social-links-container img {
+    width: 80px; /* اندازه پیش‌فرض تصاویر */
+    height: 80px;
+    border-radius: 50%; /* گرد کردن تصاویر */
+    object-fit: cover; /* اطمینان از پوشش کامل تصویر */
+    border: 3px solid var(--accent-primary); /* حاشیه رنگی */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* سایه برای تصاویر */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .social-links-container img {
+    border-color: var(--accent-secondary); /* تغییر رنگ حاشیه در تم تیره */
+}
+
+
 /* Media Queries برای ریسپانسیو بودن */
 @media (max-width: 768px) {
     .container {
@@ -505,5 +718,38 @@ header p {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
+    }
+
+    /* ریسپانسیو کردن لینک‌های اجتماعی در موبایل */
+    .social-links-container {
+        gap: 15px; /* کاهش فاصله بین آیتم‌ها در موبایل */
+    }
+
+    .social-links-container img {
+        width: 60px; /* کوچک‌تر کردن تصاویر در موبایل */
+        height: 60px;
+    }
+
+    /* ریسپانسیو کردن بخش کلاینت‌ها */
+    .clients-container {
+        grid-template-columns: 1fr; /* یک ستون در موبایل */
+    }
+
+    .client-card {
+        padding: 20px;
+    }
+
+    .client-header .core-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .client-header h3 {
+        font-size: 1.4rem;
+    }
+
+    .os-icons-container img {
+        width: 30px;
+        height: 30px;
     }
 }
