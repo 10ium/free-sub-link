@@ -26,7 +26,7 @@ const allClients = [
     // کلاینت‌های V2ray
     {
         name: "v2rayN",
-        description: "کلاینت محبوب V2Ray برای ویندوز و اندروید با پشتیبانی از هسته‌های Xray و v2fly.",
+        description: "کلاینت محبوب V2Ray برای ویندوز و اندروید با پشتیبانی از هسته‌های Xray و v2fly. متن‌باز و رایگان.",
         download: {
             windows: "https://sourceforge.net/directory/v2ray-clients/",
             android: "https://github.com/2dust/v2rayNG/releases",
@@ -40,13 +40,13 @@ const allClients = [
     },
     {
         name: "Hiddify-app",
-        description: "کلاینت پراکسی خودکار چندپلتفرمی با پشتیبانی گسترده از پروتکل‌ها و هسته‌ها (V2ray, X-Ray, Singbox, Clash Meta).",
+        description: "کلاینت پراکسی خودکار چندپلتفرمی متن‌باز و رایگان با پشتیبانی گسترده از پروتکل‌ها و هسته‌ها (V2ray, X-Ray, Singbox, Clash Meta).",
         download: {
-            windows: "https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Windows-Setup-x64.exe",
-            macos: "https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-MacOS.dmg",
-            linux: "https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Linux-x64.AppImage",
-            android: "https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Android-universal.apk",
-            ios: "https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-iOS.ipa", // لینک مستقیم .ipa
+            windows: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Windows-Setup-x64.exe",
+            macos: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-MacOS.dmg",
+            linux: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Linux-x64.AppImage",
+            android: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Android-universal.apk",
+            ios: "https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532", // لینک اپ استور
         },
         os_icons: {
             windows: osIcons.windows,
@@ -60,7 +60,7 @@ const allClients = [
     },
     {
         name: "Surfing (Magisk Module)",
-        description: "ماژول Magisk/Kernelsu/APatch برای اندروید با پشتیبانی از هسته‌های V2ray, Xray, Clash/Mihomo, Singbox و Hysteria. این یک ماژول سیستمی است و رابط کاربری گرافیکی مستقیم ندارد.",
+        description: "ماژول Magisk/Kernelsu/APatch متن‌باز و رایگان برای اندروید با پشتیبانی از هسته‌های V2ray, Xray, Clash/Mihomo, Singbox و Hysteria. این یک ماژول سیستمی است و رابط کاربری گرافیکی مستقیم ندارد.",
         download: {
             android: "https://github.com/MoGuangYu/Surfing/releases",
         },
@@ -72,13 +72,11 @@ const allClients = [
     },
     {
         name: "V2RayU",
-        description: "رابط کاربری گرافیکی برای V2ray در macOS با قابلیت مدیریت چند کاربره و آمار ترافیک. سازگاری با iOS را نیز نشان می‌دهد.",
+        description: "رابط کاربری گرافیکی متن‌باز و رایگان برای V2ray در macOS با قابلیت مدیریت چند کاربره و آمار ترافیک.",
         download: {
-            ios: "https://sourceforge.net/projects/v2rayu.mirror/files/latest/download", // لینک دانلود برای iOS
-            macos: "https://sourceforge.net/projects/v2rayu.mirror/files/latest/download",
+            macos: "https://github.com/Cenmrev/V2RayX/releases", // V2RayU در App Store نیست، از V2RayX استفاده می‌شود که مشابه است.
         },
         os_icons: {
-            ios: osIcons.ios,
             macos: osIcons.macos,
         },
         core_icon: coreIcons.v2ray,
@@ -86,7 +84,7 @@ const allClients = [
     },
     {
         name: "v2rayA",
-        description: "کلاینت GUI وب برای Project V، قابل استقرار روی روتر/NAS و پشتیبانی از پروکسی شفاف جهانی (لینوکس) و پروکسی سیستمی (ویندوز/macOS). رابط کاربری آن از طریق مرورگر وب قابل دسترسی است.",
+        description: "کلاینت GUI وب متن‌باز و رایگان برای Project V، قابل استقرار روی روتر/NAS و پشتیبانی از پروکسی شفاف جهانی (لینوکس) و پروکسی سیستمی (ویندوز/macOS). رابط کاربری آن از طریق مرورگر وب قابل دسترسی است.",
         download: {
             windows: "https://github.com/v2rayA/v2rayA/releases",
             macos: "https://github.com/v2rayA/v2rayA/releases",
@@ -104,7 +102,7 @@ const allClients = [
     },
     {
         name: "V2RayX",
-        description: "رابط کاربری گرافیکی ساده برای V2Ray در macOS، با قابلیت مدیریت پروکسی سیستم و ادغام نوار منو.",
+        description: "رابط کاربری گرافیکی ساده متن‌باز و رایگان برای V2Ray در macOS، با قابلیت مدیریت پروکسی سیستم و ادغام نوار منو.",
         download: {
             macos: "https://github.com/Cenmrev/V2RayX/releases",
         },
@@ -116,7 +114,7 @@ const allClients = [
     },
     {
         name: "V2Ray Core (CLI)",
-        description: "هسته اصلی Project V، یک ابزار خط فرمان انعطاف‌پذیر با پشتیبانی از پروتکل‌های متعدد و کنترل شبکه سطح پایین. این کلاینت رابط کاربری گرافیکی ندارد و برای کاربران پیشرفته مناسب است.",
+        description: "هسته اصلی Project V، یک ابزار خط فرمان انعطاف‌پذیر متن‌باز و رایگان با پشتیبانی از پروتکل‌های متعدد و کنترل شبکه سطح پایین. این کلاینت رابط کاربری گرافیکی ندارد و برای کاربران پیشرفته مناسب است.",
         download: {
             linux: "https://github.com/v2ray/v2ray-core/releases",
         },
@@ -125,6 +123,34 @@ const allClients = [
         },
         core_icon: coreIcons.v2ray,
         core_type: "V2Ray"
+    },
+    {
+        name: "NapsternetV",
+        description: "کلاینت پیشرفته V2Ray و SSH VPN متن‌باز و رایگان برای اندروید و iOS با قابلیت سفارشی‌سازی بالا از طریق فایل‌های پیکربندی .npv. بدون تبلیغات.",
+        download: {
+            android: "https://github.com/NapsternetV-Fyp/NapsternetV-APK/releases/",
+            ios: "https://apps.apple.com/us/app/npv-tunnel/id1629465476", // Npv Tunnel همان NapsternetV است.
+        },
+        os_icons: {
+            android: osIcons.android,
+            ios: osIcons.ios,
+        },
+        core_icon: coreIcons.v2ray, // از هسته V2Ray استفاده می‌کند
+        core_type: "V2Ray"
+    },
+    {
+        name: "v2box",
+        description: "کلاینت VPN رایگان برای پلتفرم‌های Apple و Android با پشتیبانی از پروتکل‌های Shadowsocks, V2ray, Vmess, Trojan, SSH, Reality (xray), Vless Vision. وضعیت متن‌باز بودن برنامه کلاینت نامشخص است.",
+        download: {
+            ios: "https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690?platform=iphone",
+            android: "https://github.com/V2Box-APKDescargar/V2Box-APK/releases/",
+        },
+        os_icons: {
+            ios: osIcons.ios,
+            android: osIcons.android,
+        },
+        core_icon: coreIcons.v2ray, // از هسته‌های V2Ray/Xray استفاده می‌کند
+        core_type: "V2Ray/Xray"
     },
 
     // کلاینت‌های X-Ray
@@ -142,7 +168,7 @@ const allClients = [
     },
     {
         name: "GoXRay",
-        description: "کلاینت دسکتاپ XRay برای macOS و لینوکس، آسان برای استفاده با آمار شبکه در لحظه.",
+        description: "کلاینت دسکتاپ XRay متن‌باز و رایگان برای macOS و لینوکس، آسان برای استفاده با آمار شبکه در لحظه.",
         download: {
             macos: "https://github.com/goxray/desktop/releases", // شامل نسخه‌های macOS و Linux
             linux: "https://github.com/goxray/desktop/releases",
@@ -156,7 +182,7 @@ const allClients = [
     },
     {
         name: "Exclave",
-        description: "کلاینت پروکسی اندروید فورک شده از SagerNet، پشتیبانی از پلاگین‌های مختلف برای پروتکل‌ها (Hysteria 2, Mieru, Brook, Juicity, TUIC v5).",
+        description: "کلاینت پراکسی اندروید متن‌باز و رایگان فورک شده از SagerNet، پشتیبانی از پلاگین‌های مختلف برای پروتکل‌ها (Hysteria 2, Mieru, Brook, Juicity, TUIC v5).",
         download: {
             android: "https://github.com/dyhkwong/Exclave/releases",
         },
@@ -168,7 +194,7 @@ const allClients = [
     },
     {
         name: "X-UI (NidukaAkalanka/x-ui-english)",
-        description: "پنل Xray چند پروتکلی و چند کاربره با ویژگی‌های پیشرفته، قابل نصب روی لینوکس (سرور). این یک پنل مدیریت مبتنی بر وب است و رابط کاربری دسکتاپ مستقیم ندارد.",
+        description: "پنل Xray چند پروتکلی و چند کاربره متن‌باز و رایگان با ویژگی‌های پیشرفته، قابل نصب روی لینوکس (سرور). این یک پنل مدیریت مبتنی بر وب است و رابط کاربری دسکتاپ مستقیم ندارد.",
         download: {
             linux: "https://github.com/NidukaAkalanka/x-ui-english/releases/latest",
         },
@@ -182,7 +208,7 @@ const allClients = [
     // کلاینت‌های Mihomo/Clash Meta
     {
         name: "Clash Verge Rev",
-        description: "کلاینت GUI مدرن مبتنی بر Tauri با هسته داخلی Mihomo برای ویندوز، macOS و لینوکس.",
+        description: "کلاینت GUI مدرن مبتنی بر Tauri متن‌باز و رایگان با هسته داخلی Mihomo برای ویندوز، macOS و لینوکس.",
         download: {
             windows: "https://github.com/clash-verge-rev/clash-verge-rev/releases",
             macos: "https://github.com/clash-verge-rev/clash-verge-rev/releases",
@@ -198,7 +224,7 @@ const allClients = [
     },
     {
         name: "FlClash",
-        description: "کلاینت چندپلتفرمی مبتنی بر ClashMeta برای اندروید، ویندوز، macOS و لینوکس با UI ساده.",
+        description: "کلاینت چندپلتفرمی مبتنی بر ClashMeta متن‌باز و رایگان برای اندروید، ویندوز، macOS و لینوکس با UI ساده.",
         download: {
             windows: "https://github.com/chen08209/FlClash/releases",
             macos: "https://github.com/chen08209/FlClash/releases",
@@ -215,8 +241,8 @@ const allClients = [
         core_type: "Mihomo"
     },
     {
-        name: "ClashMi", // این همان KaringX/clashmi است که قبلاً اضافه شده بود
-        description: "ابزار پراکسی برای iOS/Android/macOS/Windows بر پایه هسته Mihomo با پنل داشبورد وب.",
+        name: "ClashMi",
+        description: "ابزار پراکسی متن‌باز و رایگان برای iOS/Android/macOS/Windows بر پایه هسته Mihomo با پنل داشبورد وب.",
         download: {
             ios: "https://apps.apple.com/us/app/clash-mi/id6744321968",
             android: "https://github.com/KaringX/clashmi/releases/latest",
@@ -234,7 +260,7 @@ const allClients = [
     },
     {
         name: "ClashMetaForAndroid",
-        description: "کلاینت اختصاصی Clash Meta برای اندروید با به‌روزرسانی‌های مداوم.",
+        description: "کلاینت اختصاصی Clash Meta متن‌باز و رایگان برای اندروید با به‌روزرسانی‌های مداوم.",
         download: {
             android: "https://github.com/MetaCubeX/ClashMetaForAndroid/releases",
         },
@@ -246,7 +272,7 @@ const allClients = [
     },
     {
         name: "ClashX.Meta",
-        description: "فورکی از ClashX برای macOS با پشتیبانی از پروتکل‌های مختلف و قوانین GeoIP.",
+        description: "فورکی از ClashX متن‌باز و رایگان برای macOS با پشتیبانی از پروتکل‌های مختلف و قوانین GeoIP.",
         download: {
             macos: "https://github.com/MetaCubeX/ClashX.Meta/releases",
         },
@@ -258,7 +284,7 @@ const allClients = [
     },
     {
         name: "Mihomo-party",
-        description: "کلاینت GUI Mihomo برای ویندوز، macOS و لینوکس با تم‌های قابل تنظیم و ادغام Sub-Store.",
+        description: "کلاینت GUI Mihomo متن‌باز و رایگان برای ویندوز، macOS و لینوکس با تم‌های قابل تنظیم و ادغام Sub-Store.",
         download: {
             windows: "https://mihomo.party/download/windows", // لینک‌های مستقیم‌تر
             macos: "https://mihomo.party/download/macos",
@@ -274,7 +300,7 @@ const allClients = [
     },
     {
         name: "GUI.for.Clash",
-        description: "برنامه GUI برای مدیریت هسته‌های Mihomo در ویندوز، macOS و لینوکس.",
+        description: "برنامه GUI متن‌باز و رایگان برای مدیریت هسته‌های Mihomo در ویندوز، macOS و لینوکس.",
         download: {
             windows: "https://github.com/GUI-for-Cores/GUI.for.Clash/releases",
             macos: "https://github.com/GUI-for-Cores/GUI.for.Clash/releases",
@@ -290,7 +316,7 @@ const allClients = [
     },
     {
         name: "ShellCrash",
-        description: "اسکریپت مدیریتی برای Clash در محیط Shell، پشتیبانی از روترهای OpenWrt و سیستم‌های لینوکس سفارشی. این کلاینت رابط کاربری گرافیکی مستقیم ندارد و از طریق خط فرمان یا رابط وب محلی قابل مدیریت است.",
+        description: "اسکریپت مدیریتی متن‌باز و رایگان برای Clash در محیط Shell، پشتیبانی از روترهای OpenWrt و سیستم‌های لینوکس سفارشی. این کلاینت رابط کاربری گرافیکی مستقیم ندارد و از طریق خط فرمان یا رابط وب محلی قابل مدیریت است.",
         download: {
             router_os: "https://github.com/juewuy/ShellCrash", // برای روترها
             linux: "https://github.com/juewuy/ShellCrash",
@@ -304,7 +330,7 @@ const allClients = [
     },
     {
         name: "Mihomo-OpenWrt",
-        description: "ساخت بومی از Mihomo برای OpenWrt، با تمرکز بر ویژگی auto-redirect. این یک هسته برای روترها است و رابط کاربری گرافیکی مستقیم ندارد.",
+        description: "ساخت بومی متن‌باز و رایگان از Mihomo برای OpenWrt، با تمرکز بر ویژگی auto-redirect. این یک هسته برای روترها است و رابط کاربری گرافیکی مستقیم ندارد.",
         download: {
             router_os: "https://github.com/douglarek/vanilla-mihomo/releases",
         },
@@ -316,7 +342,7 @@ const allClients = [
     },
     {
         name: "OpenClash (with Mihomo core)",
-        description: "پلاگین OpenWrt که می‌تواند از هسته Mihomo استفاده کند، با رابط کاربری وب برای پیکربندی. این یک پلاگین برای روتر است و رابط کاربری آن از طریق مرورگر وب قابل دسترسی است.",
+        description: "پلاگین OpenWrt متن‌باز و رایگان که می‌تواند از هسته Mihomo استفاده کند، با رابط کاربری وب برای پیکربندی. این یک پلاگین برای روتر است و رابط کاربری آن از طریق مرورگر وب قابل دسترسی است.",
         download: {
             router_os: "https://github.com/vernesong/Openclash/releases",
         },
@@ -328,7 +354,7 @@ const allClients = [
     },
     {
         name: "Mihomo Core (CLI)",
-        description: "هسته اجرایی Mihomo برای لینوکس، یک ابزار خط فرمان با پیکربندی انعطاف‌پذیر. این کلاینت رابط کاربری گرافیکی ندارد و برای کاربران پیشرفته مناسب است.",
+        description: "هسته اجرایی Mihomo متن‌باز و رایگان برای لینوکس، یک ابزار خط فرمان با پیکربندی انعطاف‌پذیر. این کلاینت رابط کاربری گرافیکی ندارد و برای کاربران پیشرفته مناسب است.",
         download: {
             linux: "https://wiki.metacubex.one/en/startup/",
         },
@@ -338,12 +364,11 @@ const allClients = [
         core_icon: coreIcons.mihomo,
         core_type: "Mihomo"
     },
-    // Clash for Windows حذف شد
 
     // کلاینت‌های Singbox
     {
         name: "GUI.for.SingBox",
-        description: "رابط کاربری گرافیکی برای هسته‌های Singbox در ویندوز، macOS و لینوکس با تولید پیکربندی کامل.",
+        description: "رابط کاربری گرافیکی متن‌باز و رایگان برای هسته‌های Singbox در ویندوز، macOS و لینوکس با تولید پیکربندی کامل.",
         download: {
             windows: "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases",
             macos: "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases",
@@ -359,7 +384,7 @@ const allClients = [
     },
     {
         name: "sing-box for Apple platforms",
-        description: "کلاینت رسمی Sing-box برای iOS، macOS و Apple tvOS با پیاده‌سازی پراکسی شفاف TUN.",
+        description: "کلاینت رسمی Sing-box متن‌باز و رایگان برای iOS، macOS و Apple tvOS با پیاده‌سازی پراکسی شفاف TUN.",
         download: {
             ios: "https://apps.apple.com/app/sing-box-vt/id6673731168", // لینک اپ استور
             macos: "https://github.com/SagerNet/sing-box/releases", // لینک گیت‌هاب برای macOS
@@ -375,7 +400,7 @@ const allClients = [
     },
     {
         name: "sing-box for Android",
-        description: "کلاینت رسمی Sing-box برای اندروید با مدیریت پیکربندی و پراکسی شفاف TUN.",
+        description: "کلاینت رسمی Sing-box متن‌باز و رایگان برای اندروید با مدیریت پیکربندی و پراکسی شفاف TUN.",
         download: {
             android: "https://github.com/SagerNet/sing-box/releases", // لینک گیت‌هاب، همچنین در Google Play و F-Droid موجود است
         },
@@ -387,7 +412,7 @@ const allClients = [
     },
     {
         name: "NekoBoxForAndroid",
-        description: "کلاینت چند پروتکلی برای اندروید که عمدتاً از Sing-box استفاده می‌کند و قابل پیکربندی است.",
+        description: "کلاینت چند پروتکلی متن‌باز و رایگان برای اندروید که عمدتاً از Sing-box استفاده می‌کند و قابل پیکربندی است.",
         download: {
             android: "https://github.com/nekohasekai/nekobox/releases",
         },
@@ -399,7 +424,7 @@ const allClients = [
     },
     {
         name: "Husi",
-        description: "ادغام ابزار پروکسی برای اندروید که SagerNet/sing-box را به عنوان هسته خود می‌شناسد و از پلاگین‌های مختلف پشتیبانی می‌کند.",
+        description: "ادغام ابزار پروکسی متن‌باز و رایگان برای اندروید که SagerNet/sing-box را به عنوان هسته خود می‌شناسد و از پلاگین‌های مختلف پشتیبانی می‌کند.",
         download: {
             android: "https://github.com/xchacha20-poly1305/husi/releases",
         },
@@ -411,7 +436,7 @@ const allClients = [
     },
     {
         name: "Throne (formerly Nekoray)",
-        description: "ابزار پروکسی GUI چند پلتفرمی مبتنی بر Qt که توسط Sing-box قدرت گرفته و از طیف گسترده‌ای از پروتکل‌ها پشتیبانی می‌کند.",
+        description: "ابزار پروکسی GUI چند پلتفرمی متن‌باز و رایگان مبتنی بر Qt که توسط Sing-box قدرت گرفته و از طیف گسترده‌ای از پروتکل‌ها پشتیبانی می‌کند.",
         download: {
             windows: "https://github.com/throneproj/Throne/releases",
             macos: "https://github.com/throneproj/Throne/releases",
@@ -427,7 +452,7 @@ const allClients = [
     },
     {
         name: "Sing-box (Core)",
-        description: "پروژه اصلی Sing-box که می‌تواند روی سیستم‌های لینوکس نصب شود و موتور زیربنایی برای بسیاری از کلاینت‌های Sing-box است. این کلاینت رابط کاربری گرافیکی ندارد و برای کاربران پیشرفته مناسب است.",
+        description: "پروژه اصلی Sing-box متن‌باز و رایگان که می‌تواند روی سیستم‌های لینوکس نصب شود و موتور زیربنایی برای بسیاری از کلاینت‌های Sing-box است. این کلاینت رابط کاربری گرافیکی ندارد و برای کاربران پیشرفته مناسب است.",
         download: {
             linux: "https://github.com/SagerNet/sing-box/releases",
         },
@@ -439,7 +464,7 @@ const allClients = [
     },
     {
         name: "Karing",
-        description: "ابزار پروکسی قدرتمند و چندپلتفرمی با پشتیبانی از قوانین مسیریابی برای Clash/Sing-box.",
+        description: "ابزار پروکسی قدرتمند و چندپلتفرمی متن‌باز و رایگان با پشتیبانی از قوانین مسیریابی برای Clash/Sing-box. از هسته Sing-box استفاده می‌کند.",
         download: {
             windows: "https://github.com/KaringX/karing/releases/latest",
             android: "https://github.com/KaringX/karing/releases/latest",

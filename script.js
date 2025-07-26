@@ -15,8 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollBottomBtn = document.getElementById('scroll-bottom');
     const rowCountInput = document.getElementById('row-count');
     const clientsContainer = document.getElementById('clients-container');
-    const coreFilterSelect = document.getElementById('core-filter'); // جدید: فیلتر هسته
-    const osFilterSelect = document.getElementById('os-filter');     // جدید: فیلتر سیستم عامل
+    const coreFilterSelect = document.getElementById('core-filter');
+    const osFilterSelect = document.getElementById('os-filter');
+    const convertersContainer = document.getElementById('converters-container'); // جدید: کانتینر مبدل‌ها
 
     // نگاشت نام کشورها به کدهای دو حرفی ISO برای دریافت پرچم
     const countryFlagMap = {
@@ -38,6 +39,25 @@ document.addEventListener('DOMContentLoaded', function() {
         "تایلند": "th", "ترکیه": "tr", "اوکراین": "ua", "امارات متحده عربی": "ae",
         "بریتانیا": "gb", "ایالات متحده": "us", "ویتنام": "vn"
     };
+
+    // اطلاعات مبدل‌های لینک اشتراک
+    const subscriptionConverters = [
+        {
+            name: "مبدل گیتهاب پیجز",
+            description: "نسخه آنلاین مبدل لینک اشتراک، قابل دسترسی از طریق GitHub Pages.",
+            link: "https://10ium.github.io/sub-converter_farsi"
+        },
+        {
+            name: "مبدل گیتهاب اکشن",
+            description: "مبدل لینک اشتراک مبتنی بر GitHub Actions، برای تبدیل و مدیریت لینک‌ها.",
+            link: "https://github.com/vpnclashfa-backup/subconverter"
+        },
+        {
+            name: "مبدل آفلاین ویندوز",
+            description: "نسخه تقریباً آفلاین مبدل پروکسی برای ویندوز، مناسب برای استفاده محلی.",
+            link: "https://github.com/vpnclashfa-backup/OfflineProxyConverter"
+        }
+    ];
 
     /**
      * تابعی برای دریافت URL تصویر پرچم بر اساس نام کشور (با یا بدون اموجی)
@@ -115,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * نمایش آیتم‌های مربوط به یک دسته انتخاب شده
+     * نمایش آیتم‌های مربوط به یک دسته
      * @param {string} categoryName - نام دسته
      */
     function showCategoryItems(categoryName) {
@@ -164,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * نمایش لینک انتخاب شده در بخش مربوطه
+     * نمایش لینک انتخابی
      * @param {string} link - لینک مورد نظر برای نمایش
      */
     function showLink(link) {
@@ -180,18 +200,17 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function copyLink() {
         const link = selectedLink.textContent;
-        if (!link) return; // اگر لینکی برای کپی نبود، کاری نکن
+        if (!link) return;
 
-        // استفاده از Clipboard API در صورت موجود بودن، در غیر این صورت از روش جایگزین استفاده کن
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(link).then(() => {
-                showNotification(); // نمایش نوتیفیکیشن موفقیت
+                showNotification();
             }).catch(err => {
                 console.error('Failed to copy using Clipboard API: ', err);
-                fallbackCopyTextToClipboard(link); // استفاده از روش جایگزین در صورت خطا
+                fallbackCopyTextToClipboard(link);
             });
         } else {
-            fallbackCopyTextToClipboard(link); // استفاده از روش جایگزین
+            fallbackCopyTextToClipboard(link);
         }
     }
 
@@ -202,7 +221,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function fallbackCopyTextToClipboard(text) {
         const textArea = document.createElement('textarea');
         textArea.value = text;
-        // استایل‌های موقت برای مخفی نگه داشتن textarea
         textArea.style.position = 'fixed';
         textArea.style.top = '0';
         textArea.style.left = '0';
@@ -215,14 +233,14 @@ document.addEventListener('DOMContentLoaded', function() {
         textArea.style.background = 'transparent';
         document.body.appendChild(textArea);
         textArea.focus();
-        textArea.select(); // انتخاب متن داخل textarea
+        textArea.select();
         try {
-            document.execCommand('copy'); // اجرای دستور کپی
+            document.execCommand('copy');
             showNotification();
         } catch (err) {
             console.error('Fallback: Oops, unable to copy', err);
         }
-        document.body.removeChild(textArea); // حذف textarea
+        document.body.removeChild(textArea);
     }
 
     /**
@@ -232,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
         notification.classList.add('show');
         setTimeout(() => {
             notification.classList.remove('show');
-        }, 2500); // نوتیفیکیشن پس از 2.5 ثانیه مخفی می‌شود
+        }, 2500);
     }
 
     /**
@@ -276,7 +294,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             if (client.download) {
                 for (const os in client.download) {
-                    // تبدیل نام پلتفرم به نام‌های خواناتر برای نمایش در فیلتر
                     let displayOsName = os.charAt(0).toUpperCase() + os.slice(1);
                     if (os === "router_os") displayOsName = "Router OS";
                     if (os === "tvos") displayOsName = "tvOS";
@@ -285,7 +302,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // پر کردن فیلتر هسته
         coreTypes.forEach(type => {
             const option = document.createElement('option');
             option.value = type;
@@ -293,7 +309,6 @@ document.addEventListener('DOMContentLoaded', function() {
             coreFilterSelect.appendChild(option);
         });
 
-        // پر کردن فیلتر سیستم عامل
         osTypes.forEach(type => {
             const option = document.createElement('option');
             option.value = type;
@@ -329,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return matchesCore && matchesOs;
         });
 
-        clientsContainer.innerHTML = ''; // پاک کردن محتوای قبلی
+        clientsContainer.innerHTML = '';
 
         if (filteredClients.length === 0) {
             clientsContainer.innerHTML = '<p class="placeholder-text">هیچ کلاینتی با فیلترهای انتخاب شده یافت نشد.</p>';
@@ -340,7 +355,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const clientCard = document.createElement('div');
             clientCard.classList.add('client-card');
 
-            // هدر کارت (نام کلاینت و آیکون هسته)
             const clientHeader = document.createElement('div');
             clientHeader.classList.add('client-header');
             if (client.core_icon) {
@@ -348,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 coreIcon.src = client.core_icon;
                 coreIcon.alt = `${client.name} core icon`;
                 coreIcon.classList.add('core-icon');
-                coreIcon.onerror = function() { this.style.display='none'; }; // مخفی کردن در صورت عدم بارگذاری
+                coreIcon.onerror = function() { this.style.display='none'; };
                 clientHeader.appendChild(coreIcon);
             }
             const clientName = document.createElement('h3');
@@ -356,30 +370,26 @@ document.addEventListener('DOMContentLoaded', function() {
             clientHeader.appendChild(clientName);
             clientCard.appendChild(clientHeader);
 
-            // توضیحات کلاینت
             const clientDescription = document.createElement('p');
             clientDescription.classList.add('client-description');
             clientDescription.textContent = client.description;
             clientCard.appendChild(clientDescription);
 
-            // آیکون‌های سیستم عامل
             const osIconsContainer = document.createElement('div');
             osIconsContainer.classList.add('os-icons-container');
             if (client.os_icons) {
-                // فقط آیکون‌های سیستم عامل‌هایی که لینک دانلود دارند را نمایش بده
-                for (const osKey in client.download) {
-                    if (client.os_icons[osKey]) { // اطمینان از وجود آیکون برای آن OS
+                for (const osKey in client.download) { // فقط آیکون‌های سیستم عامل‌هایی که لینک دانلود دارند را نمایش بده
+                    if (client.os_icons[osKey]) {
                         const osIcon = document.createElement('img');
                         osIcon.src = client.os_icons[osKey];
                         osIcon.alt = osKey;
-                        osIcon.onerror = function() { this.style.display='none'; }; // مخفی کردن در صورت عدم بارگذاری
+                        osIcon.onerror = function() { this.style.display='none'; };
                         osIconsContainer.appendChild(osIcon);
                     }
                 }
             }
             clientCard.appendChild(osIconsContainer);
 
-            // لینک‌های دانلود
             const downloadLinksDiv = document.createElement('div');
             downloadLinksDiv.classList.add('download-links');
             if (client.download) {
@@ -401,6 +411,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    /**
+     * رندر کردن مبدل‌های لینک اشتراک در رابط کاربری
+     */
+    function renderConverters() {
+        if (!convertersContainer) {
+            console.error("Converters container not found.");
+            return;
+        }
+        if (!subscriptionConverters || subscriptionConverters.length === 0) {
+            convertersContainer.innerHTML = '<p class="placeholder-text">اطلاعات مبدل‌ها در دسترس نیست.</p>';
+            return;
+        }
+
+        convertersContainer.innerHTML = ''; // پاک کردن محتوای قبلی
+
+        subscriptionConverters.forEach(converter => {
+            const converterCard = document.createElement('div');
+            converterCard.classList.add('converter-card');
+
+            const converterName = document.createElement('h3');
+            converterName.textContent = converter.name;
+            converterCard.appendChild(converterName);
+
+            const converterDescription = document.createElement('p');
+            converterDescription.textContent = converter.description;
+            converterCard.appendChild(converterDescription);
+
+            const converterLink = document.createElement('a');
+            converterLink.href = converter.link;
+            converterLink.target = "_blank";
+            converterLink.rel = "noopener noreferrer";
+            converterLink.classList.add('button'); // استفاده از کلاس button برای استایل
+            converterLink.textContent = "مشاهده مبدل";
+            converterCard.appendChild(converterLink);
+
+            convertersContainer.appendChild(converterCard);
+        });
+    }
+
 
     // Event Listeners (شنونده‌های رویداد)
     categorySelect.addEventListener('change', function() {
@@ -414,25 +463,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    copyBtn.addEventListener('click', copyLink); // کپی کردن لینک هنگام کلیک روی دکمه کپی
-    themeToggle.addEventListener('click', toggleTheme); // تغییر تم هنگام کلیک روی دکمه تم
-    scrollTopBtn.addEventListener('click', scrollToTop); // اسکرول به بالا
-    scrollBottomBtn.addEventListener('click', scrollToBottom); // اسکرول به پایین
+    copyBtn.addEventListener('click', copyLink);
+    themeToggle.addEventListener('click', toggleTheme);
+    scrollTopBtn.addEventListener('click', scrollToTop);
+    scrollBottomBtn.addEventListener('click', scrollToBottom);
 
-    // جدید: شنونده رویداد برای فیلد ورودی تعداد سطر
     rowCountInput.addEventListener('input', function() {
         const count = parseInt(this.value, 10);
-        // اعتبار سنجی ورودی: باید عدد و بین 1 تا 5 باشد
         if (!isNaN(count) && count >= 1 && count <= 5) {
             setGridColumns(count);
         } else {
             console.warn("ورودی تعداد سطر نامعتبر است. باید بین 1 تا 5 باشد.");
-            // می‌توانید در اینجا یک پیام خطا به کاربر نمایش دهید
         }
     });
 
     // شنونده‌های رویداد برای فیلترهای کلاینت
-    // اضافه کردن Null Check برای جلوگیری از خطا در صورتی که عنصر یافت نشود
     if (coreFilterSelect) {
         coreFilterSelect.addEventListener('change', renderClients);
     } else {
@@ -447,9 +492,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // راه‌اندازی اولیه برنامه
-    setInitialTheme(); // ابتدا تم را بارگذاری کن
-    populateCategorySelect(); // منوی دسته‌بندی را پر کن
-    setGridColumns(rowCountInput.value); // تعداد ستون‌های اولیه را بر اساس مقدار پیش‌فرض فیلد ورودی تنظیم کن
-    populateClientFilters(); // جدید: فیلترهای کلاینت را پر کن
-    renderClients(); // کلاینت‌ها را رندر کن
+    setInitialTheme();
+    populateCategorySelect();
+    setGridColumns(rowCountInput.value);
+    populateClientFilters();
+    renderClients();
+    renderConverters(); // جدید: مبدل‌ها را رندر کن
 });

@@ -657,6 +657,102 @@ header p {
     box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
 }
 
+/* استایل‌های جدید برای مبدل‌های لینک اشتراک */
+.converters-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px var(--shadow);
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.converters-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--accent-primary);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.converters-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 2 یا 3 ستون در دسکتاپ */
+    gap: 30px;
+    justify-content: center;
+}
+
+.converter-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 6px 20px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.converter-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25);
+    border-color: var(--accent-primary);
+}
+
+.converter-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px; /* خط رنگی بالا */
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    transition: all 0.3s ease;
+}
+
+.converter-card:hover::before {
+    height: 10px; /* پهن شدن خط هنگام هاور */
+}
+
+.converter-card h3 {
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.converter-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.converter-card a.button {
+    background: var(--accent-primary);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: block; /* برای گرفتن عرض کامل */
+    width: 100%;
+}
+
+.converter-card a.button:hover {
+    background: var(--accent-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+
 /* استایل‌های جدید برای فوتر و لینک‌های شبکه‌های اجتماعی */
 .social-links-footer {
     margin-top: 60px; /* فاصله از محتوای بالا */
@@ -776,12 +872,12 @@ header p {
         height: 60px;
     }
 
-    /* ریسپانسیو کردن بخش کلاینت‌ها */
-    .clients-container {
+    /* ریسپانسیو کردن بخش کلاینت‌ها و مبدل‌ها */
+    .clients-container, .converters-container {
         grid-template-columns: 1fr; /* یک ستون در موبایل */
     }
 
-    .client-card {
+    .client-card, .converter-card {
         padding: 20px;
     }
 
