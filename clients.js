@@ -15,14 +15,14 @@ const osIcons = {
 
 // آیکون‌های هسته
 const coreIcons = {
-    xray: "https://placehold.co/48x48/6366f1/ffffff?text=Xray%20/%20V2ray", // ترکیب آیکون V2Ray و Xray
-    mihomo: "https://placehold.co/48x48/818cf8/ffffff?text=M", // آیکون جایگزین برای Mihomo/Clash Meta
+    xray: "https://avatars.githubusercontent.com/u/71564206?s=200&v=4",
+    mihomo: "https://avatars.githubusercontent.com/u/84378451?s=200&v=4",
     singbox: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Sing-box.svg/555px-Sing-box.svg.png",
 };
 
 // لیست کامل کلاینت‌ها
 const allClients = [
-    // کلاینت‌های Xray (ترکیب شده از V2ray و X-Ray)
+    // کلاینت‌های Xray / V2ray (ترکیب شده)
     {
         name: "v2rayN",
         description: "کلاینت محبوب Xray برای ویندوز و اندروید با پشتیبانی از هسته‌های Xray و v2fly. متن‌باز و رایگان.",
@@ -35,7 +35,7 @@ const allClients = [
             android: osIcons.android,
         },
         core_icon: coreIcons.xray,
-        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
+        core_type: "Xray / V2ray"
     },
     {
         name: "Hiddify-app",
@@ -55,7 +55,7 @@ const allClients = [
             ios: osIcons.ios,
         },
         core_icon: coreIcons.xray,
-        core_type: "Multi-Core" // این کلاینت از چندین هسته پشتیبانی می‌کند
+        core_type: "Multi-Core"
     },
     {
         name: "Surfing (Magisk Module)",
@@ -79,7 +79,7 @@ const allClients = [
             macos: osIcons.macos,
         },
         core_icon: coreIcons.xray,
-        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
+        core_type: "Xray / V2ray"
     },
     {
         name: "v2rayA",
@@ -97,7 +97,7 @@ const allClients = [
             router_os: osIcons.router_os,
         },
         core_icon: coreIcons.xray,
-        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
+        core_type: "Xray / V2ray"
     },
     {
         name: "V2RayX",
@@ -109,7 +109,7 @@ const allClients = [
             macos: osIcons.macos,
         },
         core_icon: coreIcons.xray,
-        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
+        core_type: "Xray / V2ray"
     },
     {
         name: "V2Ray Core (CLI)",
@@ -121,7 +121,7 @@ const allClients = [
             linux: osIcons.linux,
         },
         core_icon: coreIcons.xray,
-        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
+        core_type: "Xray / V2ray"
     },
     {
         name: "NapsternetV",
@@ -135,7 +135,7 @@ const allClients = [
             ios: osIcons.ios,
         },
         core_icon: coreIcons.xray,
-        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
+        core_type: "Xray / V2ray"
     },
     {
         name: "v2box",
@@ -149,10 +149,8 @@ const allClients = [
             android: osIcons.android,
         },
         core_icon: coreIcons.xray,
-        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
+        core_type: "Xray / V2ray"
     },
-
-    // کلاینت‌های X-Ray (ادغام شده با V2Ray)
     {
         name: "Invisible Man XRay",
         description: "کلاینت رایگان و متن‌باز XRay برای ویندوز با رابط کاربری ساده.",
@@ -598,7 +596,7 @@ const sortClients = (clients) => {
 // مرتب‌سازی کلاینت‌ها بر اساس اولویت درخواستی
 const suggestedClients = sortClients(allClients.map(client => {
     // تغییر core_type و core_icon برای کلاینت‌های V2Ray به Xray / V2ray
-    if (client.core_type === "V2Ray" || client.core_type === "V2Ray/Xray") {
+    if (client.core_type === "V2Ray" || client.core_type === "Xray") { // شامل هر دو "V2Ray" و "Xray"
         return {
             ...client,
             core_type: "Xray / V2ray",
