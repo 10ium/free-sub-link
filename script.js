@@ -1,5 +1,6 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
+    // گرفتن ارجاع به عناصر DOM
     const categorySelect = document.getElementById('category-select');
     const itemsContainer = document.getElementById('items-container');
     const linkDisplay = document.getElementById('link-display');
@@ -9,43 +10,58 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('theme-toggle');
     const scrollTopBtn = document.getElementById('scroll-top');
     const scrollBottomBtn = document.getElementById('scroll-bottom');
+    const rowCountInput = document.getElementById('row-count'); // جدید: فیلد ورودی تعداد سطر
 
-    // تنظیم تم بر اساس زمان روز در تهران
+    /**
+     * تابع برای تنظیم تم (روشن یا تیره)
+     * @param {string} themeName - نام تم ('light' یا 'dark')
+     */
+    function setTheme(themeName) {
+        document.documentElement.setAttribute('data-theme', themeName);
+        localStorage.setItem('theme', themeName); // ذخیره تم در Local Storage
+    }
+
+    /**
+     * تنظیم تم اولیه بر اساس Local Storage یا زمان فعلی تهران
+     */
     function setInitialTheme() {
-        const tehranTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Tehran"});
-        const hour = new Date(tehranTime).getHours();
-        
-        // شب: 19 تا 6 صبح - روز: 6 تا 19
-        const isNight = hour >= 19 || hour < 6;
-        
-        if (isNight) {
-            document.documentElement.setAttribute('data-theme', 'dark');
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme); // اگر تم ذخیره شده بود، آن را اعمال کن
         } else {
-            document.documentElement.setAttribute('data-theme', 'light');
+            // تعیین زمان فعلی تهران برای تصمیم‌گیری در مورد تم شب/روز
+            const tehranTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Tehran"});
+            const hour = new Date(tehranTime).getHours();
+
+            // شب: 7 عصر (19) تا 6 صبح - روز: 6 صبح تا 7 عصر (19)
+            const isNight = hour >= 19 || hour < 6;
+
+            if (isNight) {
+                setTheme('dark');
+            } else {
+                setTheme('light');
+            }
         }
     }
 
-    // تغییر تم
+    /**
+     * تغییر تم بین روشن و تیره
+     */
     function toggleTheme() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
+        setTheme(newTheme);
     }
 
-    // بارگذاری تم از localStorage یا تنظیم بر اساس زمان
-    function loadTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        } else {
-            setInitialTheme();
-        }
-    }
-
-    // پر کردن منوی کشویی با نام دسته‌ها
+    /**
+     * پر کردن منوی کشویی دسته‌بندی با نام دسته‌ها از آبجکت subscriptionsData
+     */
     function populateCategorySelect() {
-        // اضافه کردن گزینه‌های دسته‌بندی به select
+        // اطمینان از وجود subscriptionsData
+        if (typeof subscriptionsData === 'undefined' || Object.keys(subscriptionsData).length === 0) {
+            console.warn("subscriptionsData is not defined or is empty. Cannot populate categories.");
+            return;
+        }
         for (const categoryName of Object.keys(subscriptionsData)) {
             const option = document.createElement('option');
             option.value = categoryName;
@@ -54,10 +70,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // نمایش آیتم‌های یک دسته
+    /**
+     * نمایش آیتم‌های مربوط به یک دسته انتخاب شده
+     * @param {string} categoryName - نام دسته
+     */
     function showCategoryItems(categoryName) {
         const items = subscriptionsData[categoryName];
-        if (!items) return;
+        if (!items) {
+            itemsContainer.innerHTML = '<p class="placeholder-text">داده‌ای برای این دسته یافت نشد.</p>';
+            return;
+        }
 
         let itemsHTML = '<div class="items-list">';
         for (const itemName of Object.keys(items)) {
@@ -71,56 +93,93 @@ document.addEventListener('DOMContentLoaded', function() {
 
         itemsContainer.innerHTML = itemsHTML;
 
-        // اضافه کردن event listener به دکمه‌های آیتم
+        // اضافه کردن Event Listener به دکمه‌های آیتم جدید
         document.querySelectorAll('.item-button').forEach(button => {
             button.addEventListener('click', function() {
                 const category = this.getAttribute('data-category');
                 const item = this.getAttribute('data-item');
                 const link = subscriptionsData[category][item];
-                
-                showLink(link);
+
+                showLink(link); // نمایش لینک انتخاب شده
             });
         });
     }
 
-    // نمایش لینک انتخابی
+    /**
+     * نمایش لینک انتخاب شده در بخش مربوطه
+     * @param {string} link - لینک مورد نظر برای نمایش
+     */
     function showLink(link) {
         selectedLink.textContent = link;
         linkDisplay.classList.remove('hidden');
-        
-        // اسکرول به بخش لینک
+
+        // اسکرول نرم به بخش نمایش لینک
         linkDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
-    // کپی کردن لینک
+    /**
+     * کپی کردن لینک به کلیپ‌بورد
+     */
     function copyLink() {
         const link = selectedLink.textContent;
-        if (!link) return;
+        if (!link) return; // اگر لینکی برای کپی نبود، کاری نکن
 
-        navigator.clipboard.writeText(link).then(() => {
-            showNotification();
-        }).catch(err => {
-            console.error('خطا در کپی کردن: ', err);
-            // روش جایگزین
-            const textArea = document.createElement('textarea');
-            textArea.value = link;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            showNotification();
-        });
+        // استفاده از Clipboard API در صورت موجود بودن، در غیر این صورت از روش جایگزین استفاده کن
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(link).then(() => {
+                showNotification(); // نمایش نوتیفیکیشن موفقیت
+            }).catch(err => {
+                console.error('Failed to copy using Clipboard API: ', err);
+                fallbackCopyTextToClipboard(link); // استفاده از روش جایگزین در صورت خطا
+            });
+        } else {
+            fallbackCopyTextToClipboard(link); // استفاده از روش جایگزین
+        }
     }
 
-    // نمایش نوتیفیکیشن
+    /**
+     * روش جایگزین برای کپی کردن متن به کلیپ‌بورد (برای مرورگرهای قدیمی‌تر)
+     * @param {string} text - متنی که باید کپی شود
+     */
+    function fallbackCopyTextToClipboard(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        // استایل‌های موقت برای مخفی نگه داشتن textarea
+        textArea.style.position = 'fixed';
+        textArea.style.top = '0';
+        textArea.style.left = '0';
+        textArea.style.width = '2em';
+        textArea.style.height = '2em';
+        textArea.style.padding = '0';
+        textArea.style.border = 'none';
+        textArea.style.outline = 'none';
+        textArea.style.boxShadow = 'none';
+        textArea.style.background = 'transparent';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select(); // انتخاب متن داخل textarea
+        try {
+            document.execCommand('copy'); // اجرای دستور کپی
+            showNotification();
+        } catch (err) {
+            console.error('Fallback: Oops, unable to copy', err);
+        }
+        document.body.removeChild(textArea); // حذف textarea
+    }
+
+    /**
+     * نمایش نوتیفیکیشن کپی موفقیت‌آمیز
+     */
     function showNotification() {
         notification.classList.add('show');
         setTimeout(() => {
             notification.classList.remove('show');
-        }, 2500);
+        }, 2500); // نوتیفیکیشن پس از 2.5 ثانیه مخفی می‌شود
     }
 
-    // اسکرول به بالا
+    /**
+     * اسکرول به بالای صفحه
+     */
     function scrollToTop() {
         window.scrollTo({
             top: 0,
@@ -128,7 +187,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // اسکرول به پایین
+    /**
+     * اسکرول به پایین صفحه
+     */
     function scrollToBottom() {
         window.scrollTo({
             top: document.body.scrollHeight,
@@ -136,24 +197,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Event listeners
+    /**
+     * تنظیم تعداد ستون‌های گرید برای نمایش آیتم‌ها
+     * @param {number} count - تعداد ستون‌ها
+     */
+    function setGridColumns(count) {
+        document.documentElement.style.setProperty('--grid-columns', count);
+    }
+
+    // Event Listeners (شنونده‌های رویداد)
     categorySelect.addEventListener('change', function() {
         const selectedCategory = this.value;
         if (selectedCategory) {
             showCategoryItems(selectedCategory);
-            linkDisplay.classList.add('hidden'); // مخفی کردن لینک قبلی
+            linkDisplay.classList.add('hidden'); // مخفی کردن لینک قبلی هنگام تغییر دسته
         } else {
             itemsContainer.innerHTML = '<p class="placeholder-text">لطفاً یک دسته را انتخاب کنید</p>';
             linkDisplay.classList.add('hidden');
         }
     });
 
-    copyBtn.addEventListener('click', copyLink);
-    themeToggle.addEventListener('click', toggleTheme);
-    scrollTopBtn.addEventListener('click', scrollToTop);
-    scrollBottomBtn.addEventListener('click', scrollToBottom);
+    copyBtn.addEventListener('click', copyLink); // کپی کردن لینک هنگام کلیک روی دکمه کپی
+    themeToggle.addEventListener('click', toggleTheme); // تغییر تم هنگام کلیک روی دکمه تم
+    scrollTopBtn.addEventListener('click', scrollToTop); // اسکرول به بالا
+    scrollBottomBtn.addEventListener('click', scrollToBottom); // اسکرول به پایین
 
-    // مقده‌دهی اولیه
-    loadTheme();
-    populateCategorySelect();
+    // جدید: شنونده رویداد برای فیلد ورودی تعداد سطر
+    rowCountInput.addEventListener('input', function() {
+        const count = parseInt(this.value, 10);
+        // اعتبار سنجی ورودی: باید عدد و بین 1 تا 5 باشد
+        if (!isNaN(count) && count >= 1 && count <= 5) {
+            setGridColumns(count);
+        } else {
+            console.warn("ورودی تعداد سطر نامعتبر است. باید بین 1 تا 5 باشد.");
+            // می‌توانید در اینجا یک پیام خطا به کاربر نمایش دهید
+        }
+    });
+
+    // راه‌اندازی اولیه برنامه
+    setInitialTheme(); // ابتدا تم را بارگذاری کن
+    populateCategorySelect(); // منوی دسته‌بندی را پر کن
+    setGridColumns(rowCountInput.value); // تعداد ستون‌های اولیه را بر اساس مقدار پیش‌فرض فیلد ورودی تنظیم کن
 });

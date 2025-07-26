@@ -217,6 +217,7 @@ const subscriptionsData = {
         "config-fetcher": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/multi-proxy-config-fetcher.yaml",
         "MahsaFreeConfig-mci": "https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/free-mihomo-sub/MahsaFreeConfig-mci.yaml",
         "MahsaFreeConfig-mtn": "https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/free-mihomo-sub/MahsaFreeConfig-mtn.yaml",
+        "MahsaFreeConfig-mix": "https://raw.githubusercontent.com/coldwater-10/Vpnclashfa/refs/heads/main/free-mihomo-sub/MahsaFreeConfig-mix.yaml",
         "V2Hub reality": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/V2Hub3_reality.yaml",
         "V2Hub shadowsocks": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/V2Hub3_shadowsocks.yaml",
         "V2Hub trojan": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/V2Hub3_trojan.yaml",
@@ -348,7 +349,7 @@ const subscriptionsData = {
         "shadowmere.xyz": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/shadowmere.xyz.yaml"
     },
     
-    "دی ان اس برای رفع تحریم بدون سرور میهومو (کلش متا)": {
+    "دی ان اس برای رفع تحریم بدون پروکسی میهومو (کلش متا)": {
         "shecan": "https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/shecan.yml",
         "begzar": "https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/begzar.yml",
         "electro": "https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/dnsforgame/electro.yml",

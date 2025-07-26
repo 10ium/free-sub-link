@@ -1,18 +1,21 @@
 /* styles.css */
 :root {
     /* تم روشن */
-    --bg-primary: #f8fafc;
-    --bg-secondary: #ffffff;
-    --bg-card: #ffffff;
-    --text-primary: #0f172a;
-    --text-secondary: #64748b;
-    --border-color: #e2e8f0;
-    --shadow: rgba(0, 0, 0, 0.08);
-    --accent-primary: #6366f1;
-    --accent-secondary: #818cf8;
-    --success: #10b981;
-    --success-dark: #059669;
-    --pattern-color: rgba(99, 102, 241, 0.05);
+    --bg-primary: #f8fafc; /* رنگ پس‌زمینه اصلی */
+    --bg-secondary: #ffffff; /* رنگ پس‌زمینه ثانویه (برای دکمه‌ها و فیلدها) */
+    --bg-card: #ffffff; /* رنگ پس‌زمینه کارت‌ها */
+    --text-primary: #0f172a; /* رنگ متن اصلی */
+    --text-secondary: #64748b; /* رنگ متن ثانویه */
+    --border-color: #e2e8f0; /* رنگ حاشیه */
+    --shadow: rgba(0, 0, 0, 0.08); /* رنگ سایه */
+    --accent-primary: #6366f1; /* رنگ برجسته اصلی (بنفش) */
+    --accent-secondary: #818cf8; /* رنگ برجسته ثانویه (بنفش روشن) */
+    --success: #10b981; /* رنگ موفقیت (سبز) */
+    --success-dark: #059669; /* رنگ موفقیت تیره */
+    --pattern-color: rgba(99, 102, 241, 0.05); /* رنگ برای الگوی پس‌زمینه */
+
+    /* تعداد پیش‌فرض ستون‌های گرید */
+    --grid-columns: 2;
 }
 
 [data-theme="dark"] {
@@ -31,6 +34,7 @@
     --pattern-color: rgba(129, 140, 248, 0.05);
 }
 
+/* تنظیمات کلی برای همه عناصر */
 * {
     margin: 0;
     padding: 0;
@@ -44,16 +48,18 @@ body {
     line-height: 1.6;
     min-height: 100vh;
     position: relative;
-    overflow-x: hidden;
+    overflow-x: hidden; /* جلوگیری از اسکرول افقی */
+    transition: background-color 0.3s ease, color 0.3s ease; /* انتقال نرم برای تغییر تم */
 }
 
+/* الگوی پس‌زمینه */
 .background-pattern {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
+    background-image:
         radial-gradient(var(--pattern-color) 1px, transparent 1px),
         radial-gradient(var(--pattern-color) 1px, transparent 1px);
     background-size: 40px 40px;
@@ -62,6 +68,7 @@ body {
     opacity: 0.5;
 }
 
+/* کانتینر اصلی محتوا */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -70,6 +77,7 @@ body {
     z-index: 1;
 }
 
+/* هدر صفحه */
 header {
     text-align: center;
     margin-bottom: 40px;
@@ -80,8 +88,10 @@ header {
     position: relative;
     overflow: hidden;
     color: white;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* افکت درخشش در هدر */
 header::before {
     content: '';
     position: absolute;
@@ -106,6 +116,7 @@ header p {
     position: relative;
 }
 
+/* کانتینر دکمه تغییر تم */
 .theme-toggle-container {
     position: absolute;
     top: 20px;
@@ -126,6 +137,35 @@ header p {
     font-size: 1.5rem;
     transition: all 0.3s ease;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* برای سافاری */
+    position: relative; /* برای موقعیت‌دهی آیکون‌ها */
+}
+
+/* آیکون‌های داخل دکمه تغییر تم */
+.theme-toggle .icon {
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* نمایش آیکون‌ها بر اساس تم */
+[data-theme="dark"] .sun-icon {
+    opacity: 0;
+    transform: scale(0);
+}
+
+[data-theme="dark"] .moon-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+[data-theme="light"] .sun-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+[data-theme="light"] .moon-icon {
+    opacity: 0;
+    transform: scale(0);
 }
 
 .theme-toggle:hover {
@@ -133,35 +173,34 @@ header p {
     transform: rotate(15deg);
 }
 
-[data-theme="dark"] .sun-icon {
-    display: none;
-}
-
-[data-theme="light"] .moon-icon,
-[data-theme="light"] .theme-toggle-container {
-    display: none;
-}
-
-.category-selector {
+/* استایل برای انتخاب‌گر دسته و تعداد سطر */
+.category-selector, .row-count-selector {
     margin-bottom: 35px;
     text-align: center;
+    background: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px var(--shadow);
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.category-selector label {
+.category-selector label, .row-count-selector label {
     display: block;
     margin-bottom: 15px;
     font-weight: 600;
     font-size: 1.3rem;
     color: var(--text-secondary);
+    transition: color 0.3s ease;
 }
 
-.category-selector select {
+.category-selector select, .row-count-selector input[type="number"] {
     padding: 15px 25px;
     font-family: 'Vazirmatn', sans-serif;
     font-size: 1.1rem;
     border: 2px solid var(--border-color);
     border-radius: 16px;
-    background: var(--bg-card);
+    background: var(--bg-secondary); /* استفاده از رنگ ثانویه برای پس‌زمینه ورودی‌ها */
     color: var(--text-primary);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -169,13 +208,28 @@ header p {
     box-shadow: 0 4px 15px var(--shadow);
 }
 
-.category-selector select:focus {
+.category-selector select:focus, .row-count-selector input[type="number"]:focus {
     outline: none;
     border-color: var(--accent-primary);
     box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3);
     transform: translateY(-2px);
 }
 
+/* استایل خاص برای فیلد ورودی تعداد سطر */
+.row-count-selector input[type="number"] {
+    -moz-appearance: textfield; /* برای فایرفاکس */
+    appearance: textfield;
+    text-align: center;
+}
+
+/* مخفی کردن دکمه‌های بالا و پایین در فیلد ورودی عدد برای مرورگرهای WebKit */
+.row-count-selector input[type="number"]::-webkit-outer-spin-button,
+.row-count-selector input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* کانتینر آیتم‌ها */
 .items-container {
     margin-bottom: 35px;
     background: var(--bg-card);
@@ -184,6 +238,7 @@ header p {
     padding: 25px;
     min-height: 150px;
     border: 1px solid var(--border-color);
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .placeholder-text {
@@ -194,14 +249,17 @@ header p {
     font-size: 1.1rem;
 }
 
+/* لیست آیتم‌ها (گرید) */
 .items-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* استفاده از متغیر CSS برای تعداد ستون‌ها، پیش‌فرض 2 */
+    grid-template-columns: repeat(var(--grid-columns, 2), minmax(0, 1fr));
     gap: 20px;
 }
 
+/* دکمه‌های آیتم */
 .item-button {
-    background: var(--bg-card);
+    background: var(--bg-secondary); /* استفاده از رنگ ثانویه برای دکمه‌ها */
     border: 2px solid var(--border-color);
     border-radius: 16px;
     padding: 20px;
@@ -216,6 +274,7 @@ header p {
     box-shadow: 0 4px 15px var(--shadow);
 }
 
+/* افکت درخشش روی دکمه‌های آیتم */
 .item-button::before {
     content: '';
     position: absolute;
@@ -237,6 +296,7 @@ header p {
     left: 100%;
 }
 
+/* نمایش لینک */
 .link-display {
     background: var(--bg-card);
     border-radius: 20px;
@@ -245,9 +305,11 @@ header p {
     margin-bottom: 40px;
     border: 1px solid var(--border-color);
     border-top: 4px solid var(--accent-primary);
-    animation: slideUp 0.5s ease;
+    animation: slideUp 0.5s ease; /* انیمیشن ورود */
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+/* انیمیشن slideUp */
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -277,6 +339,7 @@ header p {
     color: var(--text-secondary);
 }
 
+/* دکمه کپی */
 .copy-button {
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     color: white;
@@ -305,22 +368,25 @@ header p {
     padding: 20px;
     border-radius: 16px;
     border: 1px solid var(--border-color);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
+/* استایل link-wrapper در تم تیره */
 [data-theme="dark"] .link-wrapper {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .link-text {
-    font-family: 'Vazirmatn', monospace;
+    font-family: 'Vazirmatn', monospace; /* استفاده از فونت monospace برای لینک */
     color: var(--text-secondary);
-    word-break: break-all;
-    direction: ltr;
+    word-break: break-all; /* شکستن کلمات طولانی */
+    direction: ltr; /* جهت متن از چپ به راست برای لینک */
     text-align: left;
     font-size: 0.95rem;
     line-height: 1.8;
 }
 
+/* دکمه‌های اسکرول */
 .scroll-buttons {
     position: fixed;
     left: 20px;
@@ -355,6 +421,7 @@ header p {
     transform: scale(1.1);
 }
 
+/* نوتیفیکیشن کپی */
 .notification {
     position: fixed;
     top: 30px;
@@ -365,7 +432,7 @@ header p {
     border-radius: 16px;
     font-weight: 600;
     box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
-    transform: translateX(200%);
+    transform: translateX(200%); /* مخفی کردن اولیه */
     transition: transform 0.4s ease;
     z-index: 1000;
     border: none;
@@ -373,64 +440,67 @@ header p {
 }
 
 .notification.show {
-    transform: translateX(0);
+    transform: translateX(0); /* نمایش نوتیفیکیشن */
 }
 
+/* Media Queries برای ریسپانسیو بودن */
 @media (max-width: 768px) {
     .container {
         padding: 15px;
     }
-    
+
     header {
         padding: 20px;
         margin-bottom: 30px;
     }
-    
+
     header h1 {
         font-size: 2.2rem;
     }
-    
-    .category-selector select {
-        min-width: 280px;
+
+    .category-selector select, .row-count-selector input[type="number"] {
+        min-width: unset; /* حذف حداقل عرض */
+        width: 100%; /* گرفتن عرض کامل */
+        max-width: 300px; /* حداکثر عرض برای صفحه کوچک‌تر */
         padding: 12px 20px;
     }
-    
+
     .items-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* یک ستون در صفحه‌های کوچک */
     }
-    
+
     .link-header {
         flex-direction: column;
         gap: 15px;
         text-align: center;
     }
-    
+
     .link-display {
         padding: 20px;
     }
-    
+
     .notification {
         top: 20px;
         right: 20px;
         padding: 15px 25px;
         font-size: 1rem;
     }
-    
+
     .scroll-buttons {
         left: 10px;
     }
-    
+
     .scroll-button {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
     }
-    
+
     .theme-toggle-container {
         top: 10px;
         left: 10px;
     }
-    
+
     .theme-toggle {
         width: 40px;
         height: 40px;

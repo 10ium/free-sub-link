@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لینک‌های اشتراک رایگان</title>
+    <!-- فونت وزیرمتن -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <!-- لینک به فایل CSS سفارشی -->
     <link rel="stylesheet" href="styles.css">
+    <!-- آیکون فاویکون -->
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
+    <!-- الگوی پس‌زمینه برای جلوه بصری -->
     <div class="background-pattern"></div>
     <div class="container">
         <header>
+            <!-- کانتینر برای دکمه تغییر تم -->
             <div class="theme-toggle-container">
                 <button id="theme-toggle" class="theme-toggle" aria-label="تغییر تم">
-                    <span class="sun-icon">☀️</span>
-                    <span class="moon-icon">🌙</span>
+                    <!-- آیکون خورشید برای تم روشن -->
+                    <span class="icon sun-icon">☀️</span>
+                    <!-- آیکون ماه برای تم تیره -->
+                    <span class="icon moon-icon">🌙</span>
                 </button>
             </div>
             <h1>🔗 لینک‌های اشتراک رایگان</h1>
@@ -23,7 +30,7 @@
         </header>
 
         <main>
-            <!-- منوی کشویی برای انتخاب دسته -->
+            <!-- منوی کشویی برای انتخاب دسته لینک‌ها -->
             <div class="category-selector">
                 <label for="category-select">انتخاب دسته:</label>
                 <select id="category-select">
@@ -31,12 +38,18 @@
                 </select>
             </div>
 
-            <!-- نمایش آیتم‌های دسته انتخابی -->
+            <!-- بخش جدید: تنظیم تعداد آیتم‌ها در هر سطر -->
+            <div class="row-count-selector">
+                <label for="row-count">تعداد در هر سطر:</label>
+                <input type="number" id="row-count" min="1" max="5" value="2">
+            </div>
+
+            <!-- کانتینر برای نمایش آیتم‌های دسته انتخابی -->
             <div id="items-container" class="items-container">
                 <p class="placeholder-text">لطفاً یک دسته را انتخاب کنید</p>
             </div>
 
-            <!-- نمایش لینک انتخابی -->
+            <!-- کانتینر برای نمایش لینک انتخابی و دکمه کپی -->
             <div id="link-display" class="link-display hidden">
                 <div class="link-content">
                     <div class="link-header">
@@ -50,16 +63,19 @@
             </div>
         </main>
 
+        <!-- دکمه‌های اسکرول به بالا و پایین -->
         <div class="scroll-buttons">
             <button id="scroll-top" class="scroll-button top" aria-label="رفتن به بالا">⬆️</button>
             <button id="scroll-bottom" class="scroll-button bottom" aria-label="رفتن به پایین">⬇️</button>
         </div>
 
+        <!-- نوتیفیکیشن کپی شدن لینک -->
         <div id="copy-notification" class="notification">
             لینک کپی شد! ✅
         </div>
     </div>
 
+    <!-- لینک به فایل‌های JavaScript -->
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
