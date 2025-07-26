@@ -168,54 +168,12 @@ header p {
     transform: rotate(15deg);
 }
 
-/* استایل برای انتخاب‌گر دسته */
-.category-selector {
-    margin-bottom: 35px;
-    text-align: center;
-    background: var(--bg-card);
-    border-radius: 20px;
-    box-shadow: 0 8px 25px var(--shadow);
-    padding: 25px;
-    border: 1px solid var(--border-color);
-    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.category-selector label {
-    display: block;
-    margin-bottom: 15px;
-    font-weight: 600;
-    font-size: 1.3rem;
-    color: var(--text-secondary);
-    transition: color 0.3s ease;
-}
-
-.category-selector select {
-    padding: 15px 25px;
-    font-family: 'Vazirmatn', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
-    font-size: 1.1rem;
-    border: 2px solid var(--border-color);
-    border-radius: 16px;
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 350px;
-    box-shadow: 0 4px 15px var(--shadow);
-}
-
-.category-selector select:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3);
-    transform: translateY(-2px);
-}
-
-/* استایل‌های جدید برای تنظیمات نمایش (تعداد سطر و فیلترهای کلاینت) */
-.display-settings {
+/* استایل برای بخش اصلی فیلترها (انتخاب دسته و تعداد سطر) */
+.main-filters-section {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* برای ریسپانسیو بودن */
-    gap: 20px; /* فاصله بین گروه‌های فیلتر */
+    flex-wrap: wrap;
+    gap: 20px;
     margin-bottom: 35px;
     background: var(--bg-card);
     border-radius: 20px;
@@ -225,37 +183,41 @@ header p {
     transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.display-settings .filter-group {
+/* استایل‌های عمومی برای filter-group در هر دو بخش */
+.filter-group {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
 }
 
-.display-settings label {
+.filter-group label {
+    display: block; /* برای اینکه label بالای select قرار بگیرد */
     font-weight: 600;
+    font-size: 1.3rem; /* اندازه فونت بزرگتر برای label */
     color: var(--text-secondary);
-    font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
-.display-settings select {
-    padding: 10px 15px;
-    font-family: 'Vazirmatn', sans-serif;
-    font-size: 1rem;
+.filter-group select {
+    padding: 15px 25px; /* پدینگ بیشتر برای select */
+    font-family: 'Vazirmatn', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+    font-size: 1.1rem; /* اندازه فونت بزرگتر برای select */
     border: 2px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 16px; /* گوشه‌های گردتر */
     background: var(--bg-secondary);
     color: var(--text-primary);
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 180px; /* حداقل عرض برای selectها */
-    box-shadow: 0 2px 8px var(--shadow);
+    min-width: 300px; /* حداقل عرض برای selectها در دسکتاپ */
+    box-shadow: 0 4px 15px var(--shadow);
 }
 
-.display-settings select:focus {
+.filter-group select:focus {
     outline: none;
     border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3);
+    transform: translateY(-2px);
 }
 
 
@@ -510,9 +472,19 @@ header p {
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* .client-filters از display-settings استفاده می‌کند */
-/* .client-filters label از display-settings استفاده می‌کند */
-/* .client-filters select از display-settings استفاده می‌کند */
+/* فیلترهای کلاینت (درون clients-section) */
+.client-filters {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* برای ریسپانسیو بودن */
+    /* background و border و shadow از clients-section به ارث برده می‌شود */
+    /* padding و border-radius نیز از clients-section به ارث برده می‌شود */
+}
+
+/* .client-filters label از filter-group label استفاده می‌کند */
+/* .client-filters select از filter-group select استفاده می‌کند */
 
 
 .clients-container {
@@ -890,11 +862,8 @@ header p {
 
 /* Media Queries برای ریسپانسیو بودن */
 @media (max-width: 768px) {
-    /* حذف override ثابت برای موبایل */
-    /* :root {
-        --grid-columns: 1;
-        --item-font-size: 1.3rem;
-    } */
+    /* در موبایل، تعداد ستون‌ها و اندازه فونت توسط جاوااسکریپت تنظیم می‌شود */
+    /* نیازی به override ثابت در اینجا نیست */
 
     .container {
         padding: 15px;
@@ -909,20 +878,13 @@ header p {
         font-size: 2.2rem;
     }
 
-    .category-selector select {
-        min-width: unset; /* حذف حداقل عرض */
-        width: 100%; /* گرفتن عرض کامل */
-        max-width: 300px; /* حداکثر عرض برای صفحه کوچک‌تر */
-        padding: 12px 20px;
-    }
-
     /* تنظیمات نمایش (تعداد سطر و فیلترها) در موبایل */
-    .display-settings {
+    .main-filters-section {
         flex-direction: column; /* در موبایل به صورت ستونی نمایش داده شوند */
         gap: 15px; /* کاهش فاصله */
     }
 
-    .display-settings select {
+    .filter-group select { /* برای selectهای داخل filter-group */
         min-width: unset;
         width: 100%;
         max-width: 250px;
@@ -1001,5 +963,16 @@ header p {
     .os-icons-container img {
         width: 30px;
         height: 30px;
+    }
+
+    .client-filters { /* این هم از display-settings استفاده می‌کند */
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .client-filters select {
+        min-width: unset;
+        width: 100%;
+        max-width: 250px;
     }
 }

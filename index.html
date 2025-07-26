@@ -29,17 +29,16 @@
         </header>
 
         <main>
-            <!-- منوی کشویی برای انتخاب دسته لینک‌ها -->
-            <div class="category-selector">
-                <label for="category-select">انتخاب دسته:</label>
-                <select id="category-select">
-                    <option value="">-- انتخاب دسته --</option>
-                </select>
-            </div>
+            <!-- بخش اصلی فیلترها: انتخاب دسته و تعداد در هر سطر -->
+            <div class="main-filters-section">
+                <div class="category-selector filter-group"> <!-- اضافه شدن filter-group -->
+                    <label for="category-select">انتخاب دسته:</label>
+                    <select id="category-select">
+                        <option value="">-- انتخاب دسته --</option>
+                    </select>
+                </div>
 
-            <!-- بخش جدید: فیلترها و تنظیمات نمایش آیتم‌ها -->
-            <div class="display-settings">
-                <div class="filter-group">
+                <div class="row-count-selector filter-group"> <!-- اضافه شدن filter-group -->
                     <label for="row-count">تعداد در هر سطر:</label>
                     <select id="row-count">
                         <option value="1">1</option>
@@ -47,18 +46,6 @@
                         <option value="3" selected>3</option> <!-- پیش‌فرض 3 برای دسکتاپ -->
                         <option value="4">4</option>
                         <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="core-filter">فیلتر هسته:</label>
-                    <select id="core-filter">
-                        <option value="all">همه هسته‌ها</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="os-filter">فیلتر سیستم عامل:</label>
-                    <select id="os-filter">
-                        <option value="all">همه سیستم عامل‌ها</option>
                     </select>
                 </div>
             </div>
@@ -84,6 +71,21 @@
             <!-- بخش نمایش کلاینت‌های پیشنهادی -->
             <section id="clients-section" class="clients-section">
                 <h2>کلاینت‌های پیشنهادی 📱</h2>
+                <!-- فیلترهای هسته و سیستم عامل در اینجا باقی می‌مانند -->
+                <div class="client-filters display-settings"> <!-- استفاده مجدد از display-settings برای استایل‌دهی -->
+                    <div class="filter-group">
+                        <label for="core-filter">فیلتر هسته:</label>
+                        <select id="core-filter">
+                            <option value="all">همه هسته‌ها</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="os-filter">فیلتر سیستم عامل:</label>
+                        <select id="os-filter">
+                            <option value="all">همه سیستم عامل‌ها</option>
+                        </select>
+                    </div>
+                </div>
                 <div id="clients-container" class="clients-container">
                     <!-- کلاینت‌ها اینجا توسط جاوااسکریپت اضافه می‌شوند -->
                     <p class="placeholder-text">در حال بارگذاری کلاینت‌ها...</p>
@@ -124,7 +126,7 @@
     <!-- بخش جدید: فوتر با لینک‌های شبکه‌های اجتماعی -->
     <footer class="social-links-footer">
         <div class="social-links-container">
-            <a href="https://cdn.dribbble.com/users/4507400/screenshots/15420681/media/c00f77bc443cbc4ac96d138f9ac854c5.gif" alt="Telegram">
+            <a href="https://t.me/vpnclashfa" target="_blank" rel="noopener noreferrer">
                 <img src="https://cdn.dribbble.com/users/4507400/screenshots/15420681/media/c00f77bc443cbc4ac96d138f9ac854c5.gif" alt="Telegram">
             </a>
             <a href="https://twitter.com/coldwater_10" target="_blank" rel="noopener noreferrer">

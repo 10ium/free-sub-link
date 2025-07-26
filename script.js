@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('theme-toggle');
     const scrollTopBtn = document.getElementById('scroll-top');
     const scrollBottomBtn = document.getElementById('scroll-bottom');
-    const rowCountSelect = document.getElementById('row-count'); // تغییر یافت: از input به select
+    const rowCountSelect = document.getElementById('row-count');
     const clientsContainer = document.getElementById('clients-container');
     const coreFilterSelect = document.getElementById('core-filter');
     const osFilterSelect = document.getElementById('os-filter');
