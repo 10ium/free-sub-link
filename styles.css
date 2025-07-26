@@ -52,28 +52,16 @@
 body {
     /* اضافه کردن فونت‌های اموجی سیستمی برای اطمینان از نمایش صحیح */
     font-family: 'Vazirmatn', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
-    background-color: var(--bg-primary);
+    /* پس‌زمینه متحرک حالا مستقیماً به body اعمال می‌شود */
+    background: linear-gradient(135deg, var(--gradient-start-light), var(--gradient-end-light));
+    background-size: 400% 400%; /* بزرگ کردن اندازه گرادیان برای انیمیشن حرکت */
+    animation: gradientShift 15s ease infinite alternate; /* اعمال انیمیشن */
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
     position: relative;
     overflow-x: hidden; /* جلوگیری از اسکرول افقی */
     transition: background-color 0.3s ease, color 0.3s ease; /* انتقال نرم برای تغییر تم */
-}
-
-/* پس‌زمینه انیمیشنی جدید */
-.background-pattern {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* گرادیان اولیه */
-    background: linear-gradient(135deg, var(--gradient-start-light), var(--gradient-end-light));
-    background-size: 400% 400%; /* بزرگ کردن اندازه گرادیان برای انیمیشن حرکت */
-    animation: gradientShift 15s ease infinite alternate; /* اعمال انیمیشن */
-    z-index: -1;
-    opacity: 1; /* اطمینان از نمایش کامل */
 }
 
 /* انیمیشن گرادیان */
@@ -90,10 +78,12 @@ body {
 }
 
 /* تغییر رنگ گرادیان در تم تیره */
-[data-theme="dark"] .background-pattern {
+[data-theme="dark"] body { /* تغییر از .background-pattern به body */
     background: linear-gradient(135deg, var(--gradient-start-dark), var(--gradient-end-dark));
     background-size: 400% 400%;
 }
+
+/* .background-pattern div دیگر وجود ندارد */
 
 
 /* کانتینر اصلی محتوا */
@@ -102,7 +92,7 @@ body {
     margin: 0 auto;
     padding: 20px;
     position: relative;
-    z-index: 1;
+    z-index: 1; /* اطمینان از اینکه محتوا روی پس‌زمینه نمایش داده شود */
 }
 
 /* هدر صفحه */
@@ -294,15 +284,29 @@ header p {
     padding: 20px;
     text-align: center;
     cursor: pointer;
-    /* اضافه کردن فونت‌های اموجی سیستمی */
-    font-family: 'Vazirmatn', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+    font-family: 'Vazirmatn', sans-serif; /* فونت اموجی را از اینجا حذف کردیم تا فقط تصاویر پرچم نمایش داده شوند */
     font-weight: 500;
     color: var(--text-primary);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 15px var(--shadow);
+    display: flex; /* برای چیدمان پرچم و متن */
+    align-items: center;
+    justify-content: center;
 }
+
+/* استایل جدید برای آیکون پرچم داخل دکمه آیتم */
+.item-flag-icon {
+    width: 24px; /* اندازه پرچم */
+    height: 18px; /* نسبت ابعاد استاندارد پرچم */
+    margin-left: 8px; /* فاصله از متن (چون rtl است) */
+    border: 1px solid rgba(0,0,0,0.1); /* حاشیه ظریف برای پرچم */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 3px;
+    object-fit: cover;
+}
+
 
 /* افکت درخشش روی دکمه‌های آیتم */
 .item-button::before {

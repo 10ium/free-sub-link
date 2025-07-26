@@ -10,14 +10,15 @@ const osIcons = {
     macos: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/macos.svg",
     linux: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linux.svg",
     router_os: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/router.svg", // آیکون عمومی روتر
+    tvos: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/appletv.svg", // آیکون tvOS
 };
 
 // آیکون‌های هسته
 const coreIcons = {
-    v2ray: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/V2Ray_logo.png/600px-V2Ray_logo.png", // این لینک قبلاً کار می‌کرد
-    xray: "https://placehold.co/48x48/6366f1/ffffff?text=X", // آیکون جایگزین برای Xray (می‌توانید با لوگوی اصلی جایگزین کنید)
-    mihomo: "https://placehold.co/48x48/818cf8/ffffff?text=M", // آیکون جایگزین برای Mihomo/Clash Meta (می‌توانید با لوگوی اصلی جایگزین کنید)
-    singbox: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Sing-box.svg/555px-Sing-box.svg.png", // این لینک قبلاً کار می‌کرد
+    v2ray: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/V2Ray_logo.png/600px-V2Ray_logo.png",
+    xray: "https://placehold.co/48x48/6366f1/ffffff?text=X", // آیکون جایگزین برای Xray
+    mihomo: "https://placehold.co/48x48/818cf8/ffffff?text=M", // آیکون جایگزین برای Mihomo/Clash Meta
+    singbox: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Sing-box.svg/555px-Sing-box.svg.png",
 };
 
 // لیست کامل کلاینت‌ها
@@ -201,7 +202,7 @@ const allClients = [
         core_icon: coreIcons.mihomo,
     },
     {
-        name: "ClashMi",
+        name: "ClashMi", // این همان KaringX/clashmi است که قبلاً اضافه شده بود
         description: "ابزار پراکسی برای iOS/Android/macOS/Windows بر پایه هسته Mihomo با پنل داشبورد وب.",
         download: {
             ios: "https://apps.apple.com/us/app/clash-mi/id6744321968",
@@ -241,12 +242,14 @@ const allClients = [
     },
     {
         name: "Mihomo-party",
-        description: "کلاینت GUI Mihomo برای macOS و لینوکس با تم‌های قابل تنظیم و ادغام Sub-Store.",
+        description: "کلاینت GUI Mihomo برای ویندوز، macOS و لینوکس با تم‌های قابل تنظیم و ادغام Sub-Store.",
         download: {
-            macos: "https://github.com/mihomo-party-org/mihomo-party/releases",
-            linux: "https://github.com/mihomo-party-org/mihomo-party/releases",
+            windows: "https://mihomo.party/download/windows", // لینک‌های مستقیم‌تر
+            macos: "https://mihomo.party/download/macos",
+            linux: "https://mihomo.party/download/linux",
         },
         os_icons: {
+            windows: osIcons.windows,
             macos: osIcons.macos,
             linux: osIcons.linux,
         },
@@ -348,10 +351,12 @@ const allClients = [
         download: {
             ios: "https://apps.apple.com/app/sing-box-vt/id6673731168", // لینک اپ استور
             macos: "https://github.com/SagerNet/sing-box/releases", // لینک گیت‌هاب برای macOS
+            tvos: "https://github.com/SagerNet/sing-box/releases", // لینک گیت‌هاب برای tvOS
         },
         os_icons: {
             ios: osIcons.ios,
             macos: osIcons.macos,
+            tvos: osIcons.tvos,
         },
         core_icon: coreIcons.singbox,
     },
@@ -414,6 +419,25 @@ const allClients = [
         },
         core_icon: coreIcons.singbox,
     },
+    {
+        name: "Karing",
+        description: "ابزار پروکسی قدرتمند و چندپلتفرمی با پشتیبانی از قوانین مسیریابی برای Clash/Sing-box.",
+        download: {
+            windows: "https://github.com/KaringX/karing/releases/latest",
+            android: "https://github.com/KaringX/karing/releases/latest",
+            ios: "https://apps.apple.com/us/app/karing/id6472431552", // App Store link
+            macos: "https://github.com/KaringX/karing/releases/latest",
+            tvos: "https://apps.apple.com/us/app/karing/id6472431552", // App Store link for tvOS
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            android: osIcons.android,
+            ios: osIcons.ios,
+            macos: osIcons.macos,
+            tvos: osIcons.tvos,
+        },
+        core_icon: coreIcons.singbox, // بر اساس اطلاعات، از هسته Sing-box استفاده می‌کند
+    },
 ];
 
 // تابع کمکی برای مرتب‌سازی کلاینت‌ها بر اساس اولویت سیستم عامل
@@ -422,76 +446,98 @@ const sortClients = (clients) => {
     const processedNames = new Set();
 
     // 1. Clash Verge Rev
-    const clashVergeRev = allClients.find(c => c.name === "Clash Verge Rev");
+    const clashVergeRev = clients.find(c => c.name === "Clash Verge Rev");
     if (clashVergeRev) {
         sorted.push(clashVergeRev);
         processedNames.add(clashVergeRev.name);
     }
 
     // 2. FlClash
-    const flClash = allClients.find(c => c.name === "FlClash");
+    const flClash = clients.find(c => c.name === "FlClash");
     if (flClash) {
         sorted.push(flClash);
         processedNames.add(flClash.name);
     }
 
-    // گروه‌بندی کلاینت‌های باقی‌مانده بر اساس سیستم عامل
-    const androidClients = [];
-    const windowsClients = [];
-    const iosClients = [];
-    const macosClients = [];
-    const linuxClients = [];
-    const routerClients = [];
-    const otherClients = []; // برای کلاینت‌هایی که در دسته‌های بالا قرار نمی‌گیرند
+    // گروه‌بندی کلاینت‌های باقی‌مانده بر اساس اولویت پلتفرم
+    const androidOnlyClients = [];
+    const windowsOnlyClients = [];
+    const iosOnlyClients = [];
+    const macosOnlyClients = [];
+    const linuxOnlyClients = [];
+    const routerOnlyClients = [];
+    const multiPlatformClients = []; // برای کلاینت‌هایی که چند پلتفرم دارند
 
-    allClients.forEach(client => {
+    clients.forEach(client => {
         if (processedNames.has(client.name)) {
             return; // قبلاً اضافه شده است
         }
 
-        if (client.download.android && !client.download.windows && !client.download.ios && !client.download.macos && !client.download.linux && !client.download.router_os) {
-            androidClients.push(client);
-        } else if (client.download.windows && !client.download.android && !client.download.ios && !client.download.macos && !client.download.linux && !client.download.router_os) {
-            windowsClients.push(client);
-        } else if (client.download.ios && !client.download.android && !client.download.windows && !client.download.macos && !client.download.linux && !client.download.router_os) {
-            iosClients.push(client);
-        } else if (client.download.macos && !client.download.android && !client.download.windows && !client.download.ios && !client.download.linux && !client.download.router_os) {
-            macosClients.push(client);
-        } else if (client.download.linux && !client.download.android && !client.download.windows && !client.download.ios && !client.download.macos && !client.download.router_os) {
-            linuxClients.push(client);
-        } else if (client.download.router_os && !client.download.android && !client.download.windows && !client.download.ios && !client.download.macos && !client.download.linux) {
-            routerClients.push(client);
-        } else {
-            // برای کلاینت‌های چندپلتفرمی یا آنهایی که فقط یک پلتفرم خاص دارند و در دسته‌های بالا نیستند،
-            // بر اساس اولویت سیستم عامل مرتب می‌کنیم.
-            if (client.download.android) androidClients.push(client);
-            else if (client.download.windows) windowsClients.push(client);
-            else if (client.download.ios) iosClients.push(client);
-            else if (client.download.macos) macosClients.push(client);
-            else if (client.download.linux) linuxClients.push(client);
-            else if (client.download.router_os) routerClients.push(client);
-            else otherClients.push(client); // اگر هیچ پلتفرم مشخصی نداشت
+        const hasAndroid = !!client.download.android;
+        const hasWindows = !!client.download.windows;
+        const hasIos = !!client.download.ios;
+        const hasMacos = !!client.download.macos;
+        const hasLinux = !!client.download.linux;
+        const hasRouter = !!client.download.router_os;
+        const hasTvOS = !!client.download.tvos; // اضافه کردن tvOS
+
+        const platformCount = [hasAndroid, hasWindows, hasIos, hasMacos, hasLinux, hasRouter, hasTvOS].filter(Boolean).length;
+
+        if (platformCount === 1) {
+            if (hasAndroid) androidOnlyClients.push(client);
+            else if (hasWindows) windowsOnlyClients.push(client);
+            else if (hasIos) iosOnlyClients.push(client);
+            else if (hasMacos) macosOnlyClients.push(client);
+            else if (hasLinux) linuxOnlyClients.push(client);
+            else if (hasRouter) routerOnlyClients.push(client);
+        } else if (platformCount > 1) {
+            multiPlatformClients.push(client);
         }
     });
 
-    // مرتب‌سازی هر گروه بر اساس نام
-    androidClients.sort((a, b) => a.name.localeCompare(b.name));
-    windowsClients.sort((a, b) => a.name.localeCompare(b.name));
-    iosClients.sort((a, b) => a.name.localeCompare(b.name));
-    macosClients.sort((a, b) => a.name.localeCompare(b.name));
-    linuxClients.sort((a, b) => a.name.localeCompare(b.name));
-    routerClients.sort((a, b) => a.name.localeCompare(b.name));
-    otherClients.sort((a, b) => a.name.localeCompare(b.name));
+    // مرتب‌سازی کلاینت‌های چندپلتفرمی بر اساس اولویت پلتفرم (Android > Windows > iOS > macOS > Linux > Router > TvOS)
+    multiPlatformClients.sort((a, b) => {
+        const platformOrder = ['android', 'windows', 'ios', 'macos', 'linux', 'router_os', 'tvos'];
+        let aFirstPlatformIndex = -1;
+        let bFirstPlatformIndex = -1;
+
+        for (let i = 0; i < platformOrder.length; i++) {
+            if (a.download[platformOrder[i]] && aFirstPlatformIndex === -1) aFirstPlatformIndex = i;
+            if (b.download[platformOrder[i]] && bFirstPlatformIndex === -1) bFirstPlatformIndex = i;
+        }
+
+        if (aFirstPlatformIndex !== bFirstPlatformIndex) {
+            return aFirstPlatformIndex - bFirstPlatformIndex;
+        }
+        return a.name.localeCompare(b.name); // اگر اولویت پلتفرم یکسان بود، بر اساس نام مرتب کن
+    });
 
 
-    // اضافه کردن گروه‌های مرتب شده به لیست نهایی
-    sorted.push(...androidClients);
-    sorted.push(...windowsClients);
-    sorted.push(...iosClients);
-    sorted.push(...macosClients);
-    sorted.push(...linuxClients);
-    sorted.push(...routerClients);
-    sorted.push(...otherClients);
+    // مرتب‌سازی هر گروه "فقط" بر اساس نام
+    androidOnlyClients.sort((a, b) => a.name.localeCompare(b.name));
+    windowsOnlyClients.sort((a, b) => a.name.localeCompare(b.name));
+    iosOnlyClients.sort((a, b) => a.name.localeCompare(b.name));
+    macosOnlyClients.sort((a, b) => a.name.localeCompare(b.name));
+    linuxOnlyClients.sort((a, b) => a.name.localeCompare(b.name));
+    routerOnlyClients.sort((a, b) => a.name.localeCompare(b.name));
+
+
+    // اضافه کردن گروه‌های مرتب شده به لیست نهایی با اولویت درخواستی
+    // ترتیب: Clash Verge Rev, FlClash, سپس اندروید, ویندوز, iOS, مک, لینوکس, روتر
+    // کلاینت‌های چندپلتفرمی در این مرحله به ترتیب اولویت اولین پلتفرمشان اضافه می‌شوند.
+    // کلاینت‌های تک پلتفرمی در گروه‌های مربوطه اضافه می‌شوند.
+
+    // اضافه کردن کلاینت‌های چندپلتفرمی (که شامل Karing و Hiddify-app می‌شوند)
+    sorted.push(...multiPlatformClients);
+
+    // اضافه کردن کلاینت‌های تک پلتفرمی به ترتیب
+    sorted.push(...androidOnlyClients);
+    sorted.push(...windowsOnlyClients);
+    sorted.push(...iosOnlyClients);
+    sorted.push(...macosOnlyClients);
+    sorted.push(...linuxOnlyClients);
+    sorted.push(...routerOnlyClients);
+
 
     // حذف موارد تکراری (اگر کلاینتی به چند دسته اضافه شده باشد)
     const finalSorted = [];

@@ -14,7 +14,44 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollTopBtn = document.getElementById('scroll-top');
     const scrollBottomBtn = document.getElementById('scroll-bottom');
     const rowCountInput = document.getElementById('row-count');
-    const clientsContainer = document.getElementById('clients-container'); // جدید: کانتینر کلاینت‌ها
+    const clientsContainer = document.getElementById('clients-container');
+
+    // نگاشت نام کشورها به کدهای دو حرفی ISO برای دریافت پرچم
+    const countryFlagMap = {
+        "آلبانی": "al", "آرژانتین": "ar", "ارمنستان": "am", "استرالیا": "au", "اتریش": "at",
+        "بحرین": "bh", "بلاروس": "by", "بلژیک": "be", "بولیوی": "bo", "برزیل": "br",
+        "بلغارستان": "bg", "کانادا": "ca", "چین": "cn", "کلمبیا": "co", "کرواسی": "hr",
+        "قبرس": "cy", "چک": "cz", "دانمارک": "dk", "اکوادور": "ec", "استونی": "ee",
+        "فنلاند": "fi", "فرانسه": "fr", "آلمان": "de", "جبل‌الطارق": "gi", "یونان": "gr",
+        "گواتمالا": "gt", "هنگ کنگ": "hk", "مجارستان": "hu", "ایسلند": "is", "هند": "in",
+        "اندونزی": "id", "ایران": "ir", "عراق": "iq", "ایرلند": "ie", "اسرائیل": "il",
+        "ایتالیا": "it", "ژاپن": "jp", "اردن": "jo", "قزاقستان": "kz", "کره جنوبی": "kr",
+        "لتونی": "lv", "لیتوانی": "lt", "لوکزامبورگ": "lu", "مالزی": "my", "مالت": "mt",
+        "مکزیک": "mx", "مولداوی": "md", "هلند": "nl", "نیوزیلند": "nz", "مقدونیه شمالی": "mk",
+        "نروژ": "no", "نامشخص": "un", // 'un' برای پرچم نامشخص یا عمومی
+        "عمان": "om", "پاکستان": "pk", "پاراگوئه": "py", "پرو": "pe", "فیلیپین": "ph",
+        "لهستان": "pl", "پرتغال": "pt", "پورتوریکو": "pr", "رومانی": "ro", "روسیه": "ru",
+        "صربستان": "rs", "سیشل": "sc", "سنگاپور": "sg", "اسلواکی": "sk", "اسلوونی": "si",
+        "آفریقای جنوبی": "za", "اسپانیا": "es", "سوئد": "se", "سوئیس": "ch", "تایوان": "tw",
+        "تایلند": "th", "ترکیه": "tr", "اوکراین": "ua", "امارات متحده عربی": "ae",
+        "بریتانیا": "gb", "ایالات متحده": "us", "ویتنام": "vn"
+    };
+
+    /**
+     * تابعی برای دریافت URL تصویر پرچم بر اساس نام کشور (با یا بدون اموجی)
+     * @param {string} countryNameWithEmoji - نام کشور که ممکن است شامل اموجی پرچم باشد
+     * @returns {string|null} URL تصویر پرچم یا null اگر یافت نشد
+     */
+    function getFlagImageUrl(countryNameWithEmoji) {
+        // حذف اموجی‌های پرچم از رشته برای یافتن نام کشور خالص
+        const cleanName = countryNameWithEmoji.replace(/[\u{1F1E6}-\u{1F1FF}\u{1F3F4}\u{E0067}-\u{E007F}]/gu, '').trim();
+        const countryCode = countryFlagMap[cleanName];
+        if (countryCode) {
+            // استفاده از flagcdn.com برای دریافت تصاویر پرچم (عرض 20 پیکسل)
+            return `https://flagcdn.com/w20/${countryCode.toLowerCase()}.png`;
+        }
+        return null;
+    }
 
     /**
      * تابع برای تنظیم تم (روشن یا تیره)
@@ -69,7 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
         for (const categoryName of Object.keys(subscriptionsData)) {
             const option = document.createElement('option');
             option.value = categoryName;
-            option.textContent = categoryName;
+            // در منوی کشویی، فقط نام تمیز کشور را نمایش می‌دهیم (بدون اموجی)
+            option.textContent = categoryName.replace(/[\u{1F1E6}-\u{1F1FF}\u{1F3F4}\u{E0067}-\u{E007F}]/gu, '').trim();
             categorySelect.appendChild(option);
         }
     }
@@ -87,11 +125,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let itemsHTML = '<div class="items-list">';
         for (const itemName of Object.keys(items)) {
-            itemsHTML += `
-                <button class="item-button" data-category="${categoryName}" data-item="${itemName}">
-                    ${itemName}
-                </button>
-            `;
+            let itemDisplayContent = itemName.replace(/[\u{1F1E6}-\u{1F1FF}\u{1F3F4}\u{E0067}-\u{E007F}]/gu, '').trim(); // نام تمیز
+            const flagUrl = getFlagImageUrl(itemName); // دریافت URL پرچم
+
+            if (flagUrl) {
+                // اگر URL پرچم موجود بود، تگ img را اضافه کن
+                itemsHTML += `
+                    <button class="item-button" data-category="${categoryName}" data-item="${itemName}">
+                        <img src="${flagUrl}" alt="${itemDisplayContent} flag" class="item-flag-icon">
+                        <span>${itemDisplayContent}</span>
+                    </button>
+                `;
+            } else {
+                // در غیر این صورت، فقط متن را نمایش بده
+                itemsHTML += `
+                    <button class="item-button" data-category="${categoryName}" data-item="${itemName}">
+                        <span>${itemDisplayContent}</span>
+                    </button>
+                `;
+            }
         }
         itemsHTML += '</div>';
 
@@ -317,5 +369,5 @@ document.addEventListener('DOMContentLoaded', function() {
     setInitialTheme(); // ابتدا تم را بارگذاری کن
     populateCategorySelect(); // منوی دسته‌بندی را پر کن
     setGridColumns(rowCountInput.value); // تعداد ستون‌های اولیه را بر اساس مقدار پیش‌فرض فیلد ورودی تنظیم کن
-    renderClients(); // جدید: کلاینت‌ها را رندر کن
+    renderClients(); // کلاینت‌ها را رندر کن
 });
