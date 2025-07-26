@@ -15,18 +15,17 @@ const osIcons = {
 
 // آیکون‌های هسته
 const coreIcons = {
-    v2ray: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/V2Ray_logo.png/600px-V2Ray_logo.png",
-    xray: "https://placehold.co/48x48/6366f1/ffffff?text=X", // آیکون جایگزین برای Xray
+    xray: "https://placehold.co/48x48/6366f1/ffffff?text=Xray%20/%20V2ray", // ترکیب آیکون V2Ray و Xray
     mihomo: "https://placehold.co/48x48/818cf8/ffffff?text=M", // آیکون جایگزین برای Mihomo/Clash Meta
     singbox: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Sing-box.svg/555px-Sing-box.svg.png",
 };
 
 // لیست کامل کلاینت‌ها
 const allClients = [
-    // کلاینت‌های V2ray
+    // کلاینت‌های Xray (ترکیب شده از V2ray و X-Ray)
     {
         name: "v2rayN",
-        description: "کلاینت محبوب V2Ray برای ویندوز و اندروید با پشتیبانی از هسته‌های Xray و v2fly. متن‌باز و رایگان.",
+        description: "کلاینت محبوب Xray برای ویندوز و اندروید با پشتیبانی از هسته‌های Xray و v2fly. متن‌باز و رایگان.",
         download: {
             windows: "https://sourceforge.net/directory/v2ray-clients/",
             android: "https://github.com/2dust/v2rayNG/releases",
@@ -35,12 +34,12 @@ const allClients = [
             windows: osIcons.windows,
             android: osIcons.android,
         },
-        core_icon: coreIcons.v2ray,
-        core_type: "V2Ray" // اضافه کردن نوع هسته
+        core_icon: coreIcons.xray,
+        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
     },
     {
         name: "Hiddify-app",
-        description: "کلاینت پراکسی خودکار چندپلتفرمی متن‌باز و رایگان با پشتیبانی گسترده از پروتکل‌ها و هسته‌ها (V2ray, X-Ray, Singbox, Clash Meta).",
+        description: "کلاینت پراکسی خودکار چندپلتفرمی متن‌باز و رایگان با پشتیبانی گسترده از پروتکل‌ها و هسته‌ها (Xray, Singbox, Clash Meta).",
         download: {
             windows: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Windows-Setup-x64.exe",
             macos: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-MacOS.dmg",
@@ -55,32 +54,32 @@ const allClients = [
             android: osIcons.android,
             ios: osIcons.ios,
         },
-        core_icon: coreIcons.v2ray, // هسته اصلی یا یکی از هسته‌های پشتیبانی شده
+        core_icon: coreIcons.xray,
         core_type: "Multi-Core" // این کلاینت از چندین هسته پشتیبانی می‌کند
     },
     {
         name: "Surfing (Magisk Module)",
-        description: "ماژول Magisk/Kernelsu/APatch متن‌باز و رایگان برای اندروید با پشتیبانی از هسته‌های V2ray, Xray, Clash/Mihomo, Singbox و Hysteria. این یک ماژول سیستمی است و رابط کاربری گرافیکی مستقیم ندارد.",
+        description: "ماژول Magisk/Kernelsu/APatch متن‌باز و رایگان برای اندروید با پشتیبانی از هسته‌های Xray, Clash/Mihomo, Singbox و Hysteria. این یک ماژول سیستمی است و رابط کاربری گرافیکی مستقیم ندارد.",
         download: {
             android: "https://github.com/MoGuangYu/Surfing/releases",
         },
         os_icons: {
             android: osIcons.android,
         },
-        core_icon: coreIcons.v2ray, // هسته اصلی یا یکی از هسته‌های پشتیبانی شده
+        core_icon: coreIcons.xray,
         core_type: "Multi-Core"
     },
     {
         name: "V2RayU",
-        description: "رابط کاربری گرافیکی متن‌باز و رایگان برای V2ray در macOS با قابلیت مدیریت چند کاربره و آمار ترافیک.",
+        description: "رابط کاربری گرافیکی متن‌باز و رایگان برای Xray در macOS با قابلیت مدیریت چند کاربره و آمار ترافیک.",
         download: {
             macos: "https://github.com/Cenmrev/V2RayX/releases", // V2RayU در App Store نیست، از V2RayX استفاده می‌شود که مشابه است.
         },
         os_icons: {
             macos: osIcons.macos,
         },
-        core_icon: coreIcons.v2ray,
-        core_type: "V2Ray"
+        core_icon: coreIcons.xray,
+        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
     },
     {
         name: "v2rayA",
@@ -97,20 +96,20 @@ const allClients = [
             linux: osIcons.linux,
             router_os: osIcons.router_os,
         },
-        core_icon: coreIcons.v2ray,
-        core_type: "V2Ray"
+        core_icon: coreIcons.xray,
+        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
     },
     {
         name: "V2RayX",
-        description: "رابط کاربری گرافیکی ساده متن‌باز و رایگان برای V2Ray در macOS، با قابلیت مدیریت پروکسی سیستم و ادغام نوار منو.",
+        description: "رابط کاربری گرافیکی ساده متن‌باز و رایگان برای Xray در macOS، با قابلیت مدیریت پروکسی سیستم و ادغام نوار منو.",
         download: {
             macos: "https://github.com/Cenmrev/V2RayX/releases",
         },
         os_icons: {
             macos: osIcons.macos,
         },
-        core_icon: coreIcons.v2ray,
-        core_type: "V2Ray"
+        core_icon: coreIcons.xray,
+        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
     },
     {
         name: "V2Ray Core (CLI)",
@@ -121,12 +120,12 @@ const allClients = [
         os_icons: {
             linux: osIcons.linux,
         },
-        core_icon: coreIcons.v2ray,
-        core_type: "V2Ray"
+        core_icon: coreIcons.xray,
+        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
     },
     {
         name: "NapsternetV",
-        description: "کلاینت پیشرفته V2Ray و SSH VPN متن‌باز و رایگان برای اندروید و iOS با قابلیت سفارشی‌سازی بالا از طریق فایل‌های پیکربندی .npv. بدون تبلیغات.",
+        description: "کلاینت پیشرفته Xray و SSH VPN متن‌باز و رایگان برای اندروید و iOS با قابلیت سفارشی‌سازی بالا از طریق فایل‌های پیکربندی .npv. بدون تبلیغات.",
         download: {
             android: "https://github.com/NapsternetV-Fyp/NapsternetV-APK/releases/",
             ios: "https://apps.apple.com/us/app/npv-tunnel/id1629465476", // Npv Tunnel همان NapsternetV است.
@@ -135,12 +134,12 @@ const allClients = [
             android: osIcons.android,
             ios: osIcons.ios,
         },
-        core_icon: coreIcons.v2ray, // از هسته V2Ray استفاده می‌کند
-        core_type: "V2Ray"
+        core_icon: coreIcons.xray,
+        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
     },
     {
         name: "v2box",
-        description: "کلاینت VPN رایگان برای پلتفرم‌های Apple و Android با پشتیبانی از پروتکل‌های Shadowsocks, V2ray, Vmess, Trojan, SSH, Reality (xray), Vless Vision. وضعیت متن‌باز بودن برنامه کلاینت نامشخص است.",
+        description: "کلاینت VPN رایگان برای پلتفرم‌های Apple و Android با پشتیبانی از پروتکل‌های Shadowsocks, Xray, Vmess, Trojan, SSH, Reality (xray), Vless Vision. وضعیت متن‌باز بودن برنامه کلاینت نامشخص است.",
         download: {
             ios: "https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690?platform=iphone",
             android: "https://github.com/V2Box-APKDescargar/V2Box-APK/releases/",
@@ -149,11 +148,11 @@ const allClients = [
             ios: osIcons.ios,
             android: osIcons.android,
         },
-        core_icon: coreIcons.v2ray, // از هسته‌های V2Ray/Xray استفاده می‌کند
-        core_type: "V2Ray/Xray"
+        core_icon: coreIcons.xray,
+        core_type: "Xray / V2ray" // نوع هسته به Xray / V2ray تغییر یافت
     },
 
-    // کلاینت‌های X-Ray
+    // کلاینت‌های X-Ray (ادغام شده با V2Ray)
     {
         name: "Invisible Man XRay",
         description: "کلاینت رایگان و متن‌باز XRay برای ویندوز با رابط کاربری ساده.",
@@ -189,7 +188,7 @@ const allClients = [
         os_icons: {
             android: osIcons.android,
         },
-        core_icon: coreIcons.xray, // از هسته v2ray-core فورک شده استفاده می‌کند که نزدیک به X-Ray است
+        core_icon: coreIcons.xray,
         core_type: "Xray"
     },
     {
@@ -597,7 +596,17 @@ const sortClients = (clients) => {
 };
 
 // مرتب‌سازی کلاینت‌ها بر اساس اولویت درخواستی
-const suggestedClients = sortClients(allClients);
+const suggestedClients = sortClients(allClients.map(client => {
+    // تغییر core_type و core_icon برای کلاینت‌های V2Ray به Xray / V2ray
+    if (client.core_type === "V2Ray" || client.core_type === "V2Ray/Xray") {
+        return {
+            ...client,
+            core_type: "Xray / V2ray",
+            core_icon: coreIcons.xray
+        };
+    }
+    return client;
+}));
 
 // این آبجکت‌ها را برای استفاده در فایل‌های دیگر export می‌کنیم
 export { suggestedClients, osIcons, coreIcons };
