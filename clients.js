@@ -5,12 +5,12 @@
 // آیکون‌های سیستم عامل
 const osIcons = {
     android: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/android.svg",
-    ios: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/apple.svg", // آیکون عمومی اپل/iOS
+    ios: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/apple.svg",
     windows: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/windows.svg",
     macos: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/macos.svg",
     linux: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linux.svg",
-    router_os: "https://placehold.co/48x48/cccccc/222222?text=Router", // آیکون جایگزین برای روتر
-    tvos: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/appletv.svg", // آیکون tvOS
+    router_os: "https://icons-for-free.com/iff/png/256/openwrt-1331550891955088043.png",
+    tvos: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/appletv.svg",
 };
 
 // آیکون‌های هسته
@@ -54,7 +54,7 @@ const allClients = [
             android: osIcons.android,
             ios: osIcons.ios,
         },
-        core_icon: coreIcons.xray,
+        core_icon: coreIcons.singbox,
         core_type: "Multi-Core"
     },
     {
@@ -66,7 +66,7 @@ const allClients = [
         os_icons: {
             android: osIcons.android,
         },
-        core_icon: coreIcons.xray,
+        core_icon: coreIcons.singbox,
         core_type: "Multi-Core"
     },
     {
