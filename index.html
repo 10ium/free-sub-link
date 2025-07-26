@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لینک‌های اشتراک رایگان</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <div class="background-pattern"></div>
+    <div class="container">
+        <header>
+            <div class="theme-toggle-container">
+                <button id="theme-toggle" class="theme-toggle" aria-label="تغییر تم">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+            </div>
+            <h1>🔗 لینک‌های اشتراک رایگان</h1>
+            <p>دسترسی آسان به اینترنت آزاد</p>
+        </header>
+
+        <main>
+            <!-- منوی کشویی برای انتخاب دسته -->
+            <div class="category-selector">
+                <label for="category-select">انتخاب دسته:</label>
+                <select id="category-select">
+                    <option value="">-- انتخاب دسته --</option>
+                </select>
+            </div>
+
+            <!-- نمایش آیتم‌های دسته انتخابی -->
+            <div id="items-container" class="items-container">
+                <p class="placeholder-text">لطفاً یک دسته را انتخاب کنید</p>
+            </div>
+
+            <!-- نمایش لینک انتخابی -->
+            <div id="link-display" class="link-display hidden">
+                <div class="link-content">
+                    <div class="link-header">
+                        <h3>لینک انتخابی:</h3>
+                        <button id="copy-btn" class="copy-button">📋 کپی</button>
+                    </div>
+                    <div class="link-wrapper">
+                        <span id="selected-link" class="link-text"></span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="scroll-buttons">
+            <button id="scroll-top" class="scroll-button top" aria-label="رفتن به بالا">⬆️</button>
+            <button id="scroll-bottom" class="scroll-button bottom" aria-label="رفتن به پایین">⬇️</button>
+        </div>
+
+        <div id="copy-notification" class="notification">
+            لینک کپی شد! ✅
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
