@@ -4,23 +4,24 @@
 
 // آیکون‌های سیستم عامل
 const osIcons = {
-    android: "https://techicons.dev/icons/android.svg",
-    ios: "https://img.icons8.com/ios-filled/48/ios-logo.png",
-    windows: "https://www.citypng.com/public/uploads/small/11663116813m5d7x07j3l559j0f9184z2h6f0m91m79x4k33qj5d5e5p413g2q7r1g6w8v.png",
-    macos: "https://img.icons8.com/ios-filled/48/mac-os.png",
-    linux: "https://techicons.dev/icons/linux.svg",
-    router_os: "https://img.icons8.com/ios-filled/48/router.png", // آیکون عمومی برای سیستم‌عامل روتر
+    android: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/android.svg",
+    ios: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/apple.svg", // آیکون عمومی اپل/iOS
+    windows: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/windows.svg",
+    macos: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/macos.svg",
+    linux: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linux.svg",
+    router_os: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/router.svg", // آیکون عمومی روتر
 };
 
 // آیکون‌های هسته
 const coreIcons = {
-    v2ray: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/V2Ray_logo.png/600px-V2Ray_logo.png",
-    xray: "https://img.icons8.com/material-filled/48/x-ray.png",
-    mihomo: "https://img.icons8.com/ios-filled/48/clash-meta.png", // Mihomo/Clash Meta
-    singbox: "https://upload.wikimedia.com/wikipedia/commons/thumb/1/11/Sing-box.svg/555px-Sing-box.svg.png",
+    v2ray: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/V2Ray_logo.png/600px-V2Ray_logo.png", // این لینک قبلاً کار می‌کرد
+    xray: "https://placehold.co/48x48/6366f1/ffffff?text=X", // آیکون جایگزین برای Xray (می‌توانید با لوگوی اصلی جایگزین کنید)
+    mihomo: "https://placehold.co/48x48/818cf8/ffffff?text=M", // آیکون جایگزین برای Mihomo/Clash Meta (می‌توانید با لوگوی اصلی جایگزین کنید)
+    singbox: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Sing-box.svg/555px-Sing-box.svg.png", // این لینک قبلاً کار می‌کرد
 };
 
-const suggestedClients = [
+// لیست کامل کلاینت‌ها
+const allClients = [
     // کلاینت‌های V2ray
     {
         name: "v2rayN",
@@ -414,6 +415,99 @@ const suggestedClients = [
         core_icon: coreIcons.singbox,
     },
 ];
+
+// تابع کمکی برای مرتب‌سازی کلاینت‌ها بر اساس اولویت سیستم عامل
+const sortClients = (clients) => {
+    const sorted = [];
+    const processedNames = new Set();
+
+    // 1. Clash Verge Rev
+    const clashVergeRev = allClients.find(c => c.name === "Clash Verge Rev");
+    if (clashVergeRev) {
+        sorted.push(clashVergeRev);
+        processedNames.add(clashVergeRev.name);
+    }
+
+    // 2. FlClash
+    const flClash = allClients.find(c => c.name === "FlClash");
+    if (flClash) {
+        sorted.push(flClash);
+        processedNames.add(flClash.name);
+    }
+
+    // گروه‌بندی کلاینت‌های باقی‌مانده بر اساس سیستم عامل
+    const androidClients = [];
+    const windowsClients = [];
+    const iosClients = [];
+    const macosClients = [];
+    const linuxClients = [];
+    const routerClients = [];
+    const otherClients = []; // برای کلاینت‌هایی که در دسته‌های بالا قرار نمی‌گیرند
+
+    allClients.forEach(client => {
+        if (processedNames.has(client.name)) {
+            return; // قبلاً اضافه شده است
+        }
+
+        if (client.download.android && !client.download.windows && !client.download.ios && !client.download.macos && !client.download.linux && !client.download.router_os) {
+            androidClients.push(client);
+        } else if (client.download.windows && !client.download.android && !client.download.ios && !client.download.macos && !client.download.linux && !client.download.router_os) {
+            windowsClients.push(client);
+        } else if (client.download.ios && !client.download.android && !client.download.windows && !client.download.macos && !client.download.linux && !client.download.router_os) {
+            iosClients.push(client);
+        } else if (client.download.macos && !client.download.android && !client.download.windows && !client.download.ios && !client.download.linux && !client.download.router_os) {
+            macosClients.push(client);
+        } else if (client.download.linux && !client.download.android && !client.download.windows && !client.download.ios && !client.download.macos && !client.download.router_os) {
+            linuxClients.push(client);
+        } else if (client.download.router_os && !client.download.android && !client.download.windows && !client.download.ios && !client.download.macos && !client.download.linux) {
+            routerClients.push(client);
+        } else {
+            // برای کلاینت‌های چندپلتفرمی یا آنهایی که فقط یک پلتفرم خاص دارند و در دسته‌های بالا نیستند،
+            // بر اساس اولویت سیستم عامل مرتب می‌کنیم.
+            if (client.download.android) androidClients.push(client);
+            else if (client.download.windows) windowsClients.push(client);
+            else if (client.download.ios) iosClients.push(client);
+            else if (client.download.macos) macosClients.push(client);
+            else if (client.download.linux) linuxClients.push(client);
+            else if (client.download.router_os) routerClients.push(client);
+            else otherClients.push(client); // اگر هیچ پلتفرم مشخصی نداشت
+        }
+    });
+
+    // مرتب‌سازی هر گروه بر اساس نام
+    androidClients.sort((a, b) => a.name.localeCompare(b.name));
+    windowsClients.sort((a, b) => a.name.localeCompare(b.name));
+    iosClients.sort((a, b) => a.name.localeCompare(b.name));
+    macosClients.sort((a, b) => a.name.localeCompare(b.name));
+    linuxClients.sort((a, b) => a.name.localeCompare(b.name));
+    routerClients.sort((a, b) => a.name.localeCompare(b.name));
+    otherClients.sort((a, b) => a.name.localeCompare(b.name));
+
+
+    // اضافه کردن گروه‌های مرتب شده به لیست نهایی
+    sorted.push(...androidClients);
+    sorted.push(...windowsClients);
+    sorted.push(...iosClients);
+    sorted.push(...macosClients);
+    sorted.push(...linuxClients);
+    sorted.push(...routerClients);
+    sorted.push(...otherClients);
+
+    // حذف موارد تکراری (اگر کلاینتی به چند دسته اضافه شده باشد)
+    const finalSorted = [];
+    const finalProcessedNames = new Set();
+    sorted.forEach(client => {
+        if (!finalProcessedNames.has(client.name)) {
+            finalSorted.push(client);
+            finalProcessedNames.add(client.name);
+        }
+    });
+
+    return finalSorted;
+};
+
+// مرتب‌سازی کلاینت‌ها بر اساس اولویت درخواستی
+const suggestedClients = sortClients(allClients);
 
 // این آبجکت را برای استفاده در فایل‌های دیگر export می‌کنیم
 export { suggestedClients };
