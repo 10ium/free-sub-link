@@ -111,6 +111,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
+     * تابعی برای دریافت URL آیکون Cloudflare
+     * @returns {string} URL تصویر آیکون Cloudflare
+     */
+    function getCloudflareIconUrl() {
+        return 'https://www.cloudflare.com/favicon.ico'; // یا هر آیکون دیگری که ترجیح می‌دهید
+    }
+
+    /**
      * تابع کمکی برای انتخاب تصادفی یک آیتم از آرایه
      * @param {Array<string>} arr - آرایه‌ای از رشته‌ها (لینک‌های عکس)
      * @returns {string} یک لینک عکس تصادفی
@@ -211,24 +219,22 @@ document.addEventListener('DOMContentLoaded', function() {
         let itemsHTML = '<div class="items-list">';
         for (const itemName of Object.keys(items)) {
             let itemDisplayContent = itemName.replace(/[\u{1F1E6}-\u{1F1FF}\u{1F3F4}\u{E0067}-\u{E007F}]/gu, '').trim(); // نام تمیز
+            const link = items[itemName]; // دریافت لینک واقعی برای بررسی Cloudflare
             const flagUrl = getFlagImageUrl(itemName); // دریافت URL پرچم
+            const isCloudflareLink = link.toLowerCase().includes('cloudflare'); // بررسی وجود 'cloudflare' در لینک
 
+            itemsHTML += `
+                <button class="item-button" data-category="${categoryName}" data-item="${itemName}">
+            `;
             if (flagUrl) {
-                // اگر URL پرچم موجود بود، تگ img را اضافه کن
-                itemsHTML += `
-                    <button class="item-button" data-category="${categoryName}" data-item="${itemName}">
-                        <img src="${flagUrl}" alt="${itemDisplayContent} flag" class="item-flag-icon">
-                        <span>${itemDisplayContent}</span>
-                    </button>
-                `;
-            } else {
-                // در غیر این صورت، فقط متن را نمایش بده
-                itemsHTML += `
-                    <button class="item-button" data-category="${categoryName}" data-item="${itemName}">
-                        <span>${itemDisplayContent}</span>
-                    </button>
-                `;
+                itemsHTML += `<img src="${flagUrl}" alt="${itemDisplayContent} flag" class="item-flag-icon">`;
             }
+            if (isCloudflareLink) {
+                itemsHTML += `<img src="${getCloudflareIconUrl()}" alt="Cloudflare icon" class="item-cloudflare-icon">`;
+            }
+            itemsHTML += `<span>${itemDisplayContent}</span>
+                </button>
+            `;
         }
         itemsHTML += '</div>';
 

@@ -282,6 +282,14 @@ header p {
     object-fit: cover;
 }
 
+/* استایل جدید برای آیکون Cloudflare */
+.item-cloudflare-icon {
+    width: 20px; /* اندازه آیکون Cloudflare */
+    height: 20px;
+    margin-left: 8px; /* فاصله از متن یا پرچم */
+    object-fit: contain;
+}
+
 
 /* افکت درخشش روی دکمه‌های آیتم */
 .item-button::before {
@@ -891,7 +899,7 @@ header p {
     }
 
     /* .items-list, .clients-container, .converters-container, .tools-container
-       حالا از --grid-columns استفاده می‌کنند که توسط JS تنظیم می‌شود. */
+        حالا از --grid-columns استفاده می‌کنند که توسط JS تنظیم می‌شود. */
 
     .link-header {
         flex-direction: column;
