@@ -803,6 +803,18 @@ header p {
     text-align: right;
 }
 
+/* استایل جدید برای لینک‌ها در لیست توضیحات فرعی ابزارها */
+.tool-card ul li a {
+    color: var(--accent-primary); /* رنگ برجسته برای لینک‌ها */
+    text-decoration: underline; /* زیرخط برای تشخیص بهتر لینک */
+    transition: color 0.3s ease;
+}
+
+.tool-card ul li a:hover {
+    color: var(--accent-secondary); /* تغییر رنگ هنگام هاور */
+}
+
+
 .tool-card a.button {
     background: var(--accent-primary);
     color: white;
