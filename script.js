@@ -82,6 +82,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 "با دستگاه‌های دیگر (مثلاً گوشی اندروید به کامپیوتر یا آیفون) به اینترنت به اشتراک گذاشته شده متصل شوید."
             ],
             link: "https://10ium.github.io/LAN-Yar/"
+        },
+        {
+            name: "SubConfigModifier",
+            description: "این ابزار به شما کمک می‌کند تا لینک‌های اشتراک VPN خود را ویرایش و سفارشی کنید.",
+            sub_descriptions: [
+                "برای تغییر، حذف یا اضافه کردن تنظیمات به لینک‌های اشتراک خود استفاده کنید.",
+                "مناسب برای کاربران پیشرفته‌ای که نیاز به کنترل دقیق بر روی کانفیگ‌های خود دارند."
+            ],
+            link: "https://github.com/vpnclashfa-backup/SubConfigModifier"
+        },
+        {
+            name: "WG-to-Clash Converter",
+            description: "ابزاری برای تبدیل کانفیگ‌های WireGuard به فرمت Clash.",
+            sub_descriptions: [
+                "به راحتی کانفیگ‌های WireGuard خود را به فرمت قابل استفاده در کلاینت‌های Clash تبدیل کنید.",
+                "این ابزار برای ساده‌سازی استفاده از پروتکل WireGuard در محیط Clash طراحی شده است."
+            ],
+            link: "https://10ium.github.io/wg-to-clash/"
         }
     ];
 
@@ -525,6 +543,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
+     * تابعی برای تبدیل لینک‌های Markdown به HTML
+     * @param {string} markdownText - متنی که شامل لینک‌های Markdown است
+     * @returns {string} متنی با لینک‌های HTML
+     */
+    function convertMarkdownLinksToHtml(markdownText) {
+        // این regex لینک‌های Markdown را پیدا می‌کند: [متن](لینک)
+        const regex = /\[([^\]]+)\]\((https?:\/\/[^\s]+)\)/g;
+        return markdownText.replace(regex, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    }
+
+    /**
      * رندر کردن ابزارهای دیگر در رابط کاربری
      */
     function renderOtherTools() {
@@ -555,8 +584,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const subDescriptionsList = document.createElement('ul');
                 tool.sub_descriptions.forEach(subDesc => {
                     const listItem = document.createElement('li');
-                    // استفاده از innerHTML برای رندر کردن لینک‌ها
-                    listItem.innerHTML = subDesc;
+                    // استفاده از تابع جدید برای تبدیل لینک‌های Markdown به HTML
+                    listItem.innerHTML = convertMarkdownLinksToHtml(subDesc);
                     subDescriptionsList.appendChild(listItem);
                 });
                 toolCard.appendChild(subDescriptionsList);
