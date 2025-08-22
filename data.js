@@ -301,8 +301,8 @@ const subscriptionsData = {
         "CollectorLite trojan": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/trojan_iran.yaml",
         "CollectorLite vmess": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/10ium/vmess_iran.yaml",
         "MahsaNetConfigTopic": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/MahsaNetConfigTopic.yaml",
-        "ebrasha lite": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/ebrasha/lite.yaml
-        "FreedomGuard Finder config": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/FreedomGuard/Finder_configs.yaml
+        "ebrasha lite": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/ebrasha/lite.yaml",
+        "FreedomGuard Finder config": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/FreedomGuard/Finder_configs.yaml",
         "rayan_proxy": "https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/free-mihomo-sub/rayan_proxy.yaml",
         "roosterkid": "https://raw.githubusercontent.com/10ium/free-config/refs/heads/main/free-mihomo-sub/roosterkid.yaml",
         "itsyebekhe IR": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/itsyebekhe/IR.yaml",
