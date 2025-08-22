@@ -31,6 +31,7 @@ const subscriptionsData = {
         "Rayan Config": "https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt",
         "roosterkid": "https://raw.githubusercontent.com/roosterkid/openproxylist/refs/heads/main/V2RAY_RAW.txt",
         "maimengmeng valid content": "https://raw.githubusercontent.com/maimengmeng/mysub/refs/heads/main/valid_content.txt",
+        "maimengmeng valid content all": "https://raw.githubusercontent.com/maimengmeng/mysub/refs/heads/main/valid_content_all.txt",
         "MahsaNetConfigTopic": "https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt",
         "Freedom Guard Finder mixed": "https://raw.githubusercontent.com/Freedom-Guard-Builder/Freedom-Finder/refs/heads/main/out/mixed_configs.txt",
         "Freedom Guard Finder configs": "https://raw.githubusercontent.com/Freedom-Guard-Builder/Freedom-Finder/refs/heads/main/out/configs.txt",
