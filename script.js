@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "https://github.com/vpnclashfa-backup/GitHub-Release-Tracker"
         },
         {
-            name: "LAN-Yar (میهومو کانفیگ ساز)",
+            name: "LAN-Yar",
             description: "ابزاری برای ساخت کانفیگ میهومو (کلش متا) و به اشتراک‌گذاری اینترنت فیلترشکن روی شبکه محلی با دستگاه‌های دیگر.",
             sub_descriptions: [
                 "با این ابزار می‌توانید اینترنتی که از فیلترشکن رد شده را روی شبکه به اشتراک بگذارید.",
@@ -87,12 +87,21 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "SubConfigModifier",
             description: "این ابزار به شما کمک می‌کند تا لینک‌های اشتراک VPN خود را مدیریت و سفارشی کنید.", // Updated description
             sub_descriptions: [
-                "قابلیت محدود کردن تعداد کانفیگ‌ها و انواع پروتکل‌ها را دارد.", // Added
-                "قابلیت اینو دارد که کانفیگ‌های پشت CDN کلادفلر را شناسایی کند.", // Added
+                "قابلیت محدود کردن تعداد کانفیگ‌ها و انواع پروتکل‌ها را دارد.",
+                "قابلیت اینو دارد که کانفیگ‌های پشت CDN کلادفلر را شناسایی کند.",
                 "برای تغییر، حذف یا اضافه کردن تنظیمات به لینک‌های اشتراک خود استفاده کنید.",
                 "مناسب برای کاربرانی که نیاز به کنترل دقیق بر روی  لینک های اشتراک خود دارند."
             ],
-            link: "https://github.com/vpnclashfa-backup/SubConfigModifier"
+            link: "https://vpnclashfa-backup.github.io/SubConfigModifier"
+        },
+        {
+            name: "Public-DNS-Collector",
+            description: "لیست انواع مختلف دی ان اس",
+            sub_descriptions: [
+                "تو این مخزن از 9 تا منبع مختلف انواع دی ان اس جمع اوری میشن",
+                "دی ان اس ها به لیست های مختلفی تقسیم بندی میشن مثلا انواع پروتکل و انواع نوع فیلترینگ"
+            ],
+            link: "https://github.com/10ium/Public-DNS-Collector"
         },
         {
             name: "WG-to-Clash Converter",
