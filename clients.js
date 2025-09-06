@@ -27,7 +27,7 @@ const allClients = [
         name: "v2rayN",
         description: "کلاینت محبوب Xray برای ویندوز و اندروید با پشتیبانی از هسته‌های Xray و v2fly. متن‌باز و رایگان.",
         download: {
-            windows: "https://sourceforge.net/directory/v2ray-clients/",
+            windows: "https://github.com/2dust/v2rayN/releases",
             android: "https://github.com/2dust/v2rayNG/releases",
         },
         os_icons: {
@@ -45,7 +45,7 @@ const allClients = [
             macos: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-MacOS.dmg",
             linux: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Linux-x64.AppImage",
             android: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Android-universal.apk",
-            ios: "https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532", // لینک اپ استور
+            ios: "https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532",
         },
         os_icons: {
             windows: osIcons.windows,
