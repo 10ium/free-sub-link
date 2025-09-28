@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // اطلاعات پراپت‌ها
+    // اطلاعات پرامپت‌ها
     const promptsData = [
         {
             name: "Coldwater Clarity Companion",
@@ -688,7 +688,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * تابع عمومی برای رندر کردن کارت‌های با ساختار ساده (پراپت‌ها، ورکرها و ابزارهای دیگران)
+     * تابع عمومی برای رندر کردن کارت‌های با ساختار ساده (پرامپت‌ها، ورکرها و ابزارهای دیگران)
      * @param {HTMLElement} container - عنصر نگهدارنده کارت‌ها
      * @param {Array<Object>} dataArray - آرایه‌ای از داده‌ها برای رندر
      * @param {string} placeholderText - متن جایگزین در صورت خالی بودن داده‌ها
@@ -796,7 +796,7 @@ document.addEventListener('DOMContentLoaded', function() {
     renderClients();
     renderConverters();
     renderOtherTools();
-    renderSimpleCards(promptsContainer, promptsData, "اطلاعات پراپت‌ها در دسترس نیست.", "مشاهده پراپت");
+    renderSimpleCards(promptsContainer, promptsData, "اطلاعات پرامپت‌ها در دسترس نیست.", "مشاهده پرامپت");
     renderSimpleCards(workersContainer, workersData, "اطلاعات ورکرها در دسترس نیست.", "مشاهده ورکر");
     renderSimpleCards(otherPeopleToolsContainer, otherPeopleToolsData, "اطلاعات ابزارهای دیگران در دسترس نیست.", "مشاهده ابزار");
 });
