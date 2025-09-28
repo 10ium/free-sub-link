@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const osFilterSelect = document.getElementById('os-filter');
     const convertersContainer = document.getElementById('converters-container');
     const toolsContainer = document.getElementById('tools-container');
-    const promptsContainer = document.getElementById('prompts-container'); // جدید
-    const workersContainer = document.getElementById('workers-container'); // جدید
-    const otherPeopleToolsContainer = document.getElementById('other-people-tools-container'); // جدید
+    const promptsContainer = document.getElementById('prompts-container');
+    const workersContainer = document.getElementById('workers-container');
+    const otherPeopleToolsContainer = document.getElementById('other-people-tools-container');
 
     // نگاشت نام کشورها به کدهای دو حرفی ISO برای دریافت پرچم
     const countryFlagMap = {
@@ -121,21 +121,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const promptsData = [
         {
             name: "Coldwater Clarity Companion",
-            description: "یک پراپت برای ساده‌سازی و شفاف‌سازی متون پیچیده.",
+            description: "یک پرامپت تحلیلی-همدلانه با نقش روان‌شناس حمایتی و فیلسوف منطقی/اخلاقی که پاسخ‌های علمی، مکالمه‌ای و مبتنی بر شواهد می‌دهد.",
             link: "https://github.com/10ium/free-config/blob/main/prompt/Coldwater%20Clarity%20Companion.txt",
             icon: "https://img.icons8.com/plasticine/100/idea.png"
         },
         {
             name: "Coldwater Coder",
-            description: "یک دستیار کدنویسی برای کمک به توسعه‌دهندگان.",
+            description: "یک متخصص کدنویسی اختصاصی و مجری دستورات فنی برای توسعه‌دهندگان.",
             link: "https://github.com/10ium/free-config/blob/main/prompt/Coldwater%20Coder.txt",
             icon: "https://img.icons8.com/plasticine/100/console.png"
         },
         {
             name: "Coldwater Translator",
-            description: "یک ابزار ترجمه قدرتمند برای زبان‌های مختلف.",
+            description: "مترجم تخصصی زیرنویس فیلم، سریال و انیمیشن به زبان فارسی گفتاری و روان.",
             link: "https://github.com/10ium/free-config/blob/main/prompt/Coldwater%20Translator.txt",
-            icon: "https://img.icons8.com/plasticine/100/translation.png"
+            icon: "https://img.icons8.com/plasticine/100/subtitles.png" // آیکون جدید
         }
     ];
 
@@ -143,13 +143,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const workersData = [
         {
             name: "Ayeneh-ye Link",
-            description: "ورکری برای مدیریت و آینه‌سازی لینک‌ها.",
+            description: "یک ورکر برای میرور کردن محتوای متنی لینک‌ها، با قابلیت پردازش محتوای داخلی فایل‌های Clash/YAML.",
             link: "https://github.com/10ium/free-config/blob/main/worker/Ayeneh-ye%20Link.txt",
             icon: "https://img.icons8.com/plasticine/100/cloud-link.png"
         },
         {
             name: "Iran Proxy Worker",
-            description: "یک ورکر برای ایجاد پراکسی مخصوص ایران.",
+            description: "یک ورکر برای جمع‌آوری و ارائه پروکسی‌های ایران در فرمت‌های مختلف (Xray/Clash).",
             link: "https://github.com/10ium/free-config/blob/main/worker/iran_proxy.txt",
             icon: "https://img.icons8.com/plasticine/100/cloud-sync.png"
         }
