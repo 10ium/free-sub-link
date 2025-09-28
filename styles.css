@@ -60,9 +60,6 @@ body {
     transition: background-image 1s ease-in-out, background-color 0.3s ease, color 0.3s ease;
 }
 
-/* .background-pattern div دیگر وجود ندارد */
-
-
 /* کانتینر اصلی محتوا */
 .container {
     max-width: 1200px;
@@ -244,20 +241,18 @@ header p {
 /* لیست آیتم‌ها (گرید) */
 .items-list {
     display: grid;
-    /* استفاده از متغیر CSS برای تعداد ستون‌ها */
     grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
     gap: 20px;
 }
 
 /* دکمه‌های آیتم */
 .item-button {
-    background: var(--bg-secondary); /* استفاده از رنگ ثانویه برای دکمه‌ها */
+    background: var(--bg-secondary);
     border: 2px solid var(--border-color);
     border-radius: 16px;
     padding: 20px;
     text-align: center;
     cursor: pointer;
-    /* استفاده از متغیر CSS برای اندازه فونت */
     font-size: var(--item-font-size);
     font-family: 'Vazirmatn', sans-serif;
     font-weight: 500;
@@ -266,17 +261,17 @@ header p {
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 15px var(--shadow);
-    display: flex; /* برای چیدمان پرچم و متن */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
 /* استایل جدید برای آیکون پرچم داخل دکمه آیتم */
 .item-flag-icon {
-    width: 24px; /* اندازه پرچم */
-    height: 18px; /* نسبت ابعاد استاندارد پرچم */
-    margin-left: 8px; /* فاصله از متن (چون rtl است) */
-    border: 1px solid rgba(0,0,0,0.1); /* حاشیه ظریف برای پرچم */
+    width: 24px;
+    height: 18px;
+    margin-left: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     border-radius: 3px;
     object-fit: cover;
@@ -284,9 +279,9 @@ header p {
 
 /* استایل جدید برای آیکون Cloudflare */
 .item-cloudflare-icon {
-    width: 20px; /* اندازه آیکون Cloudflare */
+    width: 20px;
     height: 20px;
-    margin-left: 8px; /* فاصله از متن یا پرچم */
+    margin-left: 8px;
     object-fit: contain;
 }
 
@@ -322,11 +317,10 @@ header p {
     margin-bottom: 40px;
     border: 1px solid var(--border-color);
     border-top: 4px solid var(--accent-primary);
-    animation: slideUp 0.5s ease; /* انیمیشن ورود */
+    animation: slideUp 0.5s ease;
     transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* انیمیشن slideUp */
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -356,7 +350,6 @@ header p {
     color: var(--text-secondary);
 }
 
-/* دکمه کپی */
 .copy-button {
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     color: white;
@@ -388,16 +381,15 @@ header p {
     transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-/* استایل link-wrapper در تم تیره */
 [data-theme="dark"] .link-wrapper {
     background: rgba(255, 255, 255, 0.05);
 }
 
 .link-text {
-    font-family: 'Vazirmatn', monospace; /* استفاده از فونت monospace برای لینک */
+    font-family: 'Vazirmatn', monospace;
     color: var(--text-secondary);
-    word-break: break-all; /* شکستن کلمات طولانی */
-    direction: ltr; /* جهت متن از چپ به راست برای لینک */
+    word-break: break-all;
+    direction: ltr;
     text-align: left;
     font-size: 0.95rem;
     line-height: 1.8;
@@ -449,7 +441,7 @@ header p {
     border-radius: 16px;
     font-weight: 600;
     box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
-    transform: translateX(200%); /* مخفی کردن اولیه */
+    transform: translateX(200%);
     transition: transform 0.4s ease;
     z-index: 1000;
     border: none;
@@ -457,10 +449,10 @@ header p {
 }
 
 .notification.show {
-    transform: translateX(0); /* نمایش نوتیفیکیشن */
+    transform: translateX(0);
 }
 
-/* استایل‌های جدید برای بخش کلاینت‌ها */
+/* استایل‌های بخش کلاینت‌ها */
 .clients-section {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -480,24 +472,17 @@ header p {
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* فیلترهای کلاینت (درون clients-section) */
+/* فیلترهای کلاینت */
 .client-filters {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-bottom: 30px;
-    flex-wrap: wrap; /* برای ریسپانسیو بودن */
-    /* background و border و shadow از clients-section به ارث برده می‌شود */
-    /* padding و border-radius نیز از clients-section به ارث برده می‌شود */
+    flex-wrap: wrap;
 }
-
-/* .client-filters label از filter-group label استفاده می‌کند */
-/* .client-filters select از filter-group select استفاده می‌کند */
-
 
 .clients-container {
     display: grid;
-    /* استفاده از متغیر CSS برای تعداد ستون‌ها */
     grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
     gap: 30px;
     justify-content: center;
@@ -530,13 +515,13 @@ header p {
     top: 0;
     left: 0;
     width: 100%;
-    height: 5px; /* خط رنگی بالا */
+    height: 5px;
     background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
     transition: all 0.3s ease;
 }
 
 .client-card:hover::before {
-    height: 10px; /* پهن شدن خط هنگام هاور */
+    height: 10px;
 }
 
 .client-header {
@@ -567,7 +552,7 @@ header p {
     font-size: 0.95rem;
     color: var(--text-secondary);
     margin-bottom: 20px;
-    flex-grow: 1; /* برای اینکه توضیحات فضای موجود را اشغال کند */
+    flex-grow: 1;
 }
 
 .os-icons-container {
@@ -575,7 +560,7 @@ header p {
     justify-content: center;
     gap: 10px;
     margin-bottom: 20px;
-    flex-wrap: wrap; /* برای شکستن آیکون‌ها به خط بعدی در صورت نیاز */
+    flex-wrap: wrap;
 }
 
 .os-icons-container img {
@@ -605,7 +590,7 @@ header p {
     font-weight: 600;
     font-size: 0.95rem;
     transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    display: block; /* برای گرفتن عرض کامل */
+    display: block;
 }
 
 .download-links a:hover {
@@ -614,7 +599,7 @@ header p {
     box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
 }
 
-/* استایل‌های جدید برای مبدل‌های لینک اشتراک */
+/* استایل‌های بخش مبدل‌ها */
 .converters-section {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -636,7 +621,6 @@ header p {
 
 .converters-container {
     display: grid;
-    /* استفاده از متغیر CSS برای تعداد ستون‌ها */
     grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
     gap: 30px;
     justify-content: center;
@@ -669,14 +653,28 @@ header p {
     top: 0;
     left: 0;
     width: 100%;
-    height: 5px; /* خط رنگی بالا */
+    height: 5px;
     background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
     transition: all 0.3s ease;
 }
 
 .converter-card:hover::before {
-    height: 10px; /* پهن شدن خط هنگام هاور */
+    height: 10px;
 }
+
+/* --- تنها تغییر اعمال شده اینجاست --- */
+.converter-card .card-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.converter-card:hover .card-icon {
+    transform: scale(1.1);
+}
+/* ------------------------------------ */
 
 .converter-card h3 {
     font-size: 1.4rem;
@@ -700,7 +698,7 @@ header p {
     font-weight: 600;
     font-size: 0.95rem;
     transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    display: block; /* برای گرفتن عرض کامل */
+    display: block;
     width: 100%;
 }
 
@@ -710,7 +708,7 @@ header p {
     box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
 }
 
-/* استایل‌های جدید برای بخش ابزارهای دیگر (و بخش‌های جدید) */
+/* استایل‌های بخش ابزارها (و بخش‌های جدید) */
 .tools-section {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -732,7 +730,6 @@ header p {
 
 .tools-container {
     display: grid;
-    /* استفاده از متغیر CSS برای تعداد ستون‌ها */
     grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
     gap: 30px;
     justify-content: center;
@@ -765,13 +762,13 @@ header p {
     top: 0;
     left: 0;
     width: 100%;
-    height: 5px; /* خط رنگی بالا */
+    height: 5px;
     background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
     transition: all 0.3s ease;
 }
 
 .tool-card:hover::before {
-    height: 10px; /* پهن شدن خط هنگام هاور */
+    height: 10px;
 }
 
 .tool-card .card-icon {
@@ -804,7 +801,7 @@ header p {
     list-style: none;
     padding: 0;
     margin-bottom: 20px;
-    text-align: right; /* برای راست چین کردن لیست */
+    text-align: right;
     width: 100%;
 }
 
@@ -812,19 +809,18 @@ header p {
     font-size: 0.9rem;
     color: var(--text-secondary);
     margin-bottom: 5px;
-    direction: rtl; /* برای اطمینان از راست چین بودن متن */
+    direction: rtl;
     text-align: right;
 }
 
-/* استایل جدید برای لینک‌ها در لیست توضیحات فرعی ابزارها */
 .tool-card ul li a {
-    color: var(--accent-primary); /* رنگ برجسته برای لینک‌ها */
-    text-decoration: underline; /* زیرخط برای تشخیص بهتر لینک */
+    color: var(--accent-primary);
+    text-decoration: underline;
     transition: color 0.3s ease;
 }
 
 .tool-card ul li a:hover {
-    color: var(--accent-secondary); /* تغییر رنگ هنگام هاور */
+    color: var(--accent-secondary);
 }
 
 
@@ -839,7 +835,7 @@ header p {
     transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     display: block;
     width: 100%;
-    margin-top: auto; /* برای چسباندن دکمه به پایین کارت */
+    margin-top: auto;
 }
 
 .tool-card a.button:hover {
@@ -849,56 +845,53 @@ header p {
 }
 
 
-/* استایل‌های جدید برای فوتر و لینک‌های شبکه‌های اجتماعی */
+/* فوتر */
 .social-links-footer {
-    margin-top: 60px; /* فاصله از محتوای بالا */
+    margin-top: 60px;
     padding: 30px 20px;
     background: var(--bg-card);
     border-top: 1px solid var(--border-color);
-    border-radius: 20px; /* گوشه‌های گرد برای فوتر */
-    box-shadow: 0 -8px 25px var(--shadow); /* سایه به سمت بالا */
+    border-radius: 20px;
+    box-shadow: 0 -8px 25px var(--shadow);
     text-align: center;
     transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .social-links-container {
     display: flex;
-    justify-content: center; /* وسط چین کردن لینک‌ها */
-    flex-wrap: wrap; /* برای ریسپانسیو بودن و شکستن به خط بعدی */
-    gap: 25px; /* فاصله بین آیتم‌ها */
-    max-width: 600px; /* حداکثر عرض برای کانتینر لینک‌ها */
-    margin: 0 auto; /* وسط چین کردن کانتینر در فوتر */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .social-links-container a {
-    display: block; /* برای اینکه لینک‌ها بلاک باشند و بتوانند عرض و ارتفاع بگیرند */
-    transition: transform 0.3s ease; /* انیمیشن هنگام هاور */
+    display: block;
+    transition: transform 0.3s ease;
 }
 
 .social-links-container a:hover {
-    transform: translateY(-5px) scale(1.05); /* کمی بالا رفتن و بزرگ شدن هنگام هاور */
+    transform: translateY(-5px) scale(1.05);
 }
 
 .social-links-container img {
-    width: 80px; /* اندازه پیش‌فرض تصاویر */
+    width: 80px;
     height: 80px;
-    border-radius: 50%; /* گرد کردن تصاویر */
-    object-fit: cover; /* اطمینان از پوشش کامل تصویر */
-    border: 3px solid var(--accent-primary); /* حاشیه رنگی */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* سایه برای تصاویر */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-primary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 [data-theme="dark"] .social-links-container img {
-    border-color: var(--accent-secondary); /* تغییر رنگ حاشیه در تم تیره */
+    border-color: var(--accent-secondary);
 }
 
 
-/* Media Queries برای ریسپانسیو بودن */
+/* Media Queries */
 @media (max-width: 768px) {
-    /* در موبایل، تعداد ستون‌ها و اندازه فونت توسط جاوااسکریپت تنظیم می‌شود */
-    /* نیازی به override ثابت در اینجا نیست */
-
     .container {
         padding: 15px;
     }
@@ -912,20 +905,16 @@ header p {
         font-size: 2.2rem;
     }
 
-    /* تنظیمات نمایش (تعداد سطر و فیلترها) در موبایل */
-    .main-filters-section {
-        flex-direction: column; /* در موبایل به صورت ستونی نمایش داده شوند */
-        gap: 15px; /* کاهش فاصله */
+    .main-filters-section, .client-filters {
+        flex-direction: column;
+        gap: 15px;
     }
 
-    .filter-group select { /* برای selectهای داخل filter-group */
+    .filter-group select, .client-filters select {
         min-width: unset;
         width: 100%;
         max-width: 250px;
     }
-
-    /* .items-list, .clients-container, .converters-container, .tools-container
-        حالا از --grid-columns استفاده می‌کنند که توسط JS تنظیم می‌شود. */
 
     .link-header {
         flex-direction: column;
@@ -965,23 +954,16 @@ header p {
         font-size: 1.2rem;
     }
 
-    /* ریسپانسیو کردن لینک‌های اجتماعی در موبایل */
     .social-links-container {
-        gap: 15px; /* کاهش فاصله بین آیتم‌ها در موبایل */
+        gap: 15px;
     }
 
     .social-links-container img {
-        width: 60px; /* کوچک‌تر کردن تصاویر در موبایل */
+        width: 60px;
         height: 60px;
     }
 
-    /* ریسپانسیو کردن بخش کلاینت‌ها، مبدل‌ها و ابزارها */
-    .clients-container, .converters-container, .tools-container {
-        /* اینها نیز از --grid-columns استفاده می‌کنند */
-        grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
-    }
-
-    .client-card, .converter-card, .tool-card {
+    .converter-card, .tool-card, .client-card {
         padding: 20px;
     }
 
@@ -997,16 +979,5 @@ header p {
     .os-icons-container img {
         width: 30px;
         height: 30px;
-    }
-
-    .client-filters { /* این هم از display-settings استفاده می‌کند */
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .client-filters select {
-        min-width: unset;
-        width: 100%;
-        max-width: 250px;
     }
 }
