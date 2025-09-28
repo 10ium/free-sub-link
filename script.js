@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const osFilterSelect = document.getElementById('os-filter');
     const convertersContainer = document.getElementById('converters-container');
     const toolsContainer = document.getElementById('tools-container');
+    const promptsContainer = document.getElementById('prompts-container'); // جدید
+    const workersContainer = document.getElementById('workers-container'); // جدید
+    const otherPeopleToolsContainer = document.getElementById('other-people-tools-container'); // جدید
 
     // نگاشت نام کشورها به کدهای دو حرفی ISO برای دریافت پرچم
     const countryFlagMap = {
@@ -111,6 +114,54 @@ document.addEventListener('DOMContentLoaded', function() {
                 "این ابزار برای ساده‌سازی استفاده از پروتکل WireGuard در محیط Clash طراحی شده است."
             ],
             link: "https://10ium.github.io/wg-to-clash/"
+        }
+    ];
+
+    // اطلاعات پراپت‌ها
+    const promptsData = [
+        {
+            name: "Coldwater Clarity Companion",
+            description: "یک پراپت برای ساده‌سازی و شفاف‌سازی متون پیچیده.",
+            link: "https://github.com/10ium/free-config/blob/main/prompt/Coldwater%20Clarity%20Companion.txt",
+            icon: "https://img.icons8.com/plasticine/100/idea.png"
+        },
+        {
+            name: "Coldwater Coder",
+            description: "یک دستیار کدنویسی برای کمک به توسعه‌دهندگان.",
+            link: "https://github.com/10ium/free-config/blob/main/prompt/Coldwater%20Coder.txt",
+            icon: "https://img.icons8.com/plasticine/100/console.png"
+        },
+        {
+            name: "Coldwater Translator",
+            description: "یک ابزار ترجمه قدرتمند برای زبان‌های مختلف.",
+            link: "https://github.com/10ium/free-config/blob/main/prompt/Coldwater%20Translator.txt",
+            icon: "https://img.icons8.com/plasticine/100/translation.png"
+        }
+    ];
+
+    // اطلاعات ورکرها
+    const workersData = [
+        {
+            name: "Ayeneh-ye Link",
+            description: "ورکری برای مدیریت و آینه‌سازی لینک‌ها.",
+            link: "https://github.com/10ium/free-config/blob/main/worker/Ayeneh-ye%20Link.txt",
+            icon: "https://img.icons8.com/plasticine/100/cloud-link.png"
+        },
+        {
+            name: "Iran Proxy Worker",
+            description: "یک ورکر برای ایجاد پراکسی مخصوص ایران.",
+            link: "https://github.com/10ium/free-config/blob/main/worker/iran_proxy.txt",
+            icon: "https://img.icons8.com/plasticine/100/cloud-sync.png"
+        }
+    ];
+
+    // اطلاعات ابزارهای دیگران
+    const otherPeopleToolsData = [
+        {
+            name: "ابزارهای itsyebekhe",
+            description: "مجموعه‌ای از ابزارهای مفید و کاربردی ساخته شده توسط itsyebekhe.",
+            link: "https://itsyebekhe.github.io/itsyebekhe/",
+            icon: "https://img.icons8.com/plasticine/100/maintenance.png"
         }
     ];
 
@@ -614,6 +665,57 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    /**
+     * تابع عمومی برای رندر کردن کارت‌های اطلاعاتی (پراپت‌ها، ورکرها، و غیره)
+     * @param {HTMLElement} container - عنصر نگهدارنده کارت‌ها
+     * @param {Array<Object>} dataArray - آرایه‌ای از داده‌ها برای رندر
+     * @param {string} placeholderText - متن جایگزین در صورت خالی بودن داده‌ها
+     * @param {string} buttonText - متن دکمه لینک
+     */
+    function renderInfoCards(container, dataArray, placeholderText, buttonText) {
+        if (!container) {
+            console.error("Container not found for rendering info cards.");
+            return;
+        }
+        if (!dataArray || dataArray.length === 0) {
+            container.innerHTML = `<p class="placeholder-text">${placeholderText}</p>`;
+            return;
+        }
+
+        container.innerHTML = ''; // پاک کردن محتوای قبلی
+
+        dataArray.forEach(item => {
+            const itemCard = document.createElement('div');
+            itemCard.classList.add('tool-card'); // استفاده مجدد از استایل tool-card
+
+            if (item.icon) {
+                const icon = document.createElement('img');
+                icon.src = item.icon;
+                icon.alt = `${item.name} icon`;
+                icon.classList.add('card-icon');
+                itemCard.appendChild(icon);
+            }
+
+            const itemName = document.createElement('h3');
+            itemName.textContent = item.name;
+            itemCard.appendChild(itemName);
+
+            const itemDescription = document.createElement('p');
+            itemDescription.textContent = item.description;
+            itemCard.appendChild(itemDescription);
+
+            const itemLink = document.createElement('a');
+            itemLink.href = item.link;
+            itemLink.target = "_blank";
+            itemLink.rel = "noopener noreferrer";
+            itemLink.classList.add('button');
+            itemLink.textContent = buttonText;
+            itemCard.appendChild(itemLink);
+
+            container.appendChild(itemCard);
+        });
+    }
+
 
     // Event Listeners (شنونده‌های رویداد)
     categorySelect.addEventListener('change', function() {
@@ -684,4 +786,8 @@ document.addEventListener('DOMContentLoaded', function() {
     renderClients();
     renderConverters();
     renderOtherTools();
+    // فراخوانی توابع رندر جدید
+    renderInfoCards(promptsContainer, promptsData, "اطلاعات پراپت‌ها در دسترس نیست.", "مشاهده پراپت");
+    renderInfoCards(workersContainer, workersData, "اطلاعات ورکرها در دسترس نیست.", "مشاهده ورکر");
+    renderInfoCards(otherPeopleToolsContainer, otherPeopleToolsData, "اطلاعات ابزارهای دیگران در دسترس نیست.", "مشاهده ابزار");
 });

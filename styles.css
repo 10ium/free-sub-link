@@ -710,7 +710,7 @@ header p {
     box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
 }
 
-/* استایل‌های جدید برای بخش ابزارهای دیگر */
+/* استایل‌های جدید برای بخش ابزارهای دیگر (و بخش‌های جدید) */
 .tools-section {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -774,6 +774,19 @@ header p {
     height: 10px; /* پهن شدن خط هنگام هاور */
 }
 
+.tool-card .card-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.tool-card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+
 .tool-card h3 {
     font-size: 1.4rem;
     color: var(--text-primary);
@@ -783,7 +796,7 @@ header p {
 .tool-card p {
     font-size: 0.95rem;
     color: var(--text-secondary);
-    margin-bottom: 15px; /* کاهش فاصله برای sub-descriptions */
+    margin-bottom: 15px;
     flex-grow: 1;
 }
 
@@ -826,6 +839,7 @@ header p {
     transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     display: block;
     width: 100%;
+    margin-top: auto; /* برای چسباندن دکمه به پایین کارت */
 }
 
 .tool-card a.button:hover {
