@@ -51,17 +51,20 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "مبدل گیتهاب پیجز",
             description: "نسخه آنلاین مبدل لینک اشتراک، قابل دسترسی از طریق GitHub Pages.",
-            link: "https://10ium.github.io/sub-converter_farsi"
+            link: "https://10ium.github.io/sub-converter_farsi",
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M2 6.5l8 4.5 8-4.5'/><path d='M2 17.5l8-4.5 8 4.5'/><path d='M10 6L2 12l8 6' stroke-dasharray='3 3'/><path d='M14 18l8-6-8-6' stroke-dasharray='3 3'/><circle cx='12' cy='12' r='2' fill='currentColor'/></svg>`
         },
         {
             name: "مبدل گیتهاب اکشن",
             description: "مبدل لینک اشتراک مبتنی بر GitHub Actions، برای تبدیل و مدیریت لینک‌ها.",
-            link: "https://github.com/vpnclashfa-backup/subconverter"
+            link: "https://github.com/vpnclashfa-backup/subconverter",
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 20v-6m0-6V2'/><path d='M12 8a2 2 0 100-4 2 2 0 000 4z'/><path d='M20 12h-6m-6 0H2'/><path d='M8 12a2 2 0 10-4 0 2 2 0 004 0z'/><path d='M12 22a2 2 0 100-4 2 2 0 000 4z'/><path d='M22 12a2 2 0 10-4 0 2 2 0 004 0z'/></svg>`
         },
         {
             name: "مبدل آفلاین ویندوز",
             description: "نسخه تقریباً آفلاین مبدل پروکسی برای ویندوز، مناسب برای استفاده محلی.",
-            link: "https://github.com/vpnclashfa-backup/OfflineProxyConverter"
+            link: "https://github.com/vpnclashfa-backup/OfflineProxyConverter",
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='3' width='20' height='14' rx='2' ry='2'/><path d='M8 21h8'/><path d='M12 17v4'/><path d='M12 12l-2-2m4 0l-2 2'/><path d='M10 10l2 2'/></svg>`
         }
     ];
 
@@ -75,7 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 "با اپ [Obtainium](https://obtainium.app/) راحت‌تر می‌توانید اپ‌های اوپن سورس اندروید را بروز کنید، مثلاً همین فیلترشکن‌هایی که توی گیتهاب منتشر می‌شوند.",
                 "برای ویندوز هم می‌توانید از ربات [@github_release_monitor_bot](https://t.me/github_release_monitor_bot) استفاده کنید تا وقتی نسخه جدید منتشر شد نوتیفیکیشن بده."
             ],
-            link: "https://github.com/vpnclashfa-backup/GitHub-Release-Tracker"
+            link: "https://github.com/vpnclashfa-backup/GitHub-Release-Tracker",
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.875L6 12z'/><path d='M16 12a4 4 0 10-8 0 4 4 0 008 0z'/><path d='M21 3L12 12'/></svg>`
         },
         {
             name: "LAN-Yar",
@@ -84,18 +88,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 "با این ابزار می‌توانید اینترنتی که از فیلترشکن رد شده را روی شبکه به اشتراک بگذارید.",
                 "با دستگاه‌های دیگر (مثلاً گوشی اندروید به کامپیوتر یا آیفون) به اینترنت به اشتراک گذاشته شده متصل شوید."
             ],
-            link: "https://10ium.github.io/LAN-Yar/"
+            link: "https://10ium.github.io/LAN-Yar/",
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4.93 19.07a10 10 0 010-14.14'/><path d='M7.76 16.24a6 6 0 010-8.48'/><path d='M10.59 13.41a2 2 0 010-2.82'/><path d='M12 12h.01'/><rect x='16' y='10' width='6' height='4' rx='1'/><line x1='19' y1='14' x2='19' y2='17'/></svg>`
         },
         {
             name: "SubConfigModifier",
-            description: "این ابزار به شما کمک می‌کند تا لینک‌های اشتراک VPN خود را مدیریت و سفارشی کنید.", // Updated description
+            description: "این ابزار به شما کمک می‌کند تا لینک‌های اشتراک VPN خود را مدیریت و سفارشی کنید.",
             sub_descriptions: [
                 "قابلیت محدود کردن تعداد کانفیگ‌ها و انواع پروتکل‌ها را دارد.",
                 "قابلیت اینو دارد که کانفیگ‌های پشت CDN کلادفلر را شناسایی کند.",
                 "برای تغییر، حذف یا اضافه کردن تنظیمات به لینک‌های اشتراک خود استفاده کنید.",
                 "مناسب برای کاربرانی که نیاز به کنترل دقیق بر روی  لینک های اشتراک خود دارند."
             ],
-            link: "https://vpnclashfa-backup.github.io/SubConfigModifier"
+            link: "https://vpnclashfa-backup.github.io/SubConfigModifier",
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='4' y1='21' x2='4' y2='14'/><line x1='4' y1='10' x2='4' y2='3'/><line x1='12' y1='21' x2='12' y2='12'/><line x1='12' y1='8' x2='12' y2='3'/><line x1='20' y1='21' x2='20' y2='16'/><line x1='20' y1='12' x2='20' y2='3'/><line x1='1' y1='14' x2='7' y2='14'/><line x1='9' y1='8' x2='15' y2='8'/><line x1='17' y1='16' x2='23' y2='16'/></svg>`
         },
         {
             name: "Public-DNS-Collector",
@@ -104,7 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 "تو این مخزن از 9 تا منبع مختلف انواع دی ان اس جمع اوری میشن",
                 "دی ان اس ها به لیست های مختلفی تقسیم بندی میشن مثلا انواع پروتکل و انواع نوع فیلترینگ"
             ],
-            link: "https://github.com/10ium/Public-DNS-Collector"
+            link: "https://github.com/10ium/Public-DNS-Collector",
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><path d='M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20'/><path d='M2 12h20'/></svg>`
         },
         {
             name: "WG-to-Clash Converter",
@@ -113,7 +120,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 "به راحتی کانفیگ‌های WireGuard خود را به فرمت قابل استفاده در کلاینت‌های Clash تبدیل کنید.",
                 "این ابزار برای ساده‌سازی استفاده از پروتکل WireGuard در محیط Clash طراحی شده است."
             ],
-            link: "https://10ium.github.io/wg-to-clash/"
+            link: "https://10ium.github.io/wg-to-clash/",
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/><path d='M15.5 8.5 L19 12 L15.5 15.5'/><path d='M5 12H19'/></svg>`
         }
     ];
 
@@ -123,19 +131,19 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Coldwater Clarity Companion",
             description: "یک پرامپت تحلیلی-همدلانه با نقش روان‌شناس حمایتی و فیلسوف منطقی/اخلاقی که پاسخ‌های علمی، مکالمه‌ای و مبتنی بر شواهد می‌دهد.",
             link: "https://github.com/10ium/free-config/blob/main/prompt/Coldwater%20Clarity%20Companion.txt",
-            icon: "https://img.icons8.com/plasticine/100/idea.png"
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2a5.5 5.5 0 015.5 5.5c0 1.99-1.39 3.65-3.23 4.38'/><path d='M12 2a5.5 5.5 0 00-5.5 5.5c0 1.99 1.39 3.65 3.23 4.38'/><path d='M12 22a5.5 5.5 0 005.5-5.5c0-1.99-1.39-3.65-3.23-4.38'/><path d='M12 22a5.5 5.5 0 01-5.5-5.5c0-1.99 1.39-3.65 3.23-4.38'/><path d='M17.5 12a5.5 5.5 0 01-5.5 5.5c-1.99 0-3.65-1.39-4.38-3.23'/><path d='M6.5 12a5.5 5.5 0 005.5 5.5c1.99 0 3.65-1.39 4.38-3.23'/><path d='M6.5 12a5.5 5.5 0 015.5-5.5c1.99 0 3.65 1.39 4.38 3.23'/><path d='M17.5 12a5.5 5.5 0 00-5.5-5.5c-1.99 0-3.65 1.39-4.38 3.23'/><line x1='12' y1='1' x2='12' y2='4'/><line x1='12' y1='20' x2='12' y2='23'/></svg>`
         },
         {
             name: "Coldwater Coder",
             description: "یک متخصص کدنویسی اختصاصی و مجری دستورات فنی برای توسعه‌دهندگان.",
             link: "https://github.com/10ium/free-config/blob/main/prompt/Coldwater%20Coder.txt",
-            icon: "https://img.icons8.com/plasticine/100/console.png"
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='16 18 22 12 16 6'/><polyline points='8 6 2 12 8 18'/></svg>`
         },
         {
             name: "Coldwater Translator",
             description: "مترجم تخصصی زیرنویس فیلم، سریال و انیمیشن به زبان فارسی گفتاری و روان.",
             link: "https://github.com/10ium/free-config/blob/main/prompt/Coldwater%20Translator.txt",
-            icon: "https://img.icons8.com/plasticine/100/subtitles.png" // آیکون جدید
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z'/><text x='7' y='14' font-family='Arial' font-size='7' fill='currentColor'>EN</text><text x='14' y='14' font-family='Vazirmatn' font-size='7' fill='currentColor'>FA</text></svg>`
         }
     ];
 
@@ -145,13 +153,13 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Ayeneh-ye Link",
             description: "یک ورکر برای میرور کردن محتوای متنی لینک‌ها، با قابلیت پردازش محتوای داخلی فایل‌های Clash/YAML.",
             link: "https://github.com/10ium/free-config/blob/main/worker/Ayeneh-ye%20Link.txt",
-            icon: "https://img.icons8.com/plasticine/100/cloud-link.png"
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.72'/><path d='M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.72-1.72'/><path d='M20.24 12.24a8 8 0 00-5.66-5.66'/><path d='M3.76 11.76a8 8 0 005.66 5.66'/></svg>`
         },
         {
             name: "Iran Proxy Worker",
             description: "یک ورکر برای جمع‌آوری و ارائه پروکسی‌های ایران در فرمت‌های مختلف (Xray/Clash).",
             link: "https://github.com/10ium/free-config/blob/main/worker/iran_proxy.txt",
-            icon: "https://img.icons8.com/plasticine/100/cloud-sync.png"
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='9' width='20' height='6' rx='1'/><path d='M12 3v6'/><path d='M12 15v6'/><path d='M6 3v18'/><path d='M18 3v18'/></svg>`
         }
     ];
 
@@ -161,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "ابزارهای itsyebekhe",
             description: "مجموعه‌ای از ابزارهای مفید و کاربردی ساخته شده توسط itsyebekhe.",
             link: "https://itsyebekhe.github.io/itsyebekhe/",
-            icon: "https://img.icons8.com/plasticine/100/maintenance.png"
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z'/></svg>`
         }
     ];
 
@@ -578,11 +586,19 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        convertersContainer.innerHTML = ''; // پاک کردن محتوای قبلی
+        convertersContainer.innerHTML = '';
 
         subscriptionConverters.forEach(converter => {
             const converterCard = document.createElement('div');
             converterCard.classList.add('converter-card');
+
+            if (converter.icon) {
+                const icon = document.createElement('img');
+                icon.src = converter.icon;
+                icon.alt = `${converter.name} icon`;
+                icon.classList.add('card-icon');
+                converterCard.appendChild(icon);
+            }
 
             const converterName = document.createElement('h3');
             converterName.textContent = converter.name;
@@ -596,7 +612,7 @@ document.addEventListener('DOMContentLoaded', function() {
             converterLink.href = converter.link;
             converterLink.target = "_blank";
             converterLink.rel = "noopener noreferrer";
-            converterLink.classList.add('button'); // استفاده از کلاس button برای استایل
+            converterLink.classList.add('button');
             converterLink.textContent = "مشاهده مبدل";
             converterCard.appendChild(converterLink);
 
@@ -610,7 +626,6 @@ document.addEventListener('DOMContentLoaded', function() {
      * @returns {string} متنی با لینک‌های HTML
      */
     function convertMarkdownLinksToHtml(markdownText) {
-        // این regex لینک‌های Markdown را پیدا می‌کند: [متن](لینک)
         const regex = /\[([^\]]+)\]\((https?:\/\/[^\s]+)\)/g;
         return markdownText.replace(regex, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
     }
@@ -628,11 +643,19 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        toolsContainer.innerHTML = ''; // پاک کردن محتوای قبلی
+        toolsContainer.innerHTML = '';
 
         otherTools.forEach(tool => {
             const toolCard = document.createElement('div');
             toolCard.classList.add('tool-card');
+
+            if (tool.icon) {
+                const icon = document.createElement('img');
+                icon.src = tool.icon;
+                icon.alt = `${tool.name} icon`;
+                icon.classList.add('card-icon');
+                toolCard.appendChild(icon);
+            }
 
             const toolName = document.createElement('h3');
             toolName.textContent = tool.name;
@@ -646,7 +669,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const subDescriptionsList = document.createElement('ul');
                 tool.sub_descriptions.forEach(subDesc => {
                     const listItem = document.createElement('li');
-                    // استفاده از تابع جدید برای تبدیل لینک‌های Markdown به HTML
                     listItem.innerHTML = convertMarkdownLinksToHtml(subDesc);
                     subDescriptionsList.appendChild(listItem);
                 });
@@ -657,7 +679,7 @@ document.addEventListener('DOMContentLoaded', function() {
             toolLink.href = tool.link;
             toolLink.target = "_blank";
             toolLink.rel = "noopener noreferrer";
-            toolLink.classList.add('button'); // استفاده از کلاس button برای استایل
+            toolLink.classList.add('button');
             toolLink.textContent = "مشاهده ابزار";
             toolCard.appendChild(toolLink);
 
@@ -666,15 +688,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * تابع عمومی برای رندر کردن کارت‌های اطلاعاتی (پراپت‌ها، ورکرها، و غیره)
+     * تابع عمومی برای رندر کردن کارت‌های با ساختار ساده (پراپت‌ها، ورکرها و ابزارهای دیگران)
      * @param {HTMLElement} container - عنصر نگهدارنده کارت‌ها
      * @param {Array<Object>} dataArray - آرایه‌ای از داده‌ها برای رندر
      * @param {string} placeholderText - متن جایگزین در صورت خالی بودن داده‌ها
      * @param {string} buttonText - متن دکمه لینک
      */
-    function renderInfoCards(container, dataArray, placeholderText, buttonText) {
+    function renderSimpleCards(container, dataArray, placeholderText, buttonText) {
         if (!container) {
-            console.error("Container not found for rendering info cards.");
+            console.error("Container not found for rendering simple cards.");
             return;
         }
         if (!dataArray || dataArray.length === 0) {
@@ -682,7 +704,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        container.innerHTML = ''; // پاک کردن محتوای قبلی
+        container.innerHTML = '';
 
         dataArray.forEach(item => {
             const itemCard = document.createElement('div');
@@ -716,13 +738,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-
     // Event Listeners (شنونده‌های رویداد)
     categorySelect.addEventListener('change', function() {
         const selectedCategory = this.value;
         if (selectedCategory) {
             showCategoryItems(selectedCategory);
-            linkDisplay.classList.add('hidden'); // مخفی کردن لینک قبلی هنگام تغییر دسته
+            linkDisplay.classList.add('hidden');
         } else {
             itemsContainer.innerHTML = '<p class="placeholder-text">لطفاً یک دسته را انتخاب کنید</p>';
             linkDisplay.classList.add('hidden');
@@ -734,12 +755,11 @@ document.addEventListener('DOMContentLoaded', function() {
     scrollTopBtn.addEventListener('click', scrollToTop);
     scrollBottomBtn.addEventListener('click', scrollToBottom);
 
-    // شنونده رویداد برای rowCountSelect
     if (rowCountSelect) {
         rowCountSelect.addEventListener('change', function() {
             const count = parseInt(this.value, 10);
             if (!isNaN(count) && count >= 1 && count <= 5) {
-                setGridColumns(count); // حالا این تابع هم ستون‌ها و هم فونت را تنظیم می‌کند
+                setGridColumns(count);
             } else {
                 console.warn("ورودی تعداد سطر نامعتبر است. باید بین 1 تا 5 باشد.");
             }
@@ -748,8 +768,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("Element with ID 'row-count' not found. Row count functionality may not work.");
     }
 
-
-    // شنونده‌های رویداد برای فیلترهای کلاینت
     if (coreFilterSelect) {
         coreFilterSelect.addEventListener('change', renderClients);
     } else {
@@ -762,32 +780,23 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("Element with ID 'os-filter' not found. Client filtering by OS may not work.");
     }
 
-
     // راه‌اندازی اولیه برنامه
-    setInitialTheme(); // ابتدا تم را بارگذاری و پس‌زمینه را تنظیم کن
+    setInitialTheme();
     populateCategorySelect();
     
-    // تنظیم اولیه تعداد ستون‌ها بر اساس نوع دستگاه
     if (rowCountSelect) {
-        const isMobile = window.innerWidth <= 768; // تعریف نقطه شکست موبایل
-        if (isMobile) {
-            rowCountSelect.value = '1'; // پیش‌فرض 1 ستون برای موبایل
-        } else {
-            rowCountSelect.value = '3'; // پیش‌فرض 3 ستون برای دسکتاپ
-        }
+        const isMobile = window.innerWidth <= 768;
+        rowCountSelect.value = isMobile ? '1' : '3';
         setGridColumns(parseInt(rowCountSelect.value, 10));
     } else {
-        // Fallback اگر select یافت نشد (برای اطمینان از عدم خطا)
-        const defaultColumns = window.innerWidth <= 768 ? 1 : 3;
-        setGridColumns(defaultColumns);
+        setGridColumns(window.innerWidth <= 768 ? 1 : 3);
     }
 
     populateClientFilters();
     renderClients();
     renderConverters();
     renderOtherTools();
-    // فراخوانی توابع رندر جدید
-    renderInfoCards(promptsContainer, promptsData, "اطلاعات پراپت‌ها در دسترس نیست.", "مشاهده پراپت");
-    renderInfoCards(workersContainer, workersData, "اطلاعات ورکرها در دسترس نیست.", "مشاهده ورکر");
-    renderInfoCards(otherPeopleToolsContainer, otherPeopleToolsData, "اطلاعات ابزارهای دیگران در دسترس نیست.", "مشاهده ابزار");
+    renderSimpleCards(promptsContainer, promptsData, "اطلاعات پراپت‌ها در دسترس نیست.", "مشاهده پراپت");
+    renderSimpleCards(workersContainer, workersData, "اطلاعات ورکرها در دسترس نیست.", "مشاهده ورکر");
+    renderSimpleCards(otherPeopleToolsContainer, otherPeopleToolsData, "اطلاعات ابزارهای دیگران در دسترس نیست.", "مشاهده ابزار");
 });
