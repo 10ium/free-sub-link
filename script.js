@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Coldwater Clarity Companion",
             description: "یک پرامپت تحلیلی-همدلانه با نقش روان‌شناس حمایتی و فیلسوف منطقی/اخلاقی که پاسخ‌های علمی، مکالمه‌ای و مبتنی بر شواهد می‌دهد.",
             link: "https://github.com/10ium/free-config/blob/main/prompt/Coldwater%20Clarity%20Companion.txt",
-            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2a5.5 5.5 0 015.5 5.5c0 1.99-1.39 3.65-3.23 4.38'/><path d='M12 2a5.5 5.5 0 00-5.5 5.5c0 1.99 1.39 3.65 3.23 4.38'/><path d='M12 22a5.5 5.5 0 005.5-5.5c0-1.99-1.39-3.65-3.23-4.38'/><path d='M12 22a5.5 5.5 0 01-5.5-5.5c0-1.99 1.39-3.65 3.23-4.38'/><path d='M17.5 12a5.5 5.5 0 01-5.5 5.5c-1.99 0-3.65-1.39-4.38-3.23'/><path d='M6.5 12a5.5 5.5 0 005.5 5.5c1.99 0 3.65-1.39 4.38-3.23'/><path d='M6.5 12a5.5 5.5 0 015.5-5.5c1.99 0 3.65 1.39 4.38 3.23'/><path d='M17.5 12a5.5 5.5 0 00-5.5-5.5c-1.99 0-3.65 1.39-4.38 3.23'/><line x1='12' y1='1' x2='12' y2='4'/><line x1='12' y1='20' x2='12' y2='23'/></svg>`
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2a5.5 5.5 0 015.5 5.5c0 1.99-1.39 3.65-3.23 4.38'/><path d='M12 2a5.5 5.5 0 00-5.5 5.5c0 1.99 1.39 3.65 3.23 4.38'/><path d='M12 22a5.5 5.5 0 005.5-5.5c0-1.99-1.39-3.65-3.23-4.38'/><path d='M12 22a5.5 5.5 0 01-5.5-5.5c0-1.99 1.39 3.65 3.23 4.38'/><path d='M17.5 12a5.5 5.5 0 01-5.5 5.5c-1.99 0-3.65-1.39-4.38-3.23'/><path d='M6.5 12a5.5 5.5 0 005.5 5.5c1.99 0 3.65-1.39 4.38-3.23'/><path d='M6.5 12a5.5 5.5 0 015.5-5.5c1.99 0 3.65 1.39 4.38 3.23'/><path d='M17.5 12a5.5 5.5 0 00-5.5-5.5c-1.99 0-3.65 1.39-4.38 3.23'/><line x1='12' y1='1' x2='12' y2='4'/><line x1='12' y1='20' x2='12' y2='23'/></svg>`
         },
         {
             name: "Coldwater Coder",
@@ -170,6 +170,18 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "مجموعه‌ای از ابزارهای مفید و کاربردی ساخته شده توسط itsyebekhe.",
             link: "https://itsyebekhe.github.io/itsyebekhe/",
             icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z'/></svg>`
+        },
+        {
+            name: "سایت فیلترشکن",
+            description: " GhostOfSarina مجموعه‌ای از ابزارهای پراکسی و فیلترشکن.",
+            link: "https://filtershekan.sbs/",
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/></svg>`
+        },
+        {
+            name: "ابزارهای ÐΛɌ₭ᑎΞ𐒡𐒡|𓄂𓆃",
+            description: ".مجموعه‌ای از ابزارهای فیلترشکن و کانفیگ رایگان",
+            link: "https://darknessshade.github.io/Sub/",
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/><polyline points='3.27 6.96 12 12.01 20.73 6.96'/><line x1='12' y1='22.08' x2='12' y2='12'/></svg>`
         }
     ];
 
