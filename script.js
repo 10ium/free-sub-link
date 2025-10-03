@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const workersData = [
         {
             name: "Ayeneh-ye Link",
-            description: "یک ورکر برای میرور کردن محتوای متنی لینک‌ها، با قابلیت پردازش محتوای داخلی فایل‌های Clash/YAML.",
+            description: "یک ورکر برای میرور کردن محتوای متنی لینک‌ها، با قابلیت میرور کردن پروکسی و رول پروایدر داخلی فایل‌های Clash/YAML.",
             link: "https://github.com/10ium/free-config/blob/main/worker/Ayeneh-ye%20Link.txt",
             icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.72'/><path d='M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.72-1.72'/><path d='M20.24 12.24a8 8 0 00-5.66-5.66'/><path d='M3.76 11.76a8 8 0 005.66 5.66'/></svg>`
         },

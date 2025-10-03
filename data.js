@@ -57,7 +57,17 @@ const subscriptionsData = {
         "darkvpnapp CloudflarePlus cdn": "https://raw.githubusercontent.com/darkvpnapp/CloudflarePlus/refs/heads/main/cdn",
         "darkvpnapp cslab": "https://raw.githubusercontent.com/darkvpnapp/cslab/refs/heads/main/index.html",
         "darkvpnapp safar724": "https://raw.githubusercontent.com/darkvpnapp/safar724/refs/heads/main/api",
-        "darkvpnapp Cloud2": "https://raw.githubusercontent.com/darkvpnapp/Cloud2/refs/heads/main/aparatapi"
+        "darkvpnapp Cloud2": "https://raw.githubusercontent.com/darkvpnapp/Cloud2/refs/heads/main/aparatapi",
+        "4n0nymou3 config fetcher": "https://github.com/4n0nymou3/multi-proxy-config-fetcher/raw/refs/heads/main/configs/proxy_configs.txt",
+        "amiralter lite": "https://sub.amiralter.com/config-lite",
+        "amiralter config": "https://sub.amiralter.com/config",
+        "Telegram Eag1e YT": "https://raw.githubusercontent.com/Created-By/Telegram-Eag1e_YT/refs/heads/main/%40Eag1e_YT",
+        "arshiacomplus robinhood": "https://raw.githubusercontent.com/arshiacomplus/robinhood-v1-v2-v3ray/refs/heads/main/conf.txt",
+        "arshiacomplus vmess": "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/vmess.html",
+        "arshiacomplus ss": "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/ss.html",
+        "arshiacomplus trojan": "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/trojan.html",
+        "arshiacomplus vless": "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/vless.html",
+        "arshiacomplus mix": "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html"
     },
     
     "ایکس ری بیس۶۴": {
@@ -312,6 +322,14 @@ const subscriptionsData = {
         "itsyebekhe xhttp": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/itsyebekhe/xhttp.yaml",
         "Maimengmeng": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/maimengmeng/500.yaml",
         "Maimengmeng AnyTLS": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/maimengmeng/AnyTLS.yaml",
+        "arshiacomplus vmess": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/arshiacomplus/v2rayExtractor_vmess.yaml",
+        "arshiacomplus ss": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/arshiacomplus/v2rayExtractor_ss.yaml",
+        "arshiacomplus trojan": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/arshiacomplus/v2rayExtractor_trojan.yaml",
+        "arshiacomplus vless": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/arshiacomplus/v2rayExtractor_vless.yaml",
+        "arshiacomplus robinhood": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/arshiacomplus/robinhood.yaml",
+        "amiralter lite": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/amiralter_config_lite.yaml",
+        "4n0nymou3 config fetcher": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/4n0nymou3/multi-proxy-config-fetcher.yaml",
+        "Telegram Eag1e YT": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/Telegram_Eag1e_YT.yaml",
         "66.42.50.118": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/66.42.50.118.yaml",
         "Barabama/clashmeta": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/Barabama/clashmeta.yaml",
         "Barabama/ndnode": "https://raw.githubusercontent.com/10ium/MihomoSaz/main/Sublist/Barabama/ndnode.yaml",
