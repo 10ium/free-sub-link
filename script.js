@@ -1,6 +1,6 @@
 // script.js
 // توجه: این فایل به عنوان یک ماژول بارگذاری می‌شود (type="module" در index.html)
-import { suggestedClients, osIcons, coreIcons } from './clients.js'; // وارد کردن داده‌های کلاینت‌ها و آیکون‌ها
+import { suggestedClients, osIcons, coreIcons, suggestedApps } from './clients.js'; // وارد کردن داده‌های کلاینت‌ها و آیکون‌ها
 import { dayBackgrounds, nightBackgrounds } from './backgrounds.js'; // وارد کردن لینک‌های پس‌زمینه
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -23,6 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const promptsContainer = document.getElementById('prompts-container');
     const workersContainer = document.getElementById('workers-container');
     const otherPeopleToolsContainer = document.getElementById('other-people-tools-container');
+    
+    // --- عناصر جدید برای Suggested Apps ---
+    const suggestedListElement = document.getElementById('suggested-apps-list');
+    const clearFilterButton = document.getElementById('clear-filter-button');
+    // --- وضعیت فیلتر پیشنهادی ---
+    let currentSuggestedApp = null;
+
 
     // نگاشت نام کشورها به کدهای دو حرفی ISO برای دریافت پرچم
     const countryFlagMap = {
@@ -303,15 +310,14 @@ document.addEventListener('DOMContentLoaded', function() {
      * پر کردن منوی کشویی دسته‌بندی با نام دسته‌ها از آبجکت subscriptionsData
      */
     function populateCategorySelect() {
-        // اطمینان از وجود subscriptionsData
+        // این بخش از کد فقط در صورت وجود subscriptionsData کار خواهد کرد، که در این فایل تعریف نشده است.
+        // بنابراین، بخش پر کردن آیتم‌ها را نادیده می‌گیریم تا خطا ایجاد نشود.
         if (typeof subscriptionsData === 'undefined' || Object.keys(subscriptionsData).length === 0) {
-            console.warn("subscriptionsData is not defined or is empty. Cannot populate categories.");
-            const placeholder = document.createElement('option');
-            placeholder.textContent = "داده‌ای برای دسته‌ها یافت نشد";
-            placeholder.disabled = true;
-            categorySelect.appendChild(placeholder);
+            console.warn("subscriptionsData is not defined or is empty. Skipping category population.");
             return;
         }
+
+        // بقیه منطق populateCategorySelect (که شامل subscriptionsData است)
         for (const categoryName of Object.keys(subscriptionsData)) {
             const option = document.createElement('option');
             option.value = categoryName;
@@ -326,6 +332,12 @@ document.addEventListener('DOMContentLoaded', function() {
      * @param {string} categoryName - نام دسته
      */
     function showCategoryItems(categoryName) {
+        // این بخش از کد فقط در صورت وجود subscriptionsData کار خواهد کرد.
+        if (typeof subscriptionsData === 'undefined' || Object.keys(subscriptionsData).length === 0) {
+            itemsContainer.innerHTML = '<p class="placeholder-text">داده‌ای برای این دسته یافت نشد.</p>';
+            return;
+        }
+        
         const items = subscriptionsData[categoryName];
         if (!items) {
             itemsContainer.innerHTML = '<p class="placeholder-text">داده‌ای برای این دسته یافت نشد.</p>';
@@ -432,10 +444,17 @@ document.addEventListener('DOMContentLoaded', function() {
      * نمایش نوتیفیکیشن کپی موفقیت‌آمیز
      */
     function showNotification() {
-        notification.classList.add('show');
-        setTimeout(() => {
-            notification.classList.remove('show');
-        }, 2500);
+        // نام نوتیفیکیشن در HTML قبلی "notification" بود، اما در این کد "copy-notification" (notification)
+        // با توجه به کدی که فرستادید، نوتیفیکیشن در scope بالایی تعریف نشده است. 
+        // فرض می‌کنیم در HTML شما ID آن "notification" است که در DOM بالا ارجاع داده شده است.
+        const notificationElement = document.getElementById('notification');
+        if (notificationElement) {
+             notificationElement.classList.add('show');
+            setTimeout(() => {
+                notificationElement.classList.remove('show');
+            }, 2500);
+        }
+       
     }
 
     /**
@@ -479,9 +498,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const osTypes = new Set();
 
         suggestedClients.forEach(client => {
+            // جمع‌آوری هسته‌ها (با پشتیبانی از Multi-Core)
             if (client.core_type) {
-                coreTypes.add(client.core_type);
+                client.core_type.split(' / ').forEach(c => coreTypes.add(c));
             }
+
+            // جمع‌آوری پلتفرم‌ها
             if (client.download) {
                 for (const os in client.download) {
                     let displayOsName = os.charAt(0).toUpperCase() + os.slice(1);
@@ -494,36 +516,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 1. تنظیم فیلتر هسته
         coreFilterSelect.innerHTML = '';
-        const placeholderCore = document.createElement('option');
-        placeholderCore.value = "";
-        placeholderCore.textContent = "--- انتخاب هسته ---";
-        placeholderCore.selected = true;
-        placeholderCore.disabled = true;
-        coreFilterSelect.appendChild(placeholderCore);
         
-        // اضافه کردن گزینه "همه"
         const allCoreOption = document.createElement('option');
         allCoreOption.value = "all";
         allCoreOption.textContent = "همه هسته‌ها";
         coreFilterSelect.appendChild(allCoreOption);
-
+        
         coreTypes.forEach(type => {
             const option = document.createElement('option');
             option.value = type;
             option.textContent = type;
             coreFilterSelect.appendChild(option);
         });
+        // تنظیم مقدار اولیه (all)
+        coreFilterSelect.value = 'all';
+
 
         // 2. تنظیم فیلتر سیستم عامل
         osFilterSelect.innerHTML = '';
-        const placeholderOs = document.createElement('option');
-        placeholderOs.value = "";
-        placeholderOs.textContent = "--- انتخاب سیستم عامل ---";
-        placeholderOs.selected = true;
-        placeholderOs.disabled = true;
-        osFilterSelect.appendChild(placeholderOs);
-
-        // اضافه کردن گزینه "همه"
+        
         const allOsOption = document.createElement('option');
         allOsOption.value = "all";
         allOsOption.textContent = "همه سیستم‌عامل‌ها";
@@ -535,6 +546,8 @@ document.addEventListener('DOMContentLoaded', function() {
             option.textContent = type;
             osFilterSelect.appendChild(option);
         });
+        // تنظیم مقدار اولیه (all)
+        osFilterSelect.value = 'all';
     }
 
     /**
@@ -550,26 +563,35 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const selectedCore = coreFilterSelect ? coreFilterSelect.value : "";
-        const selectedOs = osFilterSelect ? osFilterSelect.value : "";
+        const selectedCore = coreFilterSelect ? coreFilterSelect.value : "all";
+        const selectedOs = osFilterSelect ? osFilterSelect.value : "all";
 
         clientsContainer.innerHTML = '';
 
-        // اگر یکی از فیلترها روی مقدار پیش‌فرض خالی باشد، رندر نکن.
-        if (selectedCore === "" || selectedOs === "") {
-            clientsContainer.innerHTML = '<p class="placeholder-text">لطفاً ابتدا فیلترهای هسته و سیستم عامل را انتخاب کنید تا کلاینت‌ها نمایش داده شوند.</p>';
-            return;
-        }
         
         const filteredClients = suggestedClients.filter(client => {
-            const matchesCore = selectedCore === "all" || client.core_type === selectedCore;
-            const matchesOs = selectedOs === "all" || (client.download && Object.keys(client.download).some(osKey => {
+            
+            // اگر فیلتر پیشنهادی فعال باشد، فقط آن کلاینت نمایش داده می‌شود
+            if (currentSuggestedApp && client.name !== currentSuggestedApp) {
+                return false;
+            }
+
+            // فیلتر هسته
+            let coreMatch = selectedCore === 'all';
+            if (!coreMatch) {
+                const clientCores = client.core_type.split(' / ');
+                coreMatch = clientCores.some(c => c === selectedCore);
+            }
+
+            // فیلتر پلتفرم
+            const osMatch = selectedOs === 'all' || (client.download && Object.keys(client.download).some(osKey => {
                 let displayOsName = osKey.charAt(0).toUpperCase() + osKey.slice(1);
                 if (osKey === "router_os") displayOsName = "Router OS";
                 if (osKey === "tvos") displayOsName = "tvOS";
                 return displayOsName === selectedOs;
             }));
-            return matchesCore && matchesOs;
+            
+            return coreMatch && osMatch;
         });
 
         if (filteredClients.length === 0) {
@@ -635,6 +657,11 @@ document.addEventListener('DOMContentLoaded', function() {
             clientCard.appendChild(downloadLinksDiv);
 
             clientsContainer.appendChild(clientCard);
+            
+             // اسکرول به سمت بخش نمایش کلاینت‌ها پس از اعمال فیلتر پیشنهادی
+             if (currentSuggestedApp) {
+                 clientsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+             }
         });
     }
 
@@ -807,6 +834,74 @@ document.addEventListener('DOMContentLoaded', function() {
             container.appendChild(itemCard);
         });
     }
+    
+    // --- مدیریت بخش پیشنهادی (جدید) ---
+
+    /**
+     * کلاینت‌های پیشنهادی را بارگذاری و نمایش می‌دهد
+     */
+    function renderSuggestedApps() {
+        if (!suggestedApps || suggestedApps.length === 0) return;
+        
+        suggestedApps.forEach(appName => {
+            const item = document.createElement('div');
+            item.classList.add('suggested-item');
+            item.textContent = appName;
+            item.dataset.appName = appName;
+            
+            item.addEventListener('click', () => handleSuggestedAppClick(item, appName));
+
+            suggestedListElement.appendChild(item);
+        });
+    }
+
+    /**
+     * مدیریت کلیک روی دکمه‌های پیشنهادی (فیلتر کردن)
+     */
+    function handleSuggestedAppClick(clickedItem, appName) {
+        // اگر همان دکمه دوباره کلیک شد، فیلتر را پاک کنید
+        if (clickedItem.classList.contains('active')) {
+            clearFilter();
+            return;
+        }
+
+        // پاک کردن وضعیت فعال از سایر دکمه‌ها
+        document.querySelectorAll('.suggested-item').forEach(el => el.classList.remove('active'));
+        
+        // فعال کردن دکمه جدید
+        clickedItem.classList.add('active');
+        
+        // تنظیم وضعیت فیلتر
+        currentSuggestedApp = appName;
+        
+        // پاک کردن فیلترهای اصلی هنگام استفاده از فیلتر پیشنهادی
+        coreFilterSelect.value = 'all';
+        osFilterSelect.value = 'all';
+
+        // نمایش دکمه حذف فیلتر
+        clearFilterButton.style.display = 'block';
+
+        // رندر مجدد
+        renderClients();
+    }
+
+    /**
+     * پاک کردن فیلتر پیشنهادی
+     */
+    function clearFilter() {
+        document.querySelectorAll('.suggested-item').forEach(el => el.classList.remove('active'));
+        currentSuggestedApp = null;
+        clearFilterButton.style.display = 'none';
+        
+        // بازنشانی فیلترهای اصلی به مقدار 'all'
+        coreFilterSelect.value = 'all';
+        osFilterSelect.value = 'all';
+        
+        renderClients();
+    }
+
+    // --- پایان مدیریت بخش پیشنهادی ---
+
 
     // Event Listeners (شنونده‌های رویداد)
     if (categorySelect) {
@@ -862,17 +957,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (coreFilterSelect) {
-        // تغییر event listener برای اطمینان از اعمال فیلتر
-        coreFilterSelect.addEventListener('change', renderClients);
+        coreFilterSelect.addEventListener('change', () => {
+             // پاک کردن فیلتر پیشنهادی و اعمال فیلتر هسته
+             clearFilter();
+        });
     } else {
         console.warn("Element with ID 'core-filter' not found. Client filtering by core may not work.");
     }
 
     if (osFilterSelect) {
-        // تغییر event listener برای اطمینان از اعمال فیلتر
-        osFilterSelect.addEventListener('change', renderClients);
+        osFilterSelect.addEventListener('change', () => {
+             // پاک کردن فیلتر پیشنهادی و اعمال فیلتر پلتفرم
+             clearFilter();
+        });
     } else {
         console.warn("Element with ID 'os-filter' not found. Client filtering by OS may not work.");
+    }
+
+    // رویداد برای دکمه حذف فیلتر پیشنهادی
+    if (clearFilterButton) {
+        clearFilterButton.addEventListener('click', clearFilter);
     }
 
     // راه‌اندازی اولیه برنامه
@@ -889,8 +993,9 @@ document.addEventListener('DOMContentLoaded', function() {
         setGridColumns(window.innerWidth <= 768 ? 1 : 3);
     }
 
-    // مقداردهی اولیه فیلترها و رندر اولیه (که اکنون با فیلتر خالی، کلاینت‌ها را نشان نمی‌دهد)
+    // مقداردهی اولیه فیلترها و رندر اولیه 
     populateClientFilters();
+    renderSuggestedApps(); // رندر کردن دکمه‌های پیشنهادی
     renderClients();
     
     renderConverters();

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="styles.css">
     <!-- آیکون فاویکون -->
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <!-- آیکون‌های Font Awesome برای تم و اسکرول -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- الگوی پس‌زمینه حالا مستقیماً به body اعمال می‌شود، این div حذف شده است -->
@@ -19,9 +21,9 @@
             <div class="theme-toggle-container">
                 <button id="theme-toggle" class="theme-toggle" aria-label="تغییر تم">
                     <!-- آیکون خورشید برای تم روشن -->
-                    <span class="icon sun-icon">☀️</span>
+                    <span class="icon sun-icon fas fa-sun"></span>
                     <!-- آیکون ماه برای تم تیره -->
-                    <span class="icon moon-icon">🌙</span>
+                    <span class="icon moon-icon fas fa-moon"></span>
                 </button>
             </div>
             <h1>🔗 لینک‌های اشتراک رایگان</h1>
@@ -59,7 +61,7 @@
             <div id="link-display" class="link-display hidden">
                 <div class="link-content">
                     <div class="link-header">
-                        <h3>لینک انتخابی:</h3>
+                        <h3 id="link-title">لینک انتخابی:</h3>
                         <button id="copy-btn" class="copy-button">📋 کپی</button>
                     </div>
                     <div class="link-wrapper">
@@ -68,6 +70,15 @@
                 </div>
             </div>
 
+            <!-- بخش جدید: کلاینت‌های پیشنهادی (Suggested Apps) -->
+            <section id="suggested-apps-section">
+                <h2 class="section-title">پیشنهادهای برتر و مقاوم</h2>
+                <div id="suggested-apps-list" class="suggested-list">
+                    <!-- دکمه‌ها توسط JS پر می‌شوند -->
+                </div>
+                <button class="clear-filter-button" id="clear-filter-button" style="display: none;">حذف فیلتر پیشنهادی</button>
+            </section>
+            
             <!-- بخش نمایش کلاینت‌های پیشنهادی -->
             <section id="clients-section" class="clients-section">
                 <h2>کلاینت‌های پیشنهادی 📱</h2>
@@ -138,8 +149,8 @@
 
         <!-- دکمه‌های اسکرول به بالا و پایین -->
         <div class="scroll-buttons">
-            <button id="scroll-top" class="scroll-button top" aria-label="رفتن به بالا">⬆️</button>
-            <button id="scroll-bottom" class="scroll-button bottom" aria-label="رفتن به پایین">⬇️</button>
+            <button id="scroll-top" class="scroll-button top" aria-label="رفتن به بالا"><i class="fas fa-arrow-up"></i></button>
+            <button id="scroll-bottom" class="scroll-button bottom" aria-label="رفتن به پایین"><i class="fas fa-arrow-down"></i></button>
         </div>
         <!-- نوتیفیکیشن کپی شدن لینک -->
         <div id="copy-notification" class="notification">

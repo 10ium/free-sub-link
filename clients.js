@@ -13,7 +13,7 @@ const osIcons = {
     tvos: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/appletv.svg",
 };
 
-// آیکون‌های هسته
+// آیکون‌های هسته (محدود شده به ۳ هسته اصلی)
 const coreIcons = {
     xray: "https://avatars.githubusercontent.com/u/71564206?s=200&v=4",
     mihomo: "https://avatars.githubusercontent.com/u/84378451?s=200&v=4",
@@ -22,7 +22,7 @@ const coreIcons = {
 
 // لیست کامل کلاینت‌ها
 const allClients = [
-    // کلاینت‌های Xray / V2ray (ترکیب شده)
+    // --- کلاینت‌های Xray / V2ray (ترکیب شده) ---
     {
         name: "v2rayN",
         description: "کلاینت محبوب Xray برای ویندوز و اندروید با پشتیبانی از هسته‌های Xray و v2fly. متن‌باز و رایگان.",
@@ -38,42 +38,11 @@ const allClients = [
         core_type: "Xray / V2ray"
     },
     {
-        name: "Hiddify-app",
-        description: "کلاینت پراکسی خودکار چندپلتفرمی متن‌باز و رایگان با پشتیبانی گسترده از پروتکل‌ها و هسته‌ها (Xray, Singbox, Clash Meta).",
-        download: {
-            windows: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Windows-Setup-x64.exe",
-            macos: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-MacOS.dmg",
-            linux: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Linux-x64.AppImage",
-            android: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Android-universal.apk",
-            ios: "https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532",
-        },
-        os_icons: {
-            windows: osIcons.windows,
-            macos: osIcons.macos,
-            linux: osIcons.linux,
-            android: osIcons.android,
-            ios: osIcons.ios,
-        },
-        core_icon: coreIcons.singbox,
-        core_type: "Multi-Core"
-    },
-    {
-        name: "Surfing (Magisk Module)",
-        description: "ماژول Magisk/Kernelsu/APatch متن‌باز و رایگان برای اندروید با پشتیبانی از هسته‌های Xray, Clash/Mihomo, Singbox و Hysteria. این یک ماژول سیستمی است و رابط کاربری گرافیکی مستقیم ندارد.",
-        download: {
-            android: "https://github.com/MoGuangYu/Surfing/releases",
-        },
-        os_icons: {
-            android: osIcons.android,
-        },
-        core_icon: coreIcons.singbox,
-        core_type: "Multi-Core"
-    },
-    {
         name: "V2RayU",
         description: "رابط کاربری گرافیکی متن‌باز و رایگان برای Xray در macOS با قابلیت مدیریت چند کاربره و آمار ترافیک.",
         download: {
-            macos: "https://github.com/Cenmrev/V2RayX/releases", // V2RayU در App Store نیست، از V2RayX استفاده می‌شود که مشابه است.
+            // اصلاح شده: لینک به مخزن رسمی V2RayU
+            macos: "https://github.com/yanue/V2rayU/releases", 
         },
         os_icons: {
             macos: osIcons.macos,
@@ -112,16 +81,16 @@ const allClients = [
         core_type: "Xray / V2ray"
     },
     {
-        name: "V2Ray Core (CLI)",
-        description: "هسته اصلی Project V، یک ابزار خط فرمان انعطاف‌پذیر متن‌باز و رایگان با پشتیبانی از پروتکل‌های متعدد و کنترل شبکه سطح پایین. این کلاینت رابط کاربری گرافیکی ندارد و برای کاربران پیشرفته مناسب است.",
+        name: "Xray Core (CLI)", 
+        description: "هسته فعال Xray-core، یک ابزار خط فرمان متن‌باز و رایگان با پشتیبانی از پروتکل‌های پیشرفته مانند Reality و VLESS. این کلاینت رابط کاربری گرافیکی ندارد و برای کاربران پیشرفته مناسب است.",
         download: {
-            linux: "https://github.com/v2ray/v2ray-core/releases",
+            linux: "https://github.com/XTLS/Xray-core/releases", 
         },
         os_icons: {
             linux: osIcons.linux,
         },
         core_icon: coreIcons.xray,
-        core_type: "Xray / V2ray"
+        core_type: "Xray" 
     },
     {
         name: "NapsternetV",
@@ -139,14 +108,12 @@ const allClients = [
     },
     {
         name: "v2box",
-        description: "کلاینت VPN رایگان برای پلتفرم‌های Apple و Android با پشتیبانی از پروتکل‌های Shadowsocks, Xray, Vmess, Trojan, SSH, Reality (xray), Vless Vision. وضعیت متن‌باز بودن برنامه کلاینت نامشخص است.",
+        description: "کلاینت VPN رایگان برای پلتفرم‌های Apple (iOS) با پشتیبانی از پروتکل‌های Shadowsocks, Xray, Vmess, Trojan, SSH, Reality (xray), Vless Vision. این برنامه متن‌باز نیست.",
         download: {
             ios: "https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690?platform=iphone",
-            android: "https://github.com/V2Box-APKDescargar/V2Box-APK/releases/",
         },
         os_icons: {
             ios: osIcons.ios,
-            android: osIcons.android,
         },
         core_icon: coreIcons.xray,
         core_type: "Xray / V2ray"
@@ -189,8 +156,101 @@ const allClients = [
         core_icon: coreIcons.xray,
         core_type: "Xray"
     },
+    {
+        name: "Begzar",
+        description: "کلاینت متن‌باز و رایگان برای ویندوز و اندروید، با هدف سادگی و پشتیبانی از پروتکل‌های Xray.",
+        download: {
+            windows: "https://github.com/Begzar/BegzarWindows/releases/latest",
+            android: "https://github.com/Begzar/BegzarApp/releases/latest"
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            android: osIcons.android
+        },
+        core_icon: coreIcons.xray,
+        core_type: "Xray"
+    },
+    {
+        name: "FoXray",
+        description: "کلاینت قدرتمند و رایگان برای iOS و macOS با پشتیبانی از هسته Xray و پروتکل‌های مدرن مانند Reality.",
+        download: {
+            ios: "https://apps.apple.com/us/app/foxray/id6448898396",
+            macos: "https://apps.apple.com/us/app/foxray/id6448898396?platform=mac"
+        },
+        os_icons: {
+            ios: osIcons.ios,
+            macos: osIcons.macos
+        },
+        core_icon: coreIcons.xray,
+        core_type: "Xray"
+    },
+    {
+        name: "Streisand",
+        description: "کلاینت VPN رایگان و باکیفیت برای پلتفرم‌های اپل (iOS و macOS) با پشتیبانی از پروتکل‌های Shadowsocks و Xray (Reality).",
+        download: {
+            ios: "https://apps.apple.com/us/app/streisand/id6450534064?platform=iphone"
+        },
+        os_icons: {
+            ios: osIcons.ios
+        },
+        core_icon: coreIcons.xray,
+        core_type: "Xray"
+    },
+    {
+        name: "V2Lite",
+        description: "کلاینت VPN سبک و رایگان برای iOS با تمرکز بر پروتکل‌های Xray/Vmess، برای اتصال سریع و آسان.",
+        download: {
+            ios: "https://apps.apple.com/us/app/v2lite-fast-and-unlimited/id6444585377?platform=iphone"
+        },
+        os_icons: {
+            ios: osIcons.ios
+        },
+        core_icon: coreIcons.xray,
+        core_type: "Xray"
+    },
+    {
+        name: "ZedSecure",
+        description: "کلاینت دسکتاپ متن‌باز و رایگان برای ویندوز، با هدف ارائه یک رابط کاربری ساده و پایدار برای هسته Xray.",
+        download: {
+            windows: "https://github.com/CluvexStudio/ZedSecure/releases/latest"
+        },
+        os_icons: {
+            windows: osIcons.windows
+        },
+        core_icon: coreIcons.xray,
+        core_type: "Xray"
+    },
+    {
+        name: "PurVPN",
+        description: "کلاینت رایگان و متن‌باز با رابط کاربری ساده برای ویندوز (Purwin) و اندروید، بر پایه هسته Xray.",
+        download: {
+            android: "https://github.com/davudsedft/purvpn/releases",
+            windows: "https://github.com/davudsedft/purwin/releases"
+        },
+        os_icons: {
+            android: osIcons.android,
+            windows: osIcons.windows
+        },
+        core_icon: coreIcons.xray,
+        core_type: "Xray"
+    },
+    {
+        name: "ProxyCloud",
+        description: "ابزار پراکسی متن‌باز و رایگان با رابط کاربری ساده برای ویندوز و اندروید، با هدف فراهم کردن اتصال پایدار.",
+        download: {
+            windows: "https://github.com/code3-dev/ProxyCloud-GUI/releases/latest",
+            android: "https://github.com/code3-dev/ProxyCloud/releases/latest"
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            android: osIcons.android
+        },
+        core_icon: coreIcons.xray, 
+        core_type: "Xray"
+    },
 
-    // کلاینت‌های Mihomo/Clash Meta
+
+    // --- کلاینت‌های Mihomo/Clash Meta ---
     {
         name: "Clash Verge Rev",
         description: "کلاینت GUI مدرن مبتنی بر Tauri متن‌باز و رایگان با هسته داخلی Mihomo برای ویندوز، macOS و لینوکس.",
@@ -341,7 +401,8 @@ const allClients = [
         name: "Mihomo Core (CLI)",
         description: "هسته اجرایی Mihomo متن‌باز و رایگان برای لینوکس، یک ابزار خط فرمان با پیکربندی انعطاف‌پذیر. این کلاینت رابط کاربری گرافیکی ندارد و برای کاربران پیشرفته مناسب است.",
         download: {
-            linux: "https://wiki.metacubex.one/en/startup/",
+            // اصلاح شده: لینک به صفحه رسمی انتشار هسته Mihomo
+            linux: "https://github.com/MetaCubeX/mihomo/releases",
         },
         os_icons: {
             linux: osIcons.linux,
@@ -350,7 +411,7 @@ const allClients = [
         core_type: "Mihomo"
     },
 
-    // کلاینت‌های Singbox
+    // --- کلاینت‌های Singbox ---
     {
         name: "GUI.for.SingBox",
         description: "رابط کاربری گرافیکی متن‌باز و رایگان برای هسته‌های Singbox در ویندوز، macOS و لینوکس با تولید پیکربندی کامل.",
@@ -369,11 +430,11 @@ const allClients = [
     },
     {
         name: "sing-box for Apple platforms",
-        description: "کلاینت رسمی Sing-box متن‌باز و رایگان برای iOS، macOS و Apple tvOS با پیاده‌سازی پراکسی شفاف TUN.",
+        description: "کلاینت رسمی Sing-box متن‌باز و رایگان برای iOS، macOS و Apple tvOS با پیاده‌سازی پراکسی شفاف TUN. این برنامه در اپ استور قابل دسترسی است.",
         download: {
             ios: "https://apps.apple.com/app/sing-box-vt/id6673731168", // لینک اپ استور
-            macos: "https://github.com/SagerNet/sing-box/releases", // لینک گیت‌هاب برای macOS
-            tvos: "https://github.com/SagerNet/sing-box/releases", // لینک گیت‌هاب برای tvOS
+            macos: "https://apps.apple.com/app/sing-box-vt/id6673731168", 
+            tvos: "https://apps.apple.com/app/sing-box-vt/id6673731168",
         },
         os_icons: {
             ios: osIcons.ios,
@@ -387,7 +448,7 @@ const allClients = [
         name: "sing-box for Android",
         description: "کلاینت رسمی Sing-box متن‌باز و رایگان برای اندروید با مدیریت پیکربندی و پراکسی شفاف TUN.",
         download: {
-            android: "https://github.com/SagerNet/sing-box/releases", // لینک گیت‌هاب، همچنین در Google Play و F-Droid موجود است
+            android: "https://github.com/SagerNet/sing-box/releases", // شامل APK
         },
         os_icons: {
             android: osIcons.android,
@@ -464,10 +525,381 @@ const allClients = [
             macos: osIcons.macos,
             tvos: osIcons.tvos,
         },
-        core_icon: coreIcons.singbox, // بر اساس اطلاعات، از هسته Sing-box استفاده می‌کند
-        core_type: "Singbox" // Karing از Singbox استفاده می‌کند
+        core_icon: coreIcons.singbox, 
+        core_type: "Singbox"
+    },
+    {
+        name: "DefyX",
+        description: "یک VPN با تمرکز بر حریم خصوصی و امنیت برای اندروید و iOS که از فناوری‌های ضد فیلترینگ مدرن استفاده می‌کند. توسط Unbound Technology توسعه یافته.",
+        download: {
+            "android": "https://play.google.com/store/apps/details?id=de.unboundtech.defyxvpn",
+            "ios": "https://apps.apple.com/gb/app/defyx/id6746811872"
+        },
+        os_icons: {
+            "android": osIcons.android,
+            "ios": osIcons.ios
+        },
+        core_icon: coreIcons.singbox, 
+        core_type: "Singbox"
+    },
+    
+
+    // --- کلاینت‌های Multi-Core ---
+    {
+        name: "Hiddify-app",
+        description: "کلاینت پراکسی خودکار چندپلتفرمی متن‌باز و رایگان با پشتیبانی گسترده از پروتکل‌ها و هسته‌ها (Xray, Singbox, Clash Meta).",
+        download: {
+            windows: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Windows-Setup-x64.exe",
+            macos: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-MacOS.dmg",
+            linux: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Linux-x64.AppImage",
+            android: "https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Android-universal.apk",
+            ios: "https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532",
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            macos: osIcons.macos,
+            linux: osIcons.linux,
+            android: osIcons.android,
+            ios: osIcons.ios,
+        },
+        core_icon: coreIcons.singbox,
+        core_type: "Multi-Core"
+    },
+    {
+        name: "Surfing (Magisk Module)",
+        description: "ماژول Magisk/Kernelsu/APatch متن‌باز و رایگان برای اندروید با پشتیبانی از هسته‌های Xray, Clash/Mihomo, Singbox و Hysteria. این یک ماژول سیستمی است و رابط کاربری گرافیکی مستقیم ندارد.",
+        download: {
+            android: "https://github.com/MoGuangYu/Surfing/releases",
+        },
+        os_icons: {
+            android: osIcons.android,
+        },
+        core_icon: coreIcons.singbox,
+        core_type: "Multi-Core"
+    },
+    {
+        name: "Oblivion",
+        description: "کلاینت VPN مدرن و متن‌باز با رابط کاربری فارسی و تمرکز بر پروتکل‌های مقاوم (شامل Singbox/Xray). توسعه‌یافته توسط bepass-org.",
+        download: {
+            windows: "https://github.com/bepass-org/oblivion-desktop/releases/latest",
+            macos: "https://github.com/bepass-org/oblivion-desktop/releases/latest",
+            linux: "https://github.com/bepass-org/oblivion-desktop/releases/latest",
+            android: "https://github.com/bepass-org/oblivion/releases/latest"
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            macos: osIcons.macos,
+            linux: osIcons.linux,
+            android: osIcons.android
+        },
+        core_icon: coreIcons.singbox,
+        core_type: "Multi-Core"
+    },
+    {
+        name: "MahsaNG",
+        description: "کلاینت متن‌باز و چندپروتکلی ایرانی با پشتیبانی کامل از پروتکل‌های مقاوم (شامل Xray و Singbox).",
+        download: {
+            android: "https://github.com/GFW-knocker/MahsaNG/releases/latest"
+        },
+        os_icons: {
+            android: osIcons.android
+        },
+        core_icon: coreIcons.singbox,
+        core_type: "Multi-Core"
+    },
+    {
+        name: "Freedom Guard",
+        description: "کلاینت متن‌باز و رایگان با پشتیبانی از پروتکل‌های مقاوم ضد فیلترینگ، شامل نسخه موبایل (FG_MOBILE) و دسکتاپ.",
+        download: {
+            windows: "https://github.com/Freedom-Guard/Freedom-Guard/releases/latest",
+            android: "https://github.com/Freedom-Guard/FG_MOBILE/releases/latest"
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            android: osIcons.android
+        },
+        core_icon: coreIcons.xray, 
+        core_type: "Multi-Core"
+    },
+    {
+        name: "Fair VPN",
+        description: "کلاینت VPN رایگان و متن‌باز برای iOS و macOS، با پشتیبانی از Shadowsocks، Vmess، VLESS و WireGuard. رابط کاربری ساده و کاربرپسند.",
+        download: {
+            ios: "https://apps.apple.com/us/app/fair-vpn/id1533873488?platform=iphone",
+            macos: "https://apps.apple.com/us/app/fair-vpn/id1533873488?platform=mac"
+        },
+        os_icons: {
+            ios: osIcons.ios,
+            macos: osIcons.macos
+        },
+        core_icon: coreIcons.xray, 
+        core_type: "Multi-Core"
+    },
+
+
+    // --- کلاینت‌های Other/Generic (عمومی/DNS/VPN‌های تجاری) ---
+    {
+        name: "Outline",
+        description: "کلاینت متن‌باز و رایگان Shadowsocks، توسعه‌یافته توسط Jigsaw (زیرمجموعه آلفابت). امنیت ساده، سریع و با قابلیت راه‌اندازی سرور شخصی.",
+        download: {
+            "windows": "https://getoutline.org/get-started#step-3",
+            "macos": "https://apps.apple.com/us/app/outline-app/id1356177741",
+            "linux": "https://getoutline.org/get-started#step-3",
+            "android": "https://play.google.com/store/apps/details?id=org.outline.android.client",
+            "ios": "https://apps.apple.com/us/app/outline-app/id1356177741"
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            macos: osIcons.macos,
+            linux: osIcons.linux,
+            android: osIcons.android,
+            ios: osIcons.ios
+        },
+        core_icon: "", 
+        core_type: "Other/Generic"
+    },
+    {
+        name: "WireGuard",
+        description: "پروتکل VPN مدرن و متن‌باز با عملکرد بالا و امنیت قوی. این کلاینت رسمی بر پایه هسته WireGuard است.",
+        download: {
+            "windows": "https://www.wireguard.com/install/",
+            "macos": "https://apps.apple.com/us/app/wireguard/id1441195209?platform=mac",
+            "linux": "https://www.wireguard.com/install/",
+            "android": "https://play.google.com/store/apps/details?id=com.wireguard.android",
+            "ios": "https://apps.apple.com/us/app/wireguard/id1441195209?platform=iphone"
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            macos: osIcons.macos,
+            linux: osIcons.linux,
+            android: osIcons.android,
+            ios: osIcons.ios
+        },
+        core_icon: "", 
+        core_type: "Other/Generic"
+    },
+    {
+        name: "Psiphon",
+        description: "ابزار ضد سانسور متن‌باز و رایگان با پروتکل‌های تونلینگ اختصاصی (SSH+, L2TP/IPSec) برای عبور از فیلترینگ شدید. بسیار محبوب در ایران.",
+        download: {
+            "windows": "https://psiphon.ca/psiphon3.exe",
+            "android": "https://play.google.com/store/apps/details?id=com.psiphon3.subscription",
+            "ios": "https://apps.apple.com/app/psiphon/id1276263909"
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            android: osIcons.android,
+            ios: osIcons.ios
+        },
+        core_icon: "", 
+        core_type: "Other/Generic"
+    },
+    {
+        name: "Geph",
+        description: "یک شبکه خصوصی مجازی متن‌باز و غیرمتمرکز که برای مقاومت در برابر سانسور شدید طراحی شده است. از چندین پروتکل توربو اختصاصی استفاده می‌کند.",
+        download: {
+            "windows": "https://dl.geph.io/geph-releases/windows-stable/latest/geph-windows-setup.exe",
+            "macos": "https://dl.geph.io/geph-releases/macos-stable/latest/geph-macos.dmg",
+            "linux": "https://dl.geph.io/geph-releases/linux-stable/latest/Geph-x86_64.flatpak",
+            "android": "https://play.google.com/store/apps/details?id=io.geph.android",
+            "ios": "https://apps.apple.com/us/app/geph/id1638148282"
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            macos: osIcons.macos,
+            linux: osIcons.linux,
+            android: osIcons.android,
+            ios: osIcons.ios
+        },
+        core_icon: "", 
+        core_type: "Other/Generic"
+    },
+    {
+        name: "Cloudflare WARP",
+        description: "یک کلاینت VPN رایگان و اختصاصی از Cloudflare که از پروتکل WireGuard اصلاح شده (Warp) برای افزایش حریم خصوصی و سرعت استفاده می‌کند.",
+        download: {
+            "windows": "https://1111-releases.cloudflareclient.com/win/latest",
+            "macos": "https://1111-releases.cloudflareclient.com/mac/latest",
+            "linux": "https://pkg.cloudflareclient.com/",
+            "android": "https://play.google.com/store/apps/details?id=com.cloudflare.onedotonedotonedotone",
+            "ios": "https://itunes.apple.com/us/app/1-1-1-1-faster-internet/id1423538627"
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            macos: osIcons.macos,
+            linux: osIcons.linux,
+            android: osIcons.android,
+            ios: osIcons.ios
+        },
+        core_icon: "", 
+        core_type: "Other/Generic"
+    },
+    {
+        name: "HTTP Injector",
+        description: "ابزار حرفه‌ای تونلینگ VPN برای iOS، با تمرکز بر پروتکل‌های SSH، DNS و قابلیت سفارشی‌سازی درخواست‌های HTTP برای دور زدن فیلترینگ.",
+        download: {
+            "ios": "https://apps.apple.com/us/app/http-injector/id1659992827?platform=iphone"
+        },
+        os_icons: {
+            ios: osIcons.ios
+        },
+        core_icon: "", 
+        core_type: "Other/Generic"
+    },
+    {
+        name: "ProtonVPN",
+        description: "سرویس VPN متن‌باز و امن با تمرکز بر حریم خصوصی، ارائه‌دهنده کلاینت‌های رایگان برای پلتفرم‌های مختلف با استفاده از پروتکل‌های استاندارد (مانند WireGuard و OpenVPN).",
+        download: {
+            "windows": "https://protonvpn.com/download-windows",
+            "macos": "https://protonvpn.com/download-macos",
+            "linux": "https://protonvpn.com/download-linux",
+            "android": "https://play.google.com/store/apps/details?id=ch.protonvpn.android",
+            "ios": "https://protonvpn.com/download-ios"
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            macos: osIcons.macos,
+            linux: osIcons.linux,
+            android: osIcons.android,
+            ios: osIcons.ios
+        },
+        core_icon: "", 
+        core_type: "Other/Generic"
+    },
+    {
+        name: "Windscribe",
+        description: "سرویس VPN رایگان (با محدودیت) و باکیفیت که کلاینت‌هایی برای ویندوز، macOS، اندروید و iOS ارائه می‌دهد. از پروتکل‌های استاندارد برای حفظ حریم خصوصی استفاده می‌کند.",
+        download: {
+            "windows": "https://windscribe.com/install/desktop/windows",
+            "macos": "https://windscribe.com/install/desktop/osx",
+            "android": "https://play.google.com/store/apps/details?id=com.windscribe.vpn",
+            "ios": "https://windscribe.com/install/mobile/ios"
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            macos: osIcons.macos,
+            android: osIcons.android,
+            ios: osIcons.ios
+        },
+        core_icon: "", 
+        core_type: "Other/Generic"
+    },
+    {
+        name: "AmneziaVPN",
+        description: "سرویس VPN متن‌باز و رایگان با تمرکز بر امنیت خود-میزبان. از پروتکل‌های استاندارد (OpenVPN) و پروتکل اختصاصی AmneziaWG استفاده می‌کند.",
+        download: {
+            "windows": "https://github.com/amnezia-vpn/amnezia-client/releases/latest",
+            "macos": "https://github.com/amnezia-vpn/amnezia-client/releases/latest",
+            "linux": "https://github.com/amnezia-vpn/amnezia-client/releases/latest",
+            "android": "https://play.google.com/store/apps/details?id=org.amnezia.vpn",
+            "ios": "https://apps.apple.com/us/app/amneziavpn/id1600529900"
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            macos: osIcons.macos,
+            linux: osIcons.linux,
+            android: osIcons.android,
+            ios: osIcons.ios
+        },
+        core_icon: "", 
+        core_type: "Other/Generic"
+    },
+    {
+        name: "WireSock",
+        description: "کلاینت اختصاصی WireGuard برای ویندوز، با قابلیت نصب به عنوان درایور WFP برای عملکرد بهتر و امنیت. این ابزار بر WireGuard متکی است.",
+        download: {
+            "windows": "https://www.wiresock.net/wiresock-secure-connect/download"
+        },
+        os_icons: {
+            windows: osIcons.windows
+        },
+        core_icon: "", 
+        core_type: "Other/Generic"
+    },
+    {
+        name: "WireGuard AutoTunnel",
+        description: "ابزار خودکارسازی برای مدیریت پروفایل‌های WireGuard در اندروید، با قابلیت فعال‌سازی خودکار تونل بر اساس قوانین شبکه.",
+        download: {
+            "android": "https://play.google.com/store/apps/details?id=com.zaneschepke.wireguardautotunnel"
+        },
+        os_icons: {
+            android: osIcons.android
+        },
+        core_icon: "", 
+        core_type: "Other/Generic"
+    },
+    {
+        name: "Freegate",
+        description: "ابزار ضد سانسور قدیمی و رایگان، عمدتاً برای ویندوز و اندروید، با استفاده از پروتکل‌های اختصاصی (مانند Dynagate) برای دور زدن فیلترینگ.",
+        download: {
+            windows: "https://www.dynamicinternettechnology.com", // لینک توزیع اصلی
+            android: "https://www.dynamicinternettechnology.com",
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            android: osIcons.android,
+        },
+        core_icon: "",
+        core_type: "Other/Generic"
+    },
+    {
+        name: "DNSveil",
+        description: "ابزار متن‌باز و رایگان برای ویندوز و اندروید با هدف دور زدن فیلترینگ DNS و افزایش امنیت با استفاده از DoH، DoT و پراکسی‌های Socks5.",
+        download: {
+            // اصلاح شده: ادغام لینک‌های ویندوز و اندروید
+            windows: "https://github.com/msasanmh/DNSveil",
+            android: "https://github.com/msasanmh/AndroidDNSveilTools/releases"
+        },
+        os_icons: {
+            windows: osIcons.windows,
+            android: osIcons.android
+        },
+        core_icon: "", 
+        core_type: "DNS Tools/General"
+    },
+    {
+        name: "Intra",
+        description: "ابزار رایگان و متن‌باز توسط Jigsaw (توسعه‌دهنده Outline) برای اندروید با هدف محافظت در برابر حملات دستکاری DNS و دور زدن سانسور DNS از طریق DoH.",
+        download: {
+            "android": "https://play.google.com/store/apps/details?id=app.intra"
+        },
+        os_icons: {
+            android: osIcons.android
+        },
+        core_icon: "", 
+        core_type: "DNS Tools/General"
+    },
+    {
+        name: "TordnsCrypt",
+        description: "ابزار متن‌باز برای اندروید، با هدف محافظت از ترافیک DNS با استفاده از DNSCrypt و افزایش حریم خصوصی از طریق شبکه‌های Tor.",
+        download: {
+            "android": "https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp"
+        },
+        os_icons: {
+            android: osIcons.android
+        },
+        core_icon: "", 
+        core_type: "DNS Tools/General"
     },
 ];
+
+// لیست کلاینت‌های پیشنهادی (برای نمایش به عنوان چک باکس یا باکس پیشنهادی)
+const suggestedApps = [
+    "FlClash",
+    "Clash Verge Rev",
+    "MahsaNG",
+    "Psiphon",
+    "ProtonVPN",
+    "Geph",
+    "Throne (formerly Nekoray)",
+    "Husi",
+    "Exclave",
+    "v2rayN",
+    "DNSveil",
+    "Intra",
+    "TordnsCrypt"
+];
+
 
 // تابع کمکی برای مرتب‌سازی کلاینت‌ها بر اساس اولویت سیستم عامل
 const sortClients = (clients) => {
@@ -552,11 +984,9 @@ const sortClients = (clients) => {
 
 
     // اضافه کردن گروه‌های مرتب شده به لیست نهایی با اولویت درخواستی
-    // ترتیب: Clash Verge Rev, FlClash, سپس اندروید, ویندوز, iOS, مک, لینوکس, روتر
-    // کلاینت‌های چندپلتفرمی در این مرحله به ترتیب اولویت اولین پلتفرمشان اضافه می‌شوند.
-    // کلاینت‌های تک پلتفرمی در گروه‌های مربوطه اضافه می‌شوند.
-
-    // اضافه کردن کلاینت‌های چندپلتفرمی (که شامل Karing و Hiddify-app می‌شوند)
+    // ترتیب: Clash Verge Rev, FlClash, سپس کلاینت‌های چندپلتفرمی، سپس تک پلتفرمی‌ها
+    
+    // اضافه کردن کلاینت‌های چندپلتفرمی
     sorted.push(...multiPlatformClients);
 
     // اضافه کردن کلاینت‌های تک پلتفرمی به ترتیب
@@ -583,11 +1013,10 @@ const sortClients = (clients) => {
 
 // مرتب‌سازی کلاینت‌ها بر اساس اولویت درخواستی
 const suggestedClients = sortClients(allClients.map(client => {
-    // تغییر core_type و core_icon برای کلاینت‌های V2Ray به Xray / V2ray
-    if (client.core_type === "V2Ray" || client.core_type === "Xray") { // شامل هر دو "V2Ray" و "Xray"
+    // برای کلاینت‌های V2ray/Xray قدیمی که هنوز از نام V2Ray استفاده می‌کنند، core_type را حفظ می‌کنیم.
+    if (client.core_type === "Xray / V2ray") {
         return {
             ...client,
-            core_type: "Xray / V2ray",
             core_icon: coreIcons.xray
         };
     }
@@ -595,4 +1024,4 @@ const suggestedClients = sortClients(allClients.map(client => {
 }));
 
 // این آبجکت‌ها را برای استفاده در فایل‌های دیگر export می‌کنیم
-export { suggestedClients, osIcons, coreIcons };
+export { suggestedClients, osIcons, coreIcons, suggestedApps };
