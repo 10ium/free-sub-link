@@ -1,3 +1,4 @@
+/* styles.css */
 :root {
     /* تم روشن */
     --bg-primary: #f8fafc; /* رنگ پس‌زمینه اصلی */
@@ -661,6 +662,7 @@ header p {
     height: 10px;
 }
 
+/* --- تنها تغییر اعمال شده اینجاست --- */
 .converter-card .card-icon {
     width: 60px;
     height: 60px;
@@ -672,6 +674,7 @@ header p {
 .converter-card:hover .card-icon {
     transform: scale(1.1);
 }
+/* ------------------------------------ */
 
 .converter-card h3 {
     font-size: 1.4rem;
@@ -841,6 +844,7 @@ header p {
     box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
 }
 
+
 /* فوتر */
 .social-links-footer {
     margin-top: 60px;
@@ -884,82 +888,6 @@ header p {
 [data-theme="dark"] .social-links-container img {
     border-color: var(--accent-secondary);
 }
-
-/* --- شروع استایل‌های پیشنهادی (Suggested Apps) --- */
-
-#suggested-apps-section {
-    margin-bottom: 30px;
-    padding: 20px 25px;
-    background: var(--bg-card);
-    border-radius: 20px;
-    box-shadow: 0 8px 25px var(--shadow);
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: var(--accent-primary);
-    font-weight: 700;
-}
-
-.suggested-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-}
-
-.suggested-item {
-    padding: 10px 20px;
-    background: var(--bg-secondary);
-    border: 2px solid var(--border-color);
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    color: var(--text-primary);
-    box-shadow: 0 4px 10px var(--shadow);
-}
-
-.suggested-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(99, 102, 241, 0.2);
-}
-
-.suggested-item.active {
-    background: var(--accent-primary);
-    color: white;
-    border-color: var(--accent-primary);
-    box-shadow: 0 6px 15px rgba(99, 102, 241, 0.5);
-}
-
-.clear-filter-button {
-    background: #dc3545; /* رنگ قرمز */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-top: 15px;
-    display: block;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    transition: background-color 0.3s;
-}
-
-.clear-filter-button:hover {
-    background: #c82333;
-}
-
-/* --- پایان استایل‌های پیشنهادی --- */
 
 
 /* Media Queries */
@@ -1051,14 +979,5 @@ header p {
     .os-icons-container img {
         width: 30px;
         height: 30px;
-    }
-    
-    /* Media Query adjustments for Suggested Apps */
-    .suggested-list {
-        gap: 8px;
-    }
-    .suggested-item {
-        padding: 8px 15px;
-        font-size: 0.9rem;
     }
 }
