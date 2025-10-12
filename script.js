@@ -151,15 +151,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const workersData = [
         {
             name: "Ayeneh-ye Link",
-            description: "یک ورکر برای میرور کردن محتوای متنی لینک‌ها، با قابلیت میرور کردن پروکسی و رول پروایدر داخلی فایل‌های Clash/YAML.",
+            description: "یک ورکر برای میرور کردن محتوای متنی لینک‌ها، با قابلیت میرور کردن پروکسی و رول پروایدر داخلی فایل‌های Clash.",
             link: "https://github.com/10ium/free-config/blob/main/worker/Ayeneh-ye%20Link.txt",
             icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.72'/><path d='M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.72-1.72'/><path d='M20.24 12.24a8 8 0 00-5.66-5.66'/><path d='M3.76 11.76a8 8 0 005.66 5.66'/></svg>`
         },
         {
             name: "Iran Proxy Worker",
-            description: "یک ورکر برای جمع‌آوری و ارائه پروکسی‌های ایران در فرمت‌های مختلف (Xray/Clash).",
+            description: "یک ورکر برای جمع‌آوری و ارائه پروکسی‌های http و socks ایران.",
             link: "https://github.com/10ium/free-config/blob/main/worker/iran_proxy.txt",
             icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='9' width='20' height='6' rx='1'/><path d='M12 3v6'/><path d='M12 15v6'/><path d='M6 3v18'/><path d='M18 3v18'/></svg>`
+        },
+        {
+            name: "GitHub Asset Worker",
+            description: "یک ورکر برای دانلود راحت تر فایل‌های منتشر شده از صفحات GitHub Release.",
+            link: "https://github.com/10ium/free-config/blob/main/worker/GitHub_Asset.txt",
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4'/><polyline points='7 10 12 15 17 10'/><line x1='12' y1='15' x2='12' y2='3'/></svg>`
         }
     ];
 
@@ -182,6 +188,12 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "مجموعه‌ای از ابزارهای فیلترشکن و کانفیگ رایگان.",
             link: "https://darknessshade.github.io/Sub/",
             icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/><polyline points='3.27 6.96 12 12.01 20.73 6.96'/><line x1='12' y1='22.08' x2='12' y2='12'/></svg>`
+        },
+        {
+            name: "سایت اینترنت آزاد (IRCF.Space)",
+            description: "مجموعه‌ای از ابزارها، راهنماها و منابع مربوط به اینترنت آزاد و فیلترینگ.",
+            link: "https://ircf.space",
+            icon: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><line x1='2' y1='12' x2='22' y2='12'/><path d='M12 2a15.3 15.3 0 015 10 15.3 15.3 0 01-5 10 15.3 15.3 0 01-5-10 15.3 15.3 0 015-10z'/></svg>`
         }
     ];
 
@@ -294,6 +306,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // اطمینان از وجود subscriptionsData
         if (typeof subscriptionsData === 'undefined' || Object.keys(subscriptionsData).length === 0) {
             console.warn("subscriptionsData is not defined or is empty. Cannot populate categories.");
+            const placeholder = document.createElement('option');
+            placeholder.textContent = "داده‌ای برای دسته‌ها یافت نشد";
+            placeholder.disabled = true;
+            categorySelect.appendChild(placeholder);
             return;
         }
         for (const categoryName of Object.keys(subscriptionsData)) {
@@ -476,12 +492,42 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+        // 1. تنظیم فیلتر هسته
+        coreFilterSelect.innerHTML = '';
+        const placeholderCore = document.createElement('option');
+        placeholderCore.value = "";
+        placeholderCore.textContent = "--- انتخاب هسته ---";
+        placeholderCore.selected = true;
+        placeholderCore.disabled = true;
+        coreFilterSelect.appendChild(placeholderCore);
+        
+        // اضافه کردن گزینه "همه"
+        const allCoreOption = document.createElement('option');
+        allCoreOption.value = "all";
+        allCoreOption.textContent = "همه هسته‌ها";
+        coreFilterSelect.appendChild(allCoreOption);
+
         coreTypes.forEach(type => {
             const option = document.createElement('option');
             option.value = type;
             option.textContent = type;
             coreFilterSelect.appendChild(option);
         });
+
+        // 2. تنظیم فیلتر سیستم عامل
+        osFilterSelect.innerHTML = '';
+        const placeholderOs = document.createElement('option');
+        placeholderOs.value = "";
+        placeholderOs.textContent = "--- انتخاب سیستم عامل ---";
+        placeholderOs.selected = true;
+        placeholderOs.disabled = true;
+        osFilterSelect.appendChild(placeholderOs);
+
+        // اضافه کردن گزینه "همه"
+        const allOsOption = document.createElement('option');
+        allOsOption.value = "all";
+        allOsOption.textContent = "همه سیستم‌عامل‌ها";
+        osFilterSelect.appendChild(allOsOption);
 
         osTypes.forEach(type => {
             const option = document.createElement('option');
@@ -504,9 +550,17 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const selectedCore = coreFilterSelect.value;
-        const selectedOs = osFilterSelect.value;
+        const selectedCore = coreFilterSelect ? coreFilterSelect.value : "";
+        const selectedOs = osFilterSelect ? osFilterSelect.value : "";
 
+        clientsContainer.innerHTML = '';
+
+        // اگر یکی از فیلترها روی مقدار پیش‌فرض خالی باشد، رندر نکن.
+        if (selectedCore === "" || selectedOs === "") {
+            clientsContainer.innerHTML = '<p class="placeholder-text">لطفاً ابتدا فیلترهای هسته و سیستم عامل را انتخاب کنید تا کلاینت‌ها نمایش داده شوند.</p>';
+            return;
+        }
+        
         const filteredClients = suggestedClients.filter(client => {
             const matchesCore = selectedCore === "all" || client.core_type === selectedCore;
             const matchesOs = selectedOs === "all" || (client.download && Object.keys(client.download).some(osKey => {
@@ -517,8 +571,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }));
             return matchesCore && matchesOs;
         });
-
-        clientsContainer.innerHTML = '';
 
         if (filteredClients.length === 0) {
             clientsContainer.innerHTML = '<p class="placeholder-text">هیچ کلاینتی با فیلترهای انتخاب شده یافت نشد.</p>';
@@ -552,11 +604,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const osIconsContainer = document.createElement('div');
             osIconsContainer.classList.add('os-icons-container');
             if (client.os_icons) {
-                for (const osKey in client.download) {
+                for (const osKey in client.download) { // از client.download استفاده می‌کنیم تا مطمئن شویم آیکون برای پلتفرم موجود است
                     if (client.os_icons[osKey]) {
                         const osIcon = document.createElement('img');
                         osIcon.src = client.os_icons[osKey];
                         osIcon.alt = osKey;
+                        osIcon.title = osKey.charAt(0).toUpperCase() + osKey.slice(1); // نمایش نام سیستم عامل در هاور
                         osIcon.onerror = function() { this.style.display='none'; };
                         osIconsContainer.appendChild(osIcon);
                     }
@@ -609,6 +662,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon.src = converter.icon;
                 icon.alt = `${converter.name} icon`;
                 icon.classList.add('card-icon');
+                icon.onerror = function() { this.style.display='none'; };
                 converterCard.appendChild(icon);
             }
 
@@ -638,6 +692,7 @@ document.addEventListener('DOMContentLoaded', function() {
      * @returns {string} متنی با لینک‌های HTML
      */
     function convertMarkdownLinksToHtml(markdownText) {
+        // استفاده از regex برای پیدا کردن لینک‌های Markdown و تبدیل آن‌ها به تگ <a>
         const regex = /\[([^\]]+)\]\((https?:\/\/[^\s]+)\)/g;
         return markdownText.replace(regex, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
     }
@@ -666,6 +721,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon.src = tool.icon;
                 icon.alt = `${tool.name} icon`;
                 icon.classList.add('card-icon');
+                icon.onerror = function() { this.style.display='none'; };
                 toolCard.appendChild(icon);
             }
 
@@ -681,6 +737,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const subDescriptionsList = document.createElement('ul');
                 tool.sub_descriptions.forEach(subDesc => {
                     const listItem = document.createElement('li');
+                    // تبدیل لینک‌های Markdown در توضیحات فرعی به HTML
                     listItem.innerHTML = convertMarkdownLinksToHtml(subDesc);
                     subDescriptionsList.appendChild(listItem);
                 });
@@ -727,6 +784,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon.src = item.icon;
                 icon.alt = `${item.name} icon`;
                 icon.classList.add('card-icon');
+                icon.onerror = function() { this.style.display='none'; };
                 itemCard.appendChild(icon);
             }
 
@@ -751,21 +809,44 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Event Listeners (شنونده‌های رویداد)
-    categorySelect.addEventListener('change', function() {
-        const selectedCategory = this.value;
-        if (selectedCategory) {
-            showCategoryItems(selectedCategory);
-            linkDisplay.classList.add('hidden');
-        } else {
-            itemsContainer.innerHTML = '<p class="placeholder-text">لطفاً یک دسته را انتخاب کنید</p>';
-            linkDisplay.classList.add('hidden');
-        }
-    });
+    if (categorySelect) {
+        categorySelect.addEventListener('change', function() {
+            const selectedCategory = this.value;
+            if (selectedCategory) {
+                showCategoryItems(selectedCategory);
+                if (linkDisplay) linkDisplay.classList.add('hidden');
+            } else {
+                if (itemsContainer) itemsContainer.innerHTML = '<p class="placeholder-text">لطفاً یک دسته را انتخاب کنید</p>';
+                if (linkDisplay) linkDisplay.classList.add('hidden');
+            }
+        });
+    } else {
+        console.warn("Element with ID 'category-select' not found.");
+    }
 
-    copyBtn.addEventListener('click', copyLink);
-    themeToggle.addEventListener('click', toggleTheme);
-    scrollTopBtn.addEventListener('click', scrollToTop);
-    scrollBottomBtn.addEventListener('click', scrollToBottom);
+    if (copyBtn) {
+        copyBtn.addEventListener('click', copyLink);
+    } else {
+        console.warn("Element with ID 'copy-btn' not found.");
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    } else {
+        console.warn("Element with ID 'theme-toggle' not found.");
+    }
+
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', scrollToTop);
+    } else {
+        console.warn("Element with ID 'scroll-top' not found.");
+    }
+
+    if (scrollBottomBtn) {
+        scrollBottomBtn.addEventListener('click', scrollToBottom);
+    } else {
+        console.warn("Element with ID 'scroll-bottom' not found.");
+    }
 
     if (rowCountSelect) {
         rowCountSelect.addEventListener('change', function() {
@@ -781,31 +862,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (coreFilterSelect) {
+        // تغییر event listener برای اطمینان از اعمال فیلتر
         coreFilterSelect.addEventListener('change', renderClients);
     } else {
-        console.error("Element with ID 'core-filter' not found. Client filtering by core may not work.");
+        console.warn("Element with ID 'core-filter' not found. Client filtering by core may not work.");
     }
 
     if (osFilterSelect) {
+        // تغییر event listener برای اطمینان از اعمال فیلتر
         osFilterSelect.addEventListener('change', renderClients);
     } else {
-        console.error("Element with ID 'os-filter' not found. Client filtering by OS may not work.");
+        console.warn("Element with ID 'os-filter' not found. Client filtering by OS may not work.");
     }
 
     // راه‌اندازی اولیه برنامه
     setInitialTheme();
     populateCategorySelect();
     
+    // تنظیم تعداد ستون‌های پیش‌فرض بر اساس اندازه صفحه
     if (rowCountSelect) {
         const isMobile = window.innerWidth <= 768;
         rowCountSelect.value = isMobile ? '1' : '3';
         setGridColumns(parseInt(rowCountSelect.value, 10));
     } else {
+        // اگر select وجود نداشت، مستقیماً ستون‌ها را تنظیم کن
         setGridColumns(window.innerWidth <= 768 ? 1 : 3);
     }
 
+    // مقداردهی اولیه فیلترها و رندر اولیه (که اکنون با فیلتر خالی، کلاینت‌ها را نشان نمی‌دهد)
     populateClientFilters();
     renderClients();
+    
     renderConverters();
     renderOtherTools();
     renderSimpleCards(promptsContainer, promptsData, "اطلاعات پرامپت‌ها در دسترس نیست.", "مشاهده پرامپت");
